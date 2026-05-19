@@ -92,7 +92,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Web Developer & AI Automation Specialist",
-      logoUrl: "/work/TFRC_logo.png",
+      logoUrl: "/work/tfrc-logo.png",
       start: "March 2025",
       end: "Present",
       description:
@@ -104,7 +104,7 @@ export const DATA = {
       badges: [],
       location: "Makati City, Philippines",
       title: "Software Developer/QA Intern",
-      logoUrl: "/work/xurpas_logo.png",
+      logoUrl: "/work/xurpas-logo.png",
       start: "March 2025",
       end: "June 2025",
       description:
@@ -117,7 +117,7 @@ export const DATA = {
       href: "",
       degree: "BSIT — Bachelor of Science in Information Technology",
       badges: ["Magna Cum Laude"],
-      logoUrl: "/edu/pup_logo.png",
+      logoUrl: "/education/pup-logo.png",
       start: " ",
       end: " ",
     },
