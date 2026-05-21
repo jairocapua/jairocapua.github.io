@@ -17,12 +17,10 @@ export function Hackathons() {
                 Hackathons
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                I like building things
+                I build under pressure
               </h2>
               <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Events I&apos;ve participated in — swap these for your own in
-                {" "}
-                <code className="rounded bg-muted px-1 py-0.5 text-xs">src/data/resume.tsx</code>.
+                Hackathons whereI&apos;ve shipped real products under pressure — from AI voice interviewers to fintech tools — and learned more in 48 hours than weeks in a classroom.
               </p>
             </div>
           </div>

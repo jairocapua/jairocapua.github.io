@@ -179,7 +179,7 @@ export const DATA = {
     {
       title: "Agora Voice AI Hackathon — 2nd Runner Up",
       dates: "March 2026",
-      location: "Online",
+      location: "BGC Taguig, Philippines",
       description:
         "Built an AI-powered mock interviewer that simulates real job interviews using voice. The app rates the candidate's chances of passing and gives targeted recommendations to ace the actual interview. Placed 2nd Runner Up.",
       image: "/hackathons/agora-voice-ai.jpg",
@@ -190,7 +190,7 @@ export const DATA = {
       dates: "November 2025",
       location: "Polytechnic University of the Philippines",
       description:
-        "Reached the Top 10 in PUP's flagship hackathon. Replace this line with the project name and what it did when you have a moment.",
+        "Built an app that uses image recognition to identify solid dry waste and suggests practical ways to repurpose or upcycle it — turning discarded materials into actionable ideas. Reached the Top 10 in PUP's flagship hackathon.",
       image: "/hackathons/pup-uthack-2025.png",
       links: [],
     },
