@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   darkMode: "class",
@@ -10,12 +11,32 @@ const config: Config = {
       screens: { "2xl": "1400px" },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
+        mono: ["var(--font-geist-mono)", ...defaultTheme.fontFamily.mono],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // Facebook palette (exact brand values for buttons, links, surfaces)
+        fb: {
+          blue: "#1877f2",
+          "blue-hover": "#166fe5",
+          "blue-light": "#e7f3ff",
+          "blue-light-hover": "#dbeafe",
+          page: "#f0f2f5",
+          card: "#ffffff",
+          hover: "#f2f2f2",
+          gray: "#e4e6eb",
+          "gray-hover": "#d8dadf",
+          divider: "#ced0d4",
+          text: "#050505",
+          "text-secondary": "#65676b",
+          green: "#42b72a",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

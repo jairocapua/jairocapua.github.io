@@ -4,7 +4,6 @@ import * as React from "react";
 import { ChevronRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 interface ResumeCardProps {
@@ -18,6 +17,7 @@ interface ResumeCardProps {
   description?: string;
 }
 
+/** Compact résumé row sized for the narrow right rail. */
 export function ResumeCard({
   logoUrl,
   altText,
@@ -30,69 +30,76 @@ export function ResumeCard({
 }: ResumeCardProps) {
   const [expanded, setExpanded] = React.useState(false);
 
+  const expandable = Boolean(description);
+  const linkable = Boolean(href) && !expandable;
+  const interactive = expandable || linkable;
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (description) {
+    if (expandable) {
       e.preventDefault();
       setExpanded((v) => !v);
     }
   };
 
+  const content = (
+    <div className="flex items-start gap-3">
+      <Avatar className="size-9 flex-none border bg-background">
+        <AvatarImage src={logoUrl} alt={altText} className="object-contain" />
+        <AvatarFallback>{altText[0]}</AvatarFallback>
+      </Avatar>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-start gap-1">
+          <h3 className="flex-1 text-sm font-semibold leading-snug">
+            {title}
+            {badges &&
+              badges.length > 0 &&
+              badges.map((b) => (
+                <span
+                  key={b}
+                  className="ml-1.5 inline-flex items-center whitespace-nowrap rounded-md border border-border bg-foreground/5 px-1.5 py-0.5 align-middle text-xs font-medium text-foreground/80"
+                >
+                  {b}
+                </span>
+              ))}
+          </h3>
+          {description && (
+            <ChevronRightIcon
+              className={cn(
+                "mt-0.5 size-3.5 flex-none text-muted-foreground transition-transform duration-300",
+                expanded ? "rotate-90" : "rotate-0"
+              )}
+            />
+          )}
+        </div>
+        {subtitle && <p className="text-xs text-muted-foreground">{subtitle}</p>}
+        {period.trim() && (
+          <p className="font-mono text-[11px] text-muted-foreground">{period}</p>
+        )}
+        {description && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: expanded ? 1 : 0, height: expanded ? "auto" : 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden text-xs leading-relaxed text-muted-foreground"
+          >
+            <p className="pt-1.5">{description}</p>
+          </motion.div>
+        )}
+      </div>
+    </div>
+  );
+
+  if (!interactive) {
+    return content;
+  }
+
   return (
     <a
-      href={href ?? "#"}
-      className="group block cursor-pointer rounded-lg px-2 py-3 transition-colors hover:bg-muted/40"
+      href={linkable ? href : "#"}
+      className="group block cursor-pointer"
       onClick={handleClick}
     >
-      <div className="flex items-center gap-4">
-        <Avatar className="size-10 flex-none border bg-muted-background dark:bg-foreground">
-          <AvatarImage src={logoUrl} alt={altText} className="object-contain" />
-          <AvatarFallback>{altText[0]}</AvatarFallback>
-        </Avatar>
-        <div className="flex flex-grow items-center justify-between gap-x-3">
-          <div className="min-w-0 flex-grow">
-            <div className="flex items-center gap-x-2">
-              <h3 className="truncate text-sm font-semibold leading-tight sm:text-base">
-                {title}
-              </h3>
-              {badges && badges.length > 0 && (
-                <span className="inline-flex gap-x-1">
-                  {badges.map((b) => (
-                    <Badge variant="secondary" className="align-middle text-xs" key={b}>
-                      {b}
-                    </Badge>
-                  ))}
-                </span>
-              )}
-              {description && (
-                <ChevronRightIcon
-                  className={cn(
-                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
-                    expanded ? "rotate-90" : "rotate-0"
-                  )}
-                />
-              )}
-            </div>
-            {subtitle && (
-              <div className="mt-0.5 truncate text-xs text-muted-foreground sm:text-sm">
-                {subtitle}
-              </div>
-            )}
-          </div>
-          <div className="flex-none text-right text-xs tabular-nums text-muted-foreground sm:text-sm">
-            {period}
-          </div>
-        </div>
-      </div>
-      {description && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: expanded ? 1 : 0, height: expanded ? "auto" : 0 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="ml-14 text-xs sm:text-sm"
-        >
-          {description}
-        </motion.div>
-      )}
+      {content}
     </a>
   );
 }

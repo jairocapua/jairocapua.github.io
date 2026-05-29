@@ -28,18 +28,18 @@ export function HackathonCard({
 }: HackathonCardProps) {
   return (
     <li className="relative ml-10 py-4">
-      <div className="absolute -left-16 top-2 flex items-center justify-center rounded-full bg-white">
+      <div className="absolute -left-16 top-2 flex items-center justify-center rounded-full bg-background">
         <Avatar className="size-12 border">
           <AvatarImage src={image} alt={title} className="object-contain" />
           <AvatarFallback>{title[0]}</AvatarFallback>
         </Avatar>
       </div>
       <div className="flex flex-1 flex-col justify-start gap-1">
-        <time className="text-xs text-muted-foreground">{dates}</time>
-        <h2 className="font-semibold leading-none">{title}</h2>
+        <time className="font-mono text-xs text-muted-foreground">{dates}</time>
+        <h3 className="font-semibold leading-snug">{title}</h3>
         {location && <p className="text-sm text-muted-foreground">{location}</p>}
         {description && (
-          <span className="prose dark:prose-invert text-sm text-muted-foreground">{description}</span>
+          <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
         )}
       </div>
       {links && links.length > 0 && (
@@ -50,7 +50,7 @@ export function HackathonCard({
               href={l.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center rounded-md border bg-muted px-2 py-1 text-xs"
+              className="inline-flex items-center rounded-md border border-border bg-muted px-2 py-1 text-xs"
             >
               {l.title}
             </Link>

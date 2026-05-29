@@ -1,8 +1,5 @@
-"use client";
-
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 interface ProjectLink {
   type: string;
@@ -16,49 +13,59 @@ interface ProjectCardProps {
   description?: string;
   dates?: string;
   tags?: readonly string[];
-  link?: string;
-  image?: string;
-  video?: string;
   links?: readonly ProjectLink[];
-  className?: string;
 }
 
-export function ProjectCard({ tags, links, className }: ProjectCardProps) {
-  const tagCount = tags?.length ?? 4;
-  const linkCount = links?.length ?? 2;
-
+/** Compact, text-only project entry in the bryllim style (no thumbnail). */
+export function ProjectCard({ title, href, description, dates, tags, links }: ProjectCardProps) {
   return (
-    <Card
-      className={cn("flex flex-col overflow-hidden border", className)}
-      aria-busy="true"
-      aria-live="polite"
-    >
-      <Skeleton className="h-40 w-full rounded-none" />
-      <CardHeader className="px-2">
-        <div className="space-y-2">
-          <Skeleton className="mt-1 h-4 w-2/3" />
-          <Skeleton className="h-3 w-1/3" />
-          <div className="space-y-1.5 pt-1">
-            <Skeleton className="h-3 w-full" />
-            <Skeleton className="h-3 w-11/12" />
-            <Skeleton className="h-3 w-4/5" />
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent className="mt-auto flex flex-col px-2">
-        <div className="mt-2 flex flex-wrap gap-1">
-          {Array.from({ length: tagCount }).map((_, i) => (
-            <Skeleton key={i} className="h-4 w-10 rounded-full" />
+    <div className="flex flex-col gap-1.5">
+      <div className="flex items-start justify-between gap-2">
+        <Link
+          href={href ?? "#"}
+          target={href ? "_blank" : undefined}
+          rel="noreferrer"
+          className="group inline-flex items-center gap-1 text-sm font-semibold leading-snug hover:underline"
+        >
+          {title}
+          <ArrowUpRight className="size-3.5 flex-none text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+        </Link>
+        {dates && (
+          <time className="flex-none whitespace-nowrap font-mono text-[11px] text-muted-foreground">
+            {dates}
+          </time>
+        )}
+      </div>
+      {description && (
+        <p className="text-xs leading-relaxed text-muted-foreground">{description}</p>
+      )}
+      {tags && tags.length > 0 && (
+        <div className="flex flex-wrap gap-1">
+          {tags.map((t) => (
+            <span
+              key={t}
+              className="rounded bg-foreground/5 px-1.5 py-0.5 text-[10px] text-muted-foreground"
+            >
+              {t}
+            </span>
           ))}
         </div>
-      </CardContent>
-      <CardFooter className="px-2 pb-2">
-        <div className="flex flex-row flex-wrap items-start gap-1">
-          {Array.from({ length: linkCount }).map((_, i) => (
-            <Skeleton key={i} className="h-6 w-14 rounded-md" />
+      )}
+      {links && links.length > 0 && (
+        <div className="flex flex-wrap gap-3 pt-0.5">
+          {links.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[11px] text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+            >
+              {l.type} ↗
+            </Link>
           ))}
         </div>
-      </CardFooter>
-    </Card>
+      )}
+    </div>
   );
 }

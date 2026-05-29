@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import localFont from "next/font/local";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Footer } from "@/components/footer";
+import { Chat } from "@/components/chat";
 import { cn } from "@/lib/utils";
 import { DATA } from "@/data/resume";
 
-const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
+const fontSans = localFont({
+  src: [
+    { path: "./fonts/OpenRunde-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/OpenRunde-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/OpenRunde-Semibold.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/OpenRunde-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
-  title: { default: DATA.name, template: `%s | ${DATA.name}` },
+  title: { default: `${DATA.name} — ${DATA.role}`, template: `%s | ${DATA.name}` },
   description: DATA.description,
   openGraph: {
-    title: DATA.name,
+    title: `${DATA.name} — ${DATA.role}`,
     description: DATA.description,
     url: DATA.url,
     siteName: DATA.name,
@@ -30,19 +39,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={cn(
-          "mx-auto min-h-screen max-w-2xl bg-background px-6 py-12 font-sans antialiased sm:py-24",
-          fontSans.variable
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+          GeistMono.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
-        </ThemeProvider>
+        {children}
+        <Footer />
+        <Chat />
       </body>
     </html>
   );

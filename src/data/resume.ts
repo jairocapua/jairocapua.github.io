@@ -12,8 +12,11 @@ export interface SocialLink {
 export const DATA = {
   name: "Jairo Capua",
   initials: "JC",
+  username: "jairocapua",
+  role: "AI Automation & Software Engineer",
+  badge: "Agora Voice AI Hackathon · 2nd Runner Up",
   url: "https://jairocapua.github.io",
-  location: "City, Country",
+  location: "Batangas, Philippines",
   locationLink: "https://www.google.com/maps",
   description:
     "AI Automation & Software Engineer. I build smart systems, web apps, and AI-powered workflows that help businesses automate operations, save time, and scale faster",
@@ -21,32 +24,49 @@ export const DATA = {
     "I work at the intersection of software engineering, automation, and AI. My experience includes building **web applications**, integrating **APIs**, designing **CRM workflows**, and creating **automation systems** using tools like **GoHighLevel**, **Zapier**, **Make**, **n8n**, **OpenAI**, and **Claude**. I enjoy turning repetitive business processes into reliable, scalable systems that are simple to use and built to solve real problems",
   avatarUrl: "/jairo-pfp-dark-nowatermark-1x1.png",
   skills: [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "JavaScript",
-    "Node.js",
-    "Python",
-    "Tailwind CSS",
-    "Express",
-    "CloudFlare",
-    "Firebase",
-    "Google Cloud Platform",
-    "PostgreSQL",
-    "MongoDB",
-    "Docker",
-    "Git",
-    "Figma",
-    "Supabase",
-    "Postman",
-    "AWS",
-    "OpenAI",
-    "Claude",
-    "Vercel",
-    "n8n",
-    "Zapier",
-    "Make.com",
-
+    "React", "Next.js", "TypeScript", "JavaScript", "Node.js", "Python",
+    "Tailwind CSS", "Express", "CloudFlare", "Firebase", "Google Cloud Platform",
+    "PostgreSQL", "MongoDB", "Docker", "Git", "Figma", "Supabase", "Postman",
+    "AWS", "OpenAI", "Claude", "Vercel", "GoHighLevel", "n8n", "Zapier", "Make.com",
+    "HTML5", "CSS3", "shadcn/ui", "Framer Motion", "Bash", "NestJS", "Django",
+    "Prisma", "Drizzle", "Redis", "SQLite", "Netlify", "Railway", "Nginx",
+    "Digital Ocean", "Anthropic", "LangChain", "Hugging Face", "Ollama",
+    "Gemini", "LlamaIndex", "Airtable", "Node-RED", "GitHub", "Jest",
+    "Playwright", "ESLint", "pnpm",
+  ],
+  skillGroups: [
+    {
+      category: "Frontend",
+      skills: ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Framer Motion", "HTML5", "CSS3", "Figma"],
+    },
+    {
+      category: "Languages",
+      skills: ["TypeScript", "JavaScript", "Python", "Bash"],
+    },
+    {
+      category: "Backend",
+      skills: ["Node.js", "Express", "NestJS", "Django", "Prisma", "Drizzle"],
+    },
+    {
+      category: "Databases",
+      skills: ["PostgreSQL", "MongoDB", "Supabase", "Firebase", "Redis", "SQLite"],
+    },
+    {
+      category: "Cloud & Infra",
+      skills: ["AWS", "Google Cloud Platform", "CloudFlare", "Vercel", "Docker", "Netlify", "Railway", "Nginx", "Digital Ocean"],
+    },
+    {
+      category: "AI / ML",
+      skills: ["OpenAI", "Claude", "Anthropic", "LangChain", "Hugging Face", "Ollama", "Gemini", "LlamaIndex"],
+    },
+    {
+      category: "Automation",
+      skills: ["GoHighLevel", "n8n", "Zapier", "Make.com", "Airtable", "Node-RED"],
+    },
+    {
+      category: "Dev Tools",
+      skills: ["Git", "GitHub", "Postman", "Jest", "Playwright", "ESLint", "pnpm"],
+    },
   ],
   navbar: [{ href: "/", icon: "home", label: "Home" }],
   contact: {
@@ -115,7 +135,7 @@ export const DATA = {
     {
       school: "Polytechnic University of the Philippines",
       href: "",
-      degree: "BSIT — Bachelor of Science in Information Technology",
+      degree: "Bachelor of Science in Information Technology",
       badges: ["Magna Cum Laude"],
       logoUrl: "/education/pup-logo.png",
       start: " ",
@@ -193,6 +213,54 @@ export const DATA = {
         "Built an app that uses image recognition to identify solid dry waste and suggests practical ways to repurpose or upcycle it — turning discarded materials into actionable ideas. Reached the Top 10 in PUP's flagship hackathon.",
       image: "/hackathons/pup-uthack-2025.png",
       links: [],
+    },
+  ],
+  certifications: [
+    // TODO: replace these placeholders with your real certifications
+    {
+      title: "Generative AI Leader",
+      issuer: "Google Cloud",
+      date: "2025",
+      href: "",
+    },
+    {
+      title: "Claude Developer",
+      issuer: "Anthropic",
+      date: "2025",
+      href: "",
+    },
+    {
+      title: "Meta Front-End Developer",
+      issuer: "Coursera",
+      date: "2024",
+      href: "",
+    },
+    {
+      title: "AWS Certified Cloud Practitioner",
+      issuer: "Amazon Web Services",
+      date: "2024",
+      href: "",
+    },
+  ],
+  testimonials: [
+    // TODO: replace these placeholders with real recommendations
+    {
+      quote:
+        "Jairo ships fast without cutting corners. He took our messy manual workflow and turned it into a reliable automated system in just a few weeks.",
+      name: "Project Lead",
+      title: "The Family Roofing Company",
+    },
+    {
+      quote:
+        "A rare engineer who is equally comfortable with product thinking, clean code, and AI tooling. Easy to work with and genuinely dependable.",
+      name: "Engineering Mentor",
+      title: "Xurpas Inc.",
+    },
+    {
+      quote:
+        "Thoughtful, well-tested contributions and clear communication throughout. The kind of teammate you want on a deadline.",
+      name: "QA Teammate",
+      title: "Xurpas Inc.",
     },
   ],
 } as const;
