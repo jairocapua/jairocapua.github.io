@@ -13,7 +13,6 @@ export function ManilaClock() {
         timeZone: "Asia/Manila",
         hour: "numeric",
         minute: "2-digit",
-        second: "2-digit",
         hour12: true,
       }).format(new Date());
 
@@ -34,7 +33,7 @@ export function ManilaClock() {
         height={20}
         className="size-5 flex-none rounded-sm"
       />
-      <span className="tabular-nums">{time ?? "--:--:-- --"}</span>
+      <span className="tabular-nums">{time ?? "--:-- --"}</span>
 
     </div>
   );

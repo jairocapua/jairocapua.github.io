@@ -25,7 +25,7 @@ function Cover() {
     <div className="relative h-44 w-full overflow-hidden sm:h-60 lg:h-[20.5rem]">
       <Image
         src="/cover.jpg"
-        alt="Cover photo"
+        alt={`${DATA.name} — ${DATA.role} cover banner`}
         fill
         priority
         sizes="100vw"

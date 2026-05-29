@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
@@ -7,6 +7,7 @@ import { Chat } from "@/components/chat";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { ModeToggle } from "@/components/layout/mode-toggle";
 import { ManilaClock } from "@/components/layout/manila-clock";
+import { StructuredData } from "@/components/seo/structured-data";
 import { cn } from "@/lib/utils";
 import { DATA } from "@/data/resume";
 
@@ -21,20 +22,78 @@ const fontSans = localFont({
   display: "swap",
 });
 
+const TITLE = `${DATA.name} — ${DATA.role}`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
-  title: { default: `${DATA.name} — ${DATA.role}`, template: `%s | ${DATA.name}` },
+  title: { default: TITLE, template: `%s | ${DATA.name}` },
   description: DATA.description,
+  applicationName: DATA.name,
+  authors: [{ name: DATA.name, url: DATA.url }],
+  creator: DATA.name,
+  publisher: DATA.name,
+  keywords: [
+    DATA.name,
+    DATA.username,
+    "AI Engineer",
+    "AI automation",
+    "software engineer",
+    "web developer",
+    "Next.js developer",
+    "React developer",
+    "TypeScript",
+    "automation specialist",
+    "GoHighLevel",
+    "n8n",
+    "Zapier",
+    "Make.com",
+    "OpenAI",
+    "Claude",
+    "Philippines",
+    "portfolio",
+  ],
+  alternates: { canonical: "/" },
+  category: "technology",
   openGraph: {
-    title: `${DATA.name} — ${DATA.role}`,
+    title: TITLE,
     description: DATA.description,
     url: DATA.url,
     siteName: DATA.name,
     locale: "en_US",
-    type: "website",
+    type: "profile",
+    firstName: "Jairo",
+    lastName: "Capua",
+    username: DATA.username,
   },
-  twitter: { card: "summary_large_image", title: DATA.name },
-  icons: { icon: "/jairo-pfp-dark-nowatermark-1x1.png" },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DATA.description,
+    creator: `@${DATA.username}`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: "/jairo-pfp-dark-nowatermark-1x1.png",
+    apple: "/jairo-pfp-dark-nowatermark-1x1.png",
+  },
+  manifest: "/manifest.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#18191a" },
+  ],
 };
 
 export default function RootLayout({
@@ -44,6 +103,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <StructuredData />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
