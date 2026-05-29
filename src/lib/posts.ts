@@ -15,6 +15,9 @@ export interface PostLink {
   href: string;
 }
 
+/** Link shape on hackathon entries (projects use `{ type, href }` instead). */
+type HackathonLink = { title: string; href: string };
+
 export interface FeedPost {
   id: string;
   category: PostCategory;
@@ -83,9 +86,10 @@ export function buildPosts(): FeedPost[] {
       location: h.location,
       description: h.description,
       image: h.image,
-      links: (
-        h.links as readonly { title: string; href: string }[] | undefined
-      )?.map((l) => ({ label: l.title, href: l.href })),
+      links: (h.links as readonly HackathonLink[]).map((l) => ({
+        label: l.title,
+        href: l.href,
+      })),
     });
   });
 

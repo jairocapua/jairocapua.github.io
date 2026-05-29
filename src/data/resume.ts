@@ -13,13 +13,13 @@ export const DATA = {
   name: "Jairo Capua",
   initials: "JC",
   username: "jairocapua",
-  role: "AI Automation & Software Engineer",
+  role: "AI Engineer",
   badge: "Agora Voice AI Hackathon · 2nd Runner Up",
   url: "https://jairocapua.github.io",
   location: "Batangas, Philippines",
   locationLink: "https://www.google.com/maps",
   description:
-    "AI Automation & Software Engineer. I build smart systems, web apps, and AI-powered workflows that help businesses automate operations, save time, and scale faster",
+    "AI Engineer. I build smart systems, web apps, and AI-powered workflows that help businesses automate operations, save time, and scale faster",
   summary:
     "I work at the intersection of software engineering, automation, and AI. My experience includes building **web applications**, integrating **APIs**, designing **CRM workflows**, and creating **automation systems** using tools like **GoHighLevel**, **Zapier**, **Make**, **n8n**, **OpenAI**, and **Claude**. I enjoy turning repetitive business processes into reliable, scalable systems that are simple to use and built to solve real problems",
   avatarUrl: "/jairo-pfp-dark-nowatermark-1x1.png",
@@ -29,7 +29,7 @@ export const DATA = {
     "PostgreSQL", "MongoDB", "Docker", "Git", "Figma", "Supabase", "Postman",
     "AWS", "OpenAI", "Claude", "Vercel", "GoHighLevel", "n8n", "Zapier", "Make.com",
     "HTML5", "CSS3", "shadcn/ui", "Framer Motion", "Bash", "NestJS", "Django",
-    "Prisma", "Drizzle", "Redis", "SQLite", "Netlify", "Railway", "Nginx",
+    "PHP", "Prisma", "Drizzle", "Redis", "SQLite", "Netlify", "Railway", "Nginx",
     "Digital Ocean", "Anthropic", "LangChain", "Hugging Face", "Ollama",
     "Gemini", "LlamaIndex", "Airtable", "Node-RED", "GitHub", "Jest",
     "Playwright", "ESLint", "pnpm",
@@ -45,7 +45,7 @@ export const DATA = {
     },
     {
       category: "Backend",
-      skills: ["Node.js", "Express", "NestJS", "Django", "Prisma", "Drizzle"],
+      skills: ["Node.js", "Express", "NestJS", "Django", "PHP", "Prisma", "Drizzle"],
     },
     {
       category: "Databases",
@@ -203,7 +203,7 @@ export const DATA = {
       description:
         "Built an AI-powered mock interviewer that simulates real job interviews using voice. The app rates the candidate's chances of passing and gives targeted recommendations to ace the actual interview. Placed 2nd Runner Up.",
       image: "/hackathons/agora-voice-ai.jpg",
-      links: [],
+      links: [] as { title: string; href: string; icon: string }[],
     },
     {
       title: "PUP Hackathon 2025: UtHACK ang Puhunan — Top 10",
@@ -212,7 +212,7 @@ export const DATA = {
       description:
         "Built an app that uses image recognition to identify solid dry waste and suggests practical ways to repurpose or upcycle it — turning discarded materials into actionable ideas. Reached the Top 10 in PUP's flagship hackathon.",
       image: "/hackathons/pup-uthack-2025.png",
-      links: [],
+      links: [] as { title: string; href: string; icon: string }[],
     },
   ],
   certifications: [

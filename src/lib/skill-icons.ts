@@ -23,6 +23,7 @@ export const SKILL_TO_ICON: Record<string, string> = {
   Express: "expressjs",
   NestJS: "nestjs",
   Django: "django",
+  PHP: "php",
   Prisma: "prisma",
   Drizzle: "drizzle",
   // Databases

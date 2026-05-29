@@ -26,7 +26,7 @@ export function Footer() {
                 key={s.name}
                 href={s.url}
                 target={s.url.startsWith("mailto:") ? undefined : "_blank"}
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label={s.name}
                 className={iconLink}
               >

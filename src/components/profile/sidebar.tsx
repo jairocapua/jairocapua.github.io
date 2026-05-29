@@ -14,9 +14,9 @@ import {
 } from "lucide-react";
 import { DATA } from "@/data/resume";
 import { FEATURED_TECH, SKILL_TO_ICON } from "@/lib/skill-icons";
+import { pretty } from "@/lib/utils";
+import { AwardBadge } from "@/components/profile/award-badge";
 import type { TabKey } from "@/components/profile/profile-tabs";
-
-const pretty = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
 function CardTitle({ children }: { children: React.ReactNode }) {
   return <h2 className="mb-3 text-xl font-bold tracking-tight">{children}</h2>;
@@ -43,13 +43,13 @@ export function Sidebar({ onNavigate }: { onNavigate: (tab: TabKey) => void }) {
   const grid = FEATURED_TECH.slice(0, 9);
 
   return (
-    <div className="space-y-4 lg:sticky lg:top-4">
+    <div className="space-y-4 md:sticky md:top-4">
       {/* Personal details */}
       <section className="fb-card p-4">
         <CardTitle>Personal details</CardTitle>
         <ul className="space-y-2.5">
           <Row icon={MapPin}>
-            Lives in <span className="font-semibold">{DATA.location}</span>
+            <span className="font-semibold">{DATA.location}</span>
           </Row>
           {currentJob && (
             <Row icon={Briefcase}>
@@ -64,7 +64,7 @@ export function Sidebar({ onNavigate }: { onNavigate: (tab: TabKey) => void }) {
             <Link
               href={DATA.url}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="font-semibold text-fb-blue hover:underline"
             >
               {pretty(DATA.url)}
@@ -91,12 +91,7 @@ export function Sidebar({ onNavigate }: { onNavigate: (tab: TabKey) => void }) {
               </p>
               <p className="text-sm text-fb-text-secondary">{school.degree}</p>
               {school.badges?.map((b) => (
-                <span
-                  key={b}
-                  className="mt-1 inline-flex items-center gap-1 rounded-md bg-fb-blue-light px-1.5 py-0.5 text-xs font-semibold text-fb-blue"
-                >
-                  <Trophy className="size-3" /> {b}
-                </span>
+                <AwardBadge key={b}>{b}</AwardBadge>
               ))}
             </div>
           </div>
@@ -111,7 +106,7 @@ export function Sidebar({ onNavigate }: { onNavigate: (tab: TabKey) => void }) {
             <Link
               href={DATA.contact.social.GitHub.url}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="font-medium text-fb-blue hover:underline"
             >
               {pretty(DATA.contact.social.GitHub.url)}
@@ -121,7 +116,7 @@ export function Sidebar({ onNavigate }: { onNavigate: (tab: TabKey) => void }) {
             <Link
               href={DATA.contact.social.LinkedIn.url}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="font-medium text-fb-blue hover:underline"
             >
               {pretty(DATA.contact.social.LinkedIn.url)}

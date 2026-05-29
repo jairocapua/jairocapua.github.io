@@ -18,7 +18,7 @@ export function ProfileShell() {
       </div>
 
       {/* two-column body */}
-      <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-[360px_minmax(0,1fr)]">
+      <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-[280px_minmax(0,1fr)] lg:grid-cols-[360px_minmax(0,1fr)]">
         <aside>
           <Sidebar onNavigate={setActive} />
         </aside>

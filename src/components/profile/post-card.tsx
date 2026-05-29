@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Award, Globe, Pin, Trophy } from "lucide-react";
+import { ArrowUpRight, Award, Globe, Pin } from "lucide-react";
 import { DATA } from "@/data/resume";
+import { AwardBadge } from "@/components/profile/award-badge";
 import type { FeedPost, PostCategory } from "@/lib/posts";
 
 const CATEGORY_LABEL: Record<PostCategory, string> = {
@@ -11,14 +12,6 @@ const CATEGORY_LABEL: Record<PostCategory, string> = {
   project: "Project",
   certification: "Certification",
 };
-
-function Badge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="mr-1 mt-1 inline-flex items-center gap-1 rounded-md bg-fb-blue-light px-1.5 py-0.5 text-xs font-semibold text-fb-blue">
-      <Trophy className="size-3" /> {children}
-    </span>
-  );
-}
 
 /** Inner "card within a post" used for jobs and degrees. */
 function DetailBox({ post }: { post: FeedPost }) {
@@ -40,10 +33,14 @@ function DetailBox({ post }: { post: FeedPost }) {
         )}
         {(post.meta || post.location) && (
           <p className="text-xs text-fb-text-secondary">
-            {[post.meta, post.location].filter(Boolean).join(" · ")}
+            {[post.location, post.meta].filter(Boolean).join(" · ")}
           </p>
         )}
-        {post.badges?.map((b) => <Badge key={b}>{b}</Badge>)}
+        {post.badges?.map((b) => (
+          <AwardBadge className="mr-1" key={b}>
+            {b}
+          </AwardBadge>
+        ))}
       </div>
     </div>
   );
@@ -159,7 +156,7 @@ export function PostCard({ post }: { post: FeedPost }) {
               key={l.href}
               href={l.href}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold text-fb-text-secondary transition-colors hover:bg-fb-hover"
             >
               <ArrowUpRight className="size-4" /> {l.label}

@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import { Footer } from "@/components/footer";
+import { Footer } from "@/components/layout/footer";
 import { Chat } from "@/components/chat";
+import { ThemeProvider } from "@/components/layout/theme-provider";
+import { ModeToggle } from "@/components/layout/mode-toggle";
+import { ManilaClock } from "@/components/layout/manila-clock";
 import { cn } from "@/lib/utils";
 import { DATA } from "@/data/resume";
 
@@ -31,6 +34,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: { card: "summary_large_image", title: DATA.name },
+  icons: { icon: "/jairo-pfp-dark-nowatermark-1x1.png" },
 };
 
 export default function RootLayout({
@@ -39,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -47,9 +51,20 @@ export default function RootLayout({
           GeistMono.variable
         )}
       >
-        {children}
-        <Footer />
-        <Chat />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="fixed right-4 top-4 z-50 flex items-center gap-2">
+            <ManilaClock />
+            <ModeToggle />
+          </div>
+          {children}
+          <Footer />
+          <Chat />
+        </ThemeProvider>
       </body>
     </html>
   );

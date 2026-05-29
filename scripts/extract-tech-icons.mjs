@@ -14,7 +14,7 @@ import { join } from "node:path";
 const SLUGS = [
   "react", "nextjs", "tailwindcss", "shadcnui", "framer", "html5", "css3", "figma",
   "typescript", "js", "python", "bash",
-  "nodejs", "expressjs", "nestjs", "django", "prisma", "drizzle",
+  "nodejs", "expressjs", "nestjs", "django", "php", "prisma", "drizzle",
   "postgresql", "mongodb", "supabase", "firebase", "redis", "sqlite",
   "aws", "gcloud", "cloudflare", "vercel", "docker", "netlify", "railway", "nginx", "digitalocean",
   "openai", "claude", "anthropic", "langchain", "huggingface", "ollama", "gemini", "llamaindex",

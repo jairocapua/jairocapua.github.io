@@ -25,6 +25,60 @@
     --input: 220 13% 87%;
     --ring: 214 89% 52%;
     --radius: 0.5rem;
+
+    /* Facebook palette — light. Consumed by the `fb-*` Tailwind colors so
+       every surface flips automatically when `.dark` is applied. */
+    --fb-blue: 214 89% 52%; /* #1877f2 */
+    --fb-blue-hover: 214 82% 49%; /* #166fe5 */
+    --fb-blue-light: 210 100% 95%; /* #e7f3ff */
+    --fb-blue-light-hover: 214 95% 93%; /* #dbeafe */
+    --fb-page: 216 20% 95%; /* #f0f2f5 */
+    --fb-card: 0 0% 100%; /* #ffffff */
+    --fb-hover: 0 0% 95%; /* #f2f2f2 */
+    --fb-gray: 223 15% 91%; /* #e4e6eb */
+    --fb-gray-hover: 223 10% 86%; /* #d8dadf */
+    --fb-divider: 220 7% 82%; /* #ced0d4 */
+    --fb-text: 0 0% 2%; /* #050505 */
+    --fb-text-secondary: 220 3% 41%; /* #65676b */
+    --fb-green: 110 63% 44%; /* #42b72a */
+  }
+
+  .dark {
+    /* Facebook-style dark theme: #18191a page, #242526 cards */
+    --background: 210 4% 10%; /* #18191a page */
+    --foreground: 223 15% 91%; /* #e4e6eb text */
+    --card: 210 3% 15%; /* #242526 */
+    --card-foreground: 223 15% 91%;
+    --popover: 210 3% 15%;
+    --popover-foreground: 223 15% 91%;
+    --primary: 214 100% 59%; /* #2d88ff brighter blue for dark */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 2% 23%; /* #3a3b3c */
+    --secondary-foreground: 223 15% 91%;
+    --muted: 210 3% 18%;
+    --muted-foreground: 218 5% 71%; /* #b0b3b8 */
+    --accent: 210 2% 23%;
+    --accent-foreground: 223 15% 91%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 3% 25%; /* #3e4042 */
+    --input: 210 3% 25%;
+    --ring: 214 100% 59%;
+
+    /* Facebook palette — dark */
+    --fb-blue: 214 100% 59%; /* #2d88ff */
+    --fb-blue-hover: 214 100% 64%; /* #4596ff */
+    --fb-blue-light: 213 36% 23%; /* #263951 */
+    --fb-blue-light-hover: 214 38% 29%; /* #2e4666 */
+    --fb-page: 210 4% 10%; /* #18191a */
+    --fb-card: 210 3% 15%; /* #242526 */
+    --fb-hover: 210 2% 23%; /* #3a3b3c */
+    --fb-gray: 210 2% 23%; /* #3a3b3c */
+    --fb-gray-hover: 210 1% 31%; /* #4e4f50 */
+    --fb-divider: 210 3% 25%; /* #3e4042 */
+    --fb-text: 223 15% 91%; /* #e4e6eb */
+    --fb-text-secondary: 218 5% 71%; /* #b0b3b8 */
+    --fb-green: 135 48% 51%; /* #45bd62 */
   }
 }
 
@@ -42,15 +96,15 @@
     scroll-behavior: smooth;
   }
   ::selection {
-    background-color: hsl(214 89% 52%);
-    color: hsl(0 0% 100%);
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
   }
 }
 
 @layer components {
   /* Facebook-style white surface: rounded, faint shadow + hairline */
   .fb-card {
-    @apply rounded-lg bg-card text-card-foreground shadow-[0_1px_2px_rgba(0,0,0,0.1)] ring-1 ring-black/5;
+    @apply rounded-lg bg-card text-card-foreground shadow-[0_1px_2px_rgba(0,0,0,0.1)] ring-1 ring-black/5 dark:shadow-[0_1px_2px_rgba(0,0,0,0.4)] dark:ring-white/10;
   }
 }
 

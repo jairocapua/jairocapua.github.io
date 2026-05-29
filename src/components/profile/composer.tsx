@@ -4,8 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Github, Mail, MessageCircle } from "lucide-react";
 import { DATA } from "@/data/resume";
-
-const openChat = () => window.dispatchEvent(new Event("open-chat"));
+import { openChat } from "@/lib/chat";
 
 function Action({
   icon: Icon,
@@ -32,7 +31,7 @@ function Action({
       <Link
         href={href}
         target={href.startsWith("mailto:") ? undefined : "_blank"}
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className={className}
       >
         {inner}

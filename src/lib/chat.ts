@@ -1,9 +1,16 @@
 import { DATA } from "@/data/resume";
 
 export interface ChatMessage {
+  id: string;
   role: "user" | "assistant";
   content: string;
 }
+
+/** Window event other components dispatch to open the chat panel. */
+export const OPEN_CHAT_EVENT = "open-chat";
+
+/** Open the chat panel from anywhere on the page (see chat.tsx listener). */
+export const openChat = () => window.dispatchEvent(new Event(OPEN_CHAT_EVENT));
 
 export const SUGGESTED_QUESTIONS = [
   "What do you do?",
