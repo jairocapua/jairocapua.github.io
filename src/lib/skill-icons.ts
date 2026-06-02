@@ -66,11 +66,15 @@ export const SKILL_TO_ICON: Record<string, string> = {
   Playwright: "playwright",
   ESLint: "eslint",
   pnpm: "pnpm",
+  Cursor: "cursor",
+  "VS Code": "vscode",
+  Replit: "replit",
 };
 
 // Maps a skill label to a custom image in /public for icons not available in tech-stack-icons.
 export const SKILL_TO_IMAGE: Record<string, string> = {
   GoHighLevel: "/skills/gohighlevel.png",
+  Base44: "/skills/base44.png",
 };
 
 // Curated, recognizable skills shown as overlapping avatar bubbles ("friends")

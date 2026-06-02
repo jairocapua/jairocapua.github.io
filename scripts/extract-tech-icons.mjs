@@ -19,7 +19,7 @@ const SLUGS = [
   "aws", "gcloud", "cloudflare", "vercel", "docker", "netlify", "railway", "nginx", "digitalocean",
   "openai", "claude", "anthropic", "langchain", "huggingface", "ollama", "gemini", "llamaindex",
   "n8n", "zapier", "make", "airtable", "nodered",
-  "git", "github", "postman", "jest", "playwright", "eslint", "pnpm",
+  "git", "github", "postman", "jest", "playwright", "eslint", "pnpm", "cursor", "vscode", "replit",
 ];
 
 const OUT_DIR = join(process.cwd(), "public", "tech");

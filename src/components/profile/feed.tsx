@@ -5,7 +5,7 @@ import Markdown from "react-markdown";
 import { TechIcon } from "@/components/profile/tech-icon";
 import { Composer } from "@/components/profile/composer";
 import { PostCard } from "@/components/profile/post-card";
-import type { TabKey } from "@/components/profile/profile-tabs";
+import type { TabKey } from "@/lib/tabs";
 import { DATA } from "@/data/resume";
 import { SKILL_TO_ICON, SKILL_TO_IMAGE } from "@/lib/skill-icons";
 import { buildPosts, sortForAll } from "@/lib/posts";

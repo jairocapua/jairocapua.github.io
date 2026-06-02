@@ -1,29 +1,27 @@
-"use client";
-
-import * as React from "react";
-import { Feed } from "@/components/profile/feed";
 import { ProfileHeader } from "@/components/profile/profile-header";
-import { ProfileTabs, type TabKey } from "@/components/profile/profile-tabs";
+import { ProfileTabs } from "@/components/profile/profile-tabs";
 import { Sidebar } from "@/components/profile/sidebar";
 
-export function ProfileShell() {
-  const [active, setActive] = React.useState<TabKey>("all");
-
+export default function ProfileLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <>
+    <main className="mx-auto max-w-[1100px] px-2 py-4 sm:px-4">
       {/* cover + identity + tabs as one white surface */}
       <div className="fb-card overflow-hidden">
         <ProfileHeader />
-        <ProfileTabs active={active} onChange={setActive} />
+        <ProfileTabs />
       </div>
 
-      {/* two-column body */}
+      {/* two-column body — only the feed ({children}) swaps between tabs */}
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-[280px_minmax(0,1fr)] lg:grid-cols-[360px_minmax(0,1fr)]">
         <aside>
-          <Sidebar onNavigate={setActive} />
+          <Sidebar />
         </aside>
-        <Feed active={active} />
+        {children}
       </div>
-    </>
+    </main>
   );
 }

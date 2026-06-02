@@ -28,11 +28,11 @@ export const DATA = {
     "Tailwind CSS", "Express", "CloudFlare", "Firebase", "Google Cloud Platform",
     "PostgreSQL", "MongoDB", "Docker", "Git", "Figma", "Supabase", "Postman",
     "AWS", "OpenAI", "Claude", "Vercel", "GoHighLevel", "n8n", "Zapier", "Make.com",
-    "HTML5", "CSS3", "shadcn/ui", "Framer Motion", "Bash", "NestJS", "Django",
-    "PHP", "Prisma", "Drizzle", "Redis", "SQLite", "Netlify", "Railway", "Nginx",
+    "HTML5", "CSS3", "shadcn/ui", "Framer Motion", "Bash",
+    "PHP", "SQLite", "Netlify", "Railway", "Nginx",
     "Digital Ocean", "Anthropic", "LangChain", "Hugging Face", "Ollama",
-    "Gemini", "LlamaIndex", "Airtable", "Node-RED", "GitHub", "Jest",
-    "Playwright", "ESLint", "pnpm",
+    "Gemini", "LlamaIndex", "Airtable", "GitHub", "Jest",
+    "Playwright", "ESLint", "pnpm", "Cursor", "VS Code", "Replit", "Base44",
   ],
   skillGroups: [
     {
@@ -45,11 +45,11 @@ export const DATA = {
     },
     {
       category: "Backend",
-      skills: ["Node.js", "Express", "NestJS", "Django", "PHP", "Prisma", "Drizzle"],
+      skills: ["Node.js", "Express", "PHP"],
     },
     {
       category: "Databases",
-      skills: ["PostgreSQL", "MongoDB", "Supabase", "Firebase", "Redis", "SQLite"],
+      skills: ["PostgreSQL", "MongoDB", "Supabase", "Firebase", "SQLite"],
     },
     {
       category: "Cloud & Infra",
@@ -61,11 +61,11 @@ export const DATA = {
     },
     {
       category: "Automation",
-      skills: ["GoHighLevel", "n8n", "Zapier", "Make.com", "Airtable", "Node-RED"],
+      skills: ["GoHighLevel", "n8n", "Zapier", "Make.com", "Airtable"],
     },
     {
       category: "Dev Tools",
-      skills: ["Git", "GitHub", "Postman", "Jest", "Playwright", "ESLint", "pnpm"],
+      skills: ["Git", "GitHub", "Postman", "Jest", "Playwright", "ESLint", "pnpm", "Cursor", "VS Code", "Replit", "Base44"],
     },
   ],
   navbar: [{ href: "/", icon: "home", label: "Home" }],

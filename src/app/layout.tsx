@@ -5,6 +5,7 @@ import "./globals.css";
 import { Footer } from "@/components/layout/footer";
 import { Chat } from "@/components/chat";
 import { ThemeProvider } from "@/components/layout/theme-provider";
+import { Preloader } from "@/components/layout/preloader";
 import { ModeToggle } from "@/components/layout/mode-toggle";
 import { ManilaClock } from "@/components/layout/manila-clock";
 import { StructuredData } from "@/components/seo/structured-data";
@@ -119,6 +120,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Preloader />
           <div className="fixed right-4 top-4 z-50 flex items-center gap-2">
             <ManilaClock />
             <ModeToggle />

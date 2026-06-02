@@ -16,7 +16,6 @@ import { DATA } from "@/data/resume";
 import { FEATURED_TECH, SKILL_TO_ICON } from "@/lib/skill-icons";
 import { pretty } from "@/lib/utils";
 import { AwardBadge } from "@/components/profile/award-badge";
-import type { TabKey } from "@/components/profile/profile-tabs";
 
 function CardTitle({ children }: { children: React.ReactNode }) {
   return <h2 className="mb-3 text-xl font-bold tracking-tight">{children}</h2>;
@@ -37,7 +36,7 @@ function Row({
   );
 }
 
-export function Sidebar({ onNavigate }: { onNavigate: (tab: TabKey) => void }) {
+export function Sidebar() {
   const currentJob = DATA.work[0];
   const school = DATA.education[0];
   const grid = FEATURED_TECH.slice(0, 9);
@@ -137,23 +136,21 @@ export function Sidebar({ onNavigate }: { onNavigate: (tab: TabKey) => void }) {
       <section className="fb-card p-4">
         <div className="mb-1 flex items-baseline justify-between">
           <h2 className="text-xl font-bold tracking-tight">Tech Stack</h2>
-          <button
-            type="button"
-            onClick={() => onNavigate("skills")}
+          <Link
+            href="/skills/"
             className="text-[15px] text-fb-blue hover:underline"
           >
             See all
-          </button>
+          </Link>
         </div>
         <p className="mb-3 text-sm text-fb-text-secondary">
           {DATA.skills.length} technologies
         </p>
         <div className="grid grid-cols-3 gap-2">
           {grid.map((tech) => (
-            <button
+            <Link
               key={tech}
-              type="button"
-              onClick={() => onNavigate("skills")}
+              href="/skills/"
               className="group"
               title={tech}
             >
@@ -163,7 +160,7 @@ export function Sidebar({ onNavigate }: { onNavigate: (tab: TabKey) => void }) {
               <span className="mt-1 block truncate text-center text-xs text-fb-text-secondary">
                 {tech}
               </span>
-            </button>
+            </Link>
           ))}
         </div>
       </section>
