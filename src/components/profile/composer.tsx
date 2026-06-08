@@ -58,8 +58,8 @@ export function Composer() {
         />
         <button
           type="button"
-          onClick={openChat}
-          className="h-10 flex-1 rounded-full bg-fb-hover px-4 text-left text-[15px] text-fb-text-secondary transition-colors hover:bg-fb-gray"
+          disabled
+          className="h-10 flex-1 cursor-not-allowed rounded-full bg-fb-hover px-4 text-left text-[15px] text-fb-text-secondary/50"
         >
           What can I build for you?
         </button>
@@ -74,8 +74,8 @@ export function Composer() {
         <Action
           icon={MessageCircle}
           label="Chat"
-          color="text-fb-blue"
-          onClick={openChat}
+          color="text-fb-text-secondary/40"
+          onClick={undefined}
         />
         <Action
           icon={Github}

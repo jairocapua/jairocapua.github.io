@@ -127,7 +127,7 @@ export default function RootLayout({
           </div>
           {children}
           <Footer />
-          <Chat />
+          {/* <Chat /> */}
         </ThemeProvider>
       </body>
     </html>
