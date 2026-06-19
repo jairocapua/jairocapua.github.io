@@ -31,6 +31,8 @@ export interface FeedPost {
   /** date or period, e.g. "March 2025 – Present" */
   meta?: string;
   location?: string;
+  /** employment setup, e.g. "Remote · Part-time" */
+  workSetup?: string;
   description?: string;
   badges?: readonly string[];
   tags?: readonly string[];
@@ -69,6 +71,7 @@ export function buildPosts(): FeedPost[] {
       subtitle: w.title,
       meta: [w.start, w.end].map((s) => s.trim()).filter(Boolean).join(" – "),
       location: w.location,
+      workSetup: w.workSetup,
       description: w.description,
       badges: w.badges,
       logoUrl: w.logoUrl,

@@ -1,6 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Award, Globe, Pin } from "lucide-react";
+import {
+  ArrowUpRight,
+  Award,
+  Briefcase,
+  CalendarDays,
+  Globe,
+  MapPin,
+  Pin,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { DATA } from "@/data/resume";
 import { AwardBadge } from "@/components/profile/award-badge";
 import type { FeedPost, PostCategory } from "@/lib/posts";
@@ -13,34 +22,58 @@ const CATEGORY_LABEL: Record<PostCategory, string> = {
   certification: "Certification",
 };
 
+/** A small icon + label pill used for job/degree metadata. */
+function MetaChip({ icon: Icon, children }: { icon: LucideIcon; children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center gap-1 rounded-md bg-fb-card px-2 py-0.5 text-xs text-fb-text-secondary ring-1 ring-border">
+      <Icon className="size-3 flex-none" />
+      {children}
+    </span>
+  );
+}
+
 /** Inner "card within a post" used for jobs and degrees. */
 function DetailBox({ post }: { post: FeedPost }) {
+  const isCurrent = /present/i.test(post.meta ?? "");
+
   return (
-    <div className="mt-2.5 flex items-start gap-3 rounded-lg border border-border bg-fb-hover p-3">
+    <div className="mt-2.5 flex items-start gap-3 rounded-xl border border-border bg-fb-hover/60 p-3 transition-colors hover:bg-fb-hover">
       {post.logoUrl && (
         <Image
           src={post.logoUrl}
           alt={post.title}
-          width={48}
-          height={48}
-          className="size-12 flex-none rounded-md border border-border bg-white object-contain p-1"
+          width={56}
+          height={56}
+          className="size-14 flex-none rounded-lg border border-border bg-white object-contain p-1.5 shadow-sm"
         />
       )}
       <div className="min-w-0 flex-1">
-        <p className="font-semibold leading-snug">{post.title}</p>
+        <div className="flex items-start justify-between gap-2">
+          <p className="font-semibold leading-snug">{post.title}</p>
+          {isCurrent && (
+            <span className="inline-flex flex-none items-center gap-1 rounded-full bg-fb-green px-2 py-0.5 text-[11px] font-semibold text-white">
+              <span className="size-1.5 rounded-full bg-white" />
+              Present
+            </span>
+          )}
+        </div>
         {post.subtitle && (
-          <p className="text-sm text-fb-text-secondary">{post.subtitle}</p>
+          <p className="text-sm font-medium text-fb-text-secondary">{post.subtitle}</p>
         )}
-        {(post.meta || post.location) && (
-          <p className="text-xs text-fb-text-secondary">
-            {[post.location, post.meta].filter(Boolean).join(" · ")}
-          </p>
+        {(post.meta || post.location || post.workSetup) && (
+          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+            {post.location && <MetaChip icon={MapPin}>{post.location}</MetaChip>}
+            {post.workSetup && <MetaChip icon={Briefcase}>{post.workSetup}</MetaChip>}
+            {post.meta && <MetaChip icon={CalendarDays}>{post.meta}</MetaChip>}
+          </div>
         )}
-        {post.badges?.map((b) => (
-          <AwardBadge className="mr-1" key={b}>
-            {b}
-          </AwardBadge>
-        ))}
+        {post.badges && post.badges.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1">
+            {post.badges.map((b) => (
+              <AwardBadge key={b}>{b}</AwardBadge>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

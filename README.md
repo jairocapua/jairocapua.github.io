@@ -27,14 +27,14 @@ src/
   components/
     layout/            # app chrome: footer, mode-toggle, theme-provider
     profile/           # the Facebook-profile feature (header, feed, sidebar, …)
+    seo/               # structured-data (JSON-LD)
     ui/                # shared primitives (avatar)
-    chat.tsx           # floating AI-style chat widget
+    chat.tsx           # floating AI-style chat widget (parked — see docs/)
   data/resume.ts       # SINGLE SOURCE OF TRUTH for all content
   lib/                 # posts model, chat responder, skill→icon maps, utils
 public/                # static assets (cover, avatar, tech/*.svg, logos)
-scripts/               # one-off tooling (tech-icon generator)
-legacy/                # archived pre-Next.js school projects — NOT part of the
-                       # build (excluded in tsconfig, outside the Tailwind glob)
+scripts/               # one-off tooling (tech-icon + OG-image generators)
+docs/                  # planning/reference notes for the planned RAG chatbot
 ```
 
 ## Editing content

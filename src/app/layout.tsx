@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { Footer } from "@/components/layout/footer";
-import { Chat } from "@/components/chat";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Preloader } from "@/components/layout/preloader";
 import { ModeToggle } from "@/components/layout/mode-toggle";
@@ -127,7 +126,9 @@ export default function RootLayout({
           </div>
           {children}
           <Footer />
-          {/* <Chat /> */}
+          {/* Chat widget is parked until the RAG chatbot backend ships (see
+              docs/RAG_CHATBOT_PLAN.md). To re-enable: import { Chat } from
+              "@/components/chat" and render <Chat /> here. */}
         </ThemeProvider>
       </body>
     </html>

@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Github, Mail, MessageCircle } from "lucide-react";
 import { DATA } from "@/data/resume";
-import { openChat } from "@/lib/chat";
 
 function Action({
   icon: Icon,
