@@ -301,7 +301,7 @@ export const DATA = {
     },
     {
       title: "PUP Hackathon 2025: UtHACK ang Puhunan — Top 10",
-      dates: "November 2025",
+      dates: "November 2024",
       location: "Polytechnic University of the Philippines",
       description:
         "Built an app that uses image recognition to identify solid dry waste and suggests practical ways to repurpose or upcycle it — turning discarded materials into actionable ideas. Reached the Top 10 in PUP's flagship hackathon.",
