@@ -12,6 +12,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { DATA } from "@/data/resume";
 import { AwardBadge } from "@/components/profile/award-badge";
+import { ProjectDetails } from "@/components/profile/project-details";
 import type { FeedPost, PostCategory } from "@/lib/posts";
 
 const CATEGORY_LABEL: Record<PostCategory, string> = {
@@ -177,6 +178,8 @@ export function PostCard({ post }: { post: FeedPost }) {
         )}
 
         {post.tags && post.tags.length > 0 && <Tags tags={post.tags} />}
+
+        {post.details && <ProjectDetails details={post.details} stack={post.stack} />}
       </div>
 
       {post.image && <PostImage src={post.image} alt={post.title} />}

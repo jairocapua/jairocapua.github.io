@@ -314,7 +314,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "package_devdependencies",
-      "community": 21,
+      "community": 4,
       "norm_label": "devdependencies"
     },
     {
@@ -324,7 +324,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "package_devdependencies_resvg_resvg_js",
-      "community": 21,
+      "community": 4,
       "norm_label": "@resvg/resvg-js"
     },
     {
@@ -334,7 +334,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "package_devdependencies_types_node",
-      "community": 21,
+      "community": 4,
       "norm_label": "@types/node"
     },
     {
@@ -344,7 +344,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "package_devdependencies_types_react",
-      "community": 21,
+      "community": 4,
       "norm_label": "@types/react"
     },
     {
@@ -354,7 +354,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "package_devdependencies_types_react_dom",
-      "community": 21,
+      "community": 4,
       "norm_label": "@types/react-dom"
     },
     {
@@ -364,7 +364,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "package_devdependencies_autoprefixer",
-      "community": 21,
+      "community": 4,
       "norm_label": "autoprefixer"
     },
     {
@@ -374,7 +374,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "package_devdependencies_eslint",
-      "community": 21,
+      "community": 4,
       "norm_label": "eslint"
     },
     {
@@ -384,7 +384,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "package_devdependencies_eslint_config_next",
-      "community": 21,
+      "community": 4,
       "norm_label": "eslint-config-next"
     },
     {
@@ -394,7 +394,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "package_devdependencies_postcss",
-      "community": 21,
+      "community": 4,
       "norm_label": "postcss"
     },
     {
@@ -404,7 +404,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss",
-      "community": 21,
+      "community": 4,
       "norm_label": "tailwindcss"
     },
     {
@@ -414,7 +414,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "package_devdependencies_tech_stack_icons",
-      "community": 21,
+      "community": 4,
       "norm_label": "tech-stack-icons"
     },
     {
@@ -424,7 +424,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "package_devdependencies_typescript",
-      "community": 21,
+      "community": 4,
       "norm_label": "typescript"
     },
     {
@@ -664,7 +664,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "profile_layout",
-      "community": 5,
+      "community": 7,
       "norm_label": "layout.tsx"
     },
     {
@@ -674,7 +674,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "profile_layout_profilelayout",
-      "community": 5,
+      "community": 7,
       "norm_label": "profilelayout()"
     },
     {
@@ -1174,67 +1174,67 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "profile_post_card",
-      "community": 20,
+      "community": 0,
       "norm_label": "post-card.tsx"
     },
     {
       "label": "CATEGORY_LABEL",
       "file_type": "code",
       "source_file": "src/components/profile/post-card.tsx",
-      "source_location": "L18",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "profile_post_card_category_label",
-      "community": 20,
+      "community": 0,
       "norm_label": "category_label"
     },
     {
       "label": "MetaChip()",
       "file_type": "code",
       "source_file": "src/components/profile/post-card.tsx",
-      "source_location": "L27",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "profile_post_card_metachip",
-      "community": 20,
+      "community": 0,
       "norm_label": "metachip()"
     },
     {
       "label": "DetailBox()",
       "file_type": "code",
       "source_file": "src/components/profile/post-card.tsx",
-      "source_location": "L37",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "profile_post_card_detailbox",
-      "community": 20,
+      "community": 0,
       "norm_label": "detailbox()"
     },
     {
       "label": "Tags()",
       "file_type": "code",
       "source_file": "src/components/profile/post-card.tsx",
-      "source_location": "L83",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "profile_post_card_tags",
-      "community": 20,
+      "community": 0,
       "norm_label": "tags()"
     },
     {
       "label": "PostImage()",
       "file_type": "code",
       "source_file": "src/components/profile/post-card.tsx",
-      "source_location": "L98",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "profile_post_card_postimage",
-      "community": 20,
+      "community": 0,
       "norm_label": "postimage()"
     },
     {
       "label": "PostCard()",
       "file_type": "code",
       "source_file": "src/components/profile/post-card.tsx",
-      "source_location": "L112",
+      "source_location": "L111",
       "_origin": "ast",
       "id": "profile_post_card_postcard",
-      "community": 20,
+      "community": 0,
       "norm_label": "postcard()"
     },
     {
@@ -1306,26 +1306,6 @@
       "id": "profile_profile_tabs_profiletabs",
       "community": 7,
       "norm_label": "profiletabs()"
-    },
-    {
-      "label": "project-details.tsx",
-      "file_type": "code",
-      "source_file": "src/components/profile/project-details.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "profile_project_details",
-      "community": 20,
-      "norm_label": "project-details.tsx"
-    },
-    {
-      "label": "ProjectDetails()",
-      "file_type": "code",
-      "source_file": "src/components/profile/project-details.tsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "profile_project_details_projectdetails",
-      "community": 20,
-      "norm_label": "projectdetails()"
     },
     {
       "label": "sidebar.tsx",
@@ -1488,30 +1468,10 @@
       "norm_label": "sociallink"
     },
     {
-      "label": "ProjectLink",
-      "file_type": "code",
-      "source_file": "src/data/resume.ts",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "data_resume_projectlink",
-      "community": 1,
-      "norm_label": "projectlink"
-    },
-    {
-      "label": "Project",
-      "file_type": "code",
-      "source_file": "src/data/resume.ts",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "data_resume_project",
-      "community": 1,
-      "norm_label": "project"
-    },
-    {
       "label": "DATA",
       "file_type": "code",
       "source_file": "src/data/resume.ts",
-      "source_location": "L38",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "data_resume_data",
       "community": 1,
@@ -1521,7 +1481,7 @@
       "label": "ResumeData",
       "file_type": "code",
       "source_file": "src/data/resume.ts",
-      "source_location": "L362",
+      "source_location": "L283",
       "_origin": "ast",
       "id": "data_resume_resumedata",
       "community": 1,
@@ -1674,7 +1634,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_posts",
-      "community": 20,
+      "community": 0,
       "norm_label": "posts.ts"
     },
     {
@@ -1684,7 +1644,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "lib_posts_postcategory",
-      "community": 20,
+      "community": 0,
       "norm_label": "postcategory"
     },
     {
@@ -1694,7 +1654,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "lib_posts_postlink",
-      "community": 20,
+      "community": 0,
       "norm_label": "postlink"
     },
     {
@@ -1704,7 +1664,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "lib_posts_hackathonlink",
-      "community": 20,
+      "community": 0,
       "norm_label": "hackathonlink"
     },
     {
@@ -1714,34 +1674,34 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "lib_posts_feedpost",
-      "community": 20,
+      "community": 0,
       "norm_label": "feedpost"
     },
     {
       "label": "buildPosts()",
       "file_type": "code",
       "source_file": "src/lib/posts.ts",
-      "source_location": "L49",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "lib_posts_buildposts",
-      "community": 20,
+      "community": 0,
       "norm_label": "buildposts()"
     },
     {
       "label": "ORDER",
       "file_type": "code",
       "source_file": "src/lib/posts.ts",
-      "source_location": "L135",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "lib_posts_order",
-      "community": 20,
+      "community": 0,
       "norm_label": "order"
     },
     {
       "label": "sortForAll()",
       "file_type": "code",
       "source_file": "src/lib/posts.ts",
-      "source_location": "L143",
+      "source_location": "L137",
       "_origin": "ast",
       "id": "lib_posts_sortforall",
       "community": 0,
@@ -1754,7 +1714,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_skill_icons",
-      "community": 0,
+      "community": 5,
       "norm_label": "skill-icons.ts"
     },
     {
@@ -1764,7 +1724,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "lib_skill_icons_skill_to_icon",
-      "community": 0,
+      "community": 5,
       "norm_label": "skill_to_icon"
     },
     {
@@ -1774,7 +1734,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "lib_skill_icons_skill_to_image",
-      "community": 0,
+      "community": 5,
       "norm_label": "skill_to_image"
     },
     {
@@ -5102,9 +5062,9 @@
       "source_file": "src/components/profile/post-card.tsx",
       "source_location": "L26",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "profile_post_card",
-      "target": "profile_post_card_metachip"
+      "target": "profile_post_card_metachip",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -5135,28 +5095,6 @@
       "confidence_score": 1.0,
       "source": "profile_post_card",
       "target": "profile_post_card_tags"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/profile/post-card.tsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "profile_post_card",
-      "target": "profile_project_details",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/profile/post-card.tsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "profile_post_card",
-      "target": "profile_project_details_projectdetails",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -5418,16 +5356,6 @@
       "target": "lib_tabs_tabfrompathname"
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/profile/project-details.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "profile_project_details",
-      "target": "profile_project_details_projectdetails",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -5680,26 +5608,6 @@
       "confidence_score": 1.0,
       "source": "data_resume",
       "target": "data_resume_data"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/resume.ts",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "data_resume",
-      "target": "data_resume_project",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/resume.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "data_resume",
-      "target": "data_resume_projectlink",
-      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6517,9 +6425,9 @@
       "source_file": "README.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "readme",
-      "target": "readme_jairocapua_github_io"
+      "target": "readme_jairocapua_github_io",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6527,9 +6435,9 @@
       "source_file": "README.md",
       "source_location": "L59",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "readme_jairocapua_github_io",
-      "target": "readme_deployment"
+      "target": "readme_deployment",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6537,9 +6445,9 @@
       "source_file": "README.md",
       "source_location": "L40",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "readme_jairocapua_github_io",
-      "target": "readme_editing_content"
+      "target": "readme_editing_content",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6547,9 +6455,9 @@
       "source_file": "README.md",
       "source_location": "L13",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "readme_jairocapua_github_io",
-      "target": "readme_local_development"
+      "target": "readme_local_development",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6557,9 +6465,9 @@
       "source_file": "README.md",
       "source_location": "L22",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "readme_jairocapua_github_io",
-      "target": "readme_project_structure"
+      "target": "readme_project_structure",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6567,9 +6475,9 @@
       "source_file": "README.md",
       "source_location": "L47",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "readme_jairocapua_github_io",
-      "target": "readme_tech_icons"
+      "target": "readme_tech_icons",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6577,9 +6485,9 @@
       "source_file": "README.md",
       "source_location": "L6",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "readme_jairocapua_github_io",
-      "target": "readme_tech_stack"
+      "target": "readme_tech_stack",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6587,9 +6495,9 @@
       "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_cloudflare_worker_setup",
-      "target": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide"
+      "target": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -6600,166 +6508,6 @@
       "weight": 1.0,
       "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
       "target": "deploy_chat_api_url_var"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L206",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_10_where_to_change_the_limits_and_allowed_sites"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L223",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_11_deploy_the_worker_to_the_internet"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L250",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_12_connect_your_website_to_the_worker"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L283",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_13_final_end_to_end_test"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L294",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_14_cost_safety_checklist"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L305",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_15_troubleshooting"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L320",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_16_command_cheat_sheet"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_1_what_you_re_building_and_why"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L39",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_2_prerequisites"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L52",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_3_create_a_free_cloudflare_account"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L63",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_4_get_your_openai_api_key_set_a_spend_limit"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L77",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_5_install_wrangler_and_log_in"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L106",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_6_quick_tour_of_the_worker_folder"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L125",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_7_create_the_rate_limit_storage_kv_namespace"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L148",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_8_add_your_openai_key_as_a_secret"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
-      "source_location": "L165",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
-      "target": "docs_cloudflare_worker_setup_9_run_and_test_the_worker_locally"
     },
     {
       "relation": "references",
@@ -6785,11 +6533,171 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L206",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_10_where_to_change_the_limits_and_allowed_sites",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L223",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_11_deploy_the_worker_to_the_internet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L250",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_12_connect_your_website_to_the_worker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L283",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_13_final_end_to_end_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L294",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_14_cost_safety_checklist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L305",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_15_troubleshooting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L320",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_16_command_cheat_sheet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_1_what_you_re_building_and_why",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_2_prerequisites",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_3_create_a_free_cloudflare_account",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_4_get_your_openai_api_key_set_a_spend_limit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_5_install_wrangler_and_log_in",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_6_quick_tour_of_the_worker_folder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_7_create_the_rate_limit_storage_kv_namespace",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_8_add_your_openai_key_as_a_secret",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
+      "source_location": "L165",
+      "weight": 1.0,
+      "source": "docs_cloudflare_worker_setup_cloudflare_worker_setup_guide",
+      "target": "docs_cloudflare_worker_setup_9_run_and_test_the_worker_locally",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
       "source_location": "L255",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_cloudflare_worker_setup_12_connect_your_website_to_the_worker",
-      "target": "docs_cloudflare_worker_setup_for_local_development_npm_run_dev"
+      "target": "docs_cloudflare_worker_setup_for_local_development_npm_run_dev",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6797,9 +6705,9 @@
       "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md",
       "source_location": "L265",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_cloudflare_worker_setup_12_connect_your_website_to_the_worker",
-      "target": "docs_cloudflare_worker_setup_for_the_live_site_github_pages"
+      "target": "docs_cloudflare_worker_setup_for_the_live_site_github_pages",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6807,9 +6715,9 @@
       "source_file": "docs/LINKEDIN_EXPORT.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_export",
-      "target": "docs_linkedin_export_exporting_your_linkedin_data_for_the_chatbot"
+      "target": "docs_linkedin_export_exporting_your_linkedin_data_for_the_chatbot",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6817,9 +6725,9 @@
       "source_file": "docs/LINKEDIN_EXPORT.md",
       "source_location": "L87",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_export_exporting_your_linkedin_data_for_the_chatbot",
-      "target": "docs_linkedin_export_how_to_hand_it_over"
+      "target": "docs_linkedin_export_how_to_hand_it_over",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6827,9 +6735,9 @@
       "source_file": "docs/LINKEDIN_EXPORT.md",
       "source_location": "L31",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_export_exporting_your_linkedin_data_for_the_chatbot",
-      "target": "docs_linkedin_export_method_a_save_your_profile_as_a_pdf_instant"
+      "target": "docs_linkedin_export_method_a_save_your_profile_as_a_pdf_instant",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6837,9 +6745,9 @@
       "source_file": "docs/LINKEDIN_EXPORT.md",
       "source_location": "L44",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_export_exporting_your_linkedin_data_for_the_chatbot",
-      "target": "docs_linkedin_export_method_b_request_your_full_data_archive_complete_structured"
+      "target": "docs_linkedin_export_method_b_request_your_full_data_archive_complete_structured",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6847,9 +6755,9 @@
       "source_file": "docs/LINKEDIN_EXPORT.md",
       "source_location": "L108",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_export_exporting_your_linkedin_data_for_the_chatbot",
-      "target": "docs_linkedin_export_quick_checklist"
+      "target": "docs_linkedin_export_quick_checklist",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6857,9 +6765,9 @@
       "source_file": "docs/LINKEDIN_EXPORT.md",
       "source_location": "L19",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_export_exporting_your_linkedin_data_for_the_chatbot",
-      "target": "docs_linkedin_export_two_ways_to_get_your_data"
+      "target": "docs_linkedin_export_two_ways_to_get_your_data",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6867,9 +6775,9 @@
       "source_file": "docs/LINKEDIN_EXPORT.md",
       "source_location": "L118",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_export_exporting_your_linkedin_data_for_the_chatbot",
-      "target": "docs_linkedin_export_what_happens_next"
+      "target": "docs_linkedin_export_what_happens_next",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6877,9 +6785,9 @@
       "source_file": "docs/LINKEDIN_EXPORT.md",
       "source_location": "L62",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_export_exporting_your_linkedin_data_for_the_chatbot",
-      "target": "docs_linkedin_export_which_files_from_the_archive_actually_matter"
+      "target": "docs_linkedin_export_which_files_from_the_archive_actually_matter",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6887,9 +6795,9 @@
       "source_file": "docs/LinkedIn_Data.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_data",
-      "target": "docs_linkedin_data_linkedin_data"
+      "target": "docs_linkedin_data_linkedin_data",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6897,9 +6805,9 @@
       "source_file": "docs/LinkedIn_Data.md",
       "source_location": "L31",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_data_linkedin_data",
-      "target": "docs_linkedin_data_recommended_way_to_get_this_data_official_complete_tos_safe"
+      "target": "docs_linkedin_data_recommended_way_to_get_this_data_official_complete_tos_safe",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6907,9 +6815,9 @@
       "source_file": "docs/LinkedIn_Data.md",
       "source_location": "L13",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_linkedin_data_linkedin_data",
-      "target": "docs_linkedin_data_what_happened"
+      "target": "docs_linkedin_data_what_happened",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6917,9 +6825,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan",
-      "target": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio"
+      "target": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6927,9 +6835,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L38",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_a_new_worker_in_this_repo_worker_folder_deployed_separately"
+      "target": "docs_rag_chatbot_plan_a_new_worker_in_this_repo_worker_folder_deployed_separately",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6937,9 +6845,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L23",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_architecture"
+      "target": "docs_rag_chatbot_plan_architecture",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6947,9 +6855,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L60",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_b_frontend_changes_reuse_existing_widget_don_t_rebuild"
+      "target": "docs_rag_chatbot_plan_b_frontend_changes_reuse_existing_widget_don_t_rebuild",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6957,9 +6865,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L77",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_c_build_deploy_wiring_manual_worker_deploy"
+      "target": "docs_rag_chatbot_plan_c_build_deploy_wiring_manual_worker_deploy",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6967,9 +6875,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_context"
+      "target": "docs_rag_chatbot_plan_context",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6977,9 +6885,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L89",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_d_two_markdown_guides_deliverables"
+      "target": "docs_rag_chatbot_plan_d_two_markdown_guides_deliverables",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6987,9 +6895,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L121",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_files_to_create_modify_summary"
+      "target": "docs_rag_chatbot_plan_files_to_create_modify_summary",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6997,9 +6905,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L137",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_notes_dependencies"
+      "target": "docs_rag_chatbot_plan_notes_dependencies",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7007,9 +6915,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L141",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_reference_facts_verified_june_2026"
+      "target": "docs_rag_chatbot_plan_reference_facts_verified_june_2026",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7017,9 +6925,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L112",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_security_summary"
+      "target": "docs_rag_chatbot_plan_security_summary",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7027,9 +6935,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L97",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_plan_ai_rag_chatbot_for_the_portfolio",
-      "target": "docs_rag_chatbot_plan_verification"
+      "target": "docs_rag_chatbot_plan_verification",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7037,9 +6945,9 @@
       "source_file": "docs/RAG_CHATBOT_PLAN.md",
       "source_location": "L11",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "docs_rag_chatbot_plan_context",
-      "target": "docs_rag_chatbot_plan_confirmed_decisions"
+      "target": "docs_rag_chatbot_plan_confirmed_decisions",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -7435,5 +7343,5 @@
       "source_file": "docs/CLOUDFLARE_WORKER_SETUP.md"
     }
   ],
-  "built_at_commit": "1c1cfa54923f01676617b5a6c4a53d56d123d0a7"
+  "built_at_commit": "2db49d318ffbfb4f5660ee184b5c2db328bce628"
 }

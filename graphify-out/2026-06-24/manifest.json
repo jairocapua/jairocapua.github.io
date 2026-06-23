@@ -150,8 +150,8 @@
     "semantic_hash": "624942093d542477c1fe1a4e64314893"
   },
   "src/components/profile/post-card.tsx": {
-    "mtime": 1782223851.4564354,
-    "ast_hash": "4de2910ae0d01026965b602f764502ef",
+    "mtime": 1781868964.6838765,
+    "ast_hash": "5b61da50827cc032b80987402b4319d6",
     "semantic_hash": ""
   },
   "src/components/profile/profile-header.tsx": {
@@ -185,8 +185,8 @@
     "semantic_hash": "00cb504ec3f530345ee502fcb1135566"
   },
   "src/data/resume.ts": {
-    "mtime": 1782242166.3198242,
-    "ast_hash": "d92612207f892986bf0561ddfd221e51",
+    "mtime": 1781868817.6473708,
+    "ast_hash": "1ab43f8eebd8ab0916214504dee7e3c6",
     "semantic_hash": ""
   },
   "src/lib/chat.ts": {
@@ -195,8 +195,8 @@
     "semantic_hash": "e349db416d7588764d7d3ab6ef8152b9"
   },
   "src/lib/posts.ts": {
-    "mtime": 1782223820.2379177,
-    "ast_hash": "baa3cde1e5507dfa34f5e3e411c45ab4",
+    "mtime": 1781868736.1355705,
+    "ast_hash": "ee2a3b76566a1112634dad055fac1b7a",
     "semantic_hash": ""
   },
   "src/lib/skill-icons.ts": {
@@ -612,21 +612,6 @@
   "public/work/sterk-logo.png": {
     "mtime": 1781868517.1529262,
     "ast_hash": "f16d8679bd5cdf68feb435f820111636",
-    "semantic_hash": ""
-  },
-  "src/components/profile/project-details.tsx": {
-    "mtime": 1782223838.2282777,
-    "ast_hash": "65717db388e6f68cb1bd60819457404d",
-    "semantic_hash": ""
-  },
-  "public/project_images/EchoAI_Project_Image.png": {
-    "mtime": 1782223254.042795,
-    "ast_hash": "538712b99b9d39120902e2f4bd5ec58e",
-    "semantic_hash": ""
-  },
-  "public/project_images/JobPilot_Project_Image.png": {
-    "mtime": 1782241247.1695662,
-    "ast_hash": "59557faf5c76967419c6f6ed1464a035",
     "semantic_hash": ""
   }
 }

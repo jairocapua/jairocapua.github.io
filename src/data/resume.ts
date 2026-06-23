@@ -9,6 +9,32 @@ export interface SocialLink {
   navbar: boolean;
 }
 
+export interface ProjectLink {
+  type: string;
+  href: string;
+  icon: string;
+}
+
+export interface Project {
+  title: string;
+  href?: string;
+  dates: string;
+  active: boolean;
+  /** Optional custom status line shown at the top of the card (overrides the default lead). */
+  status?: string;
+  /** Short pitch shown on the card. */
+  description: string;
+  /** Up to ~3 tags shown on the card. */
+  technologies: readonly string[];
+  /** Longer write-up revealed under "Show more". Paragraphs separated by a blank line. */
+  detailedDescription?: string;
+  /** Full technology list revealed under "Show more". */
+  stack?: readonly string[];
+  links?: ProjectLink[];
+  image: string;
+  video: string;
+}
+
 export const DATA = {
   name: "Jairo Capua",
   initials: "JC",
@@ -159,6 +185,59 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Echo AI",
+      dates: "May 2026",
+      active: false,
+      status: "🏆 Hackathon · 2nd Runner Up",
+      description:
+        "Real-time voice rehearsal app: an AI buyer persona (mood + difficulty) talks back over a live Agora call, objections are retrieved by vector search, and an AI coach scores and annotates the transcript afterward.",
+      technologies: ["Next.js", "TypeScript", "Agora"],
+      detailedDescription:
+        "Echo is a self-contained Next.js app that turns sales practice into a live, voice-first simulation. You pick an industry, a buyer persona, their mood, and a difficulty, paste in what you're selling, and take the call — speaking out loud to an AI buyer that pushes back in real time. When you hang up, an AI coach grades the call, annotates the transcript turn-by-turn, and hands you a focused practice plan. You can even replay the last objection to drill the moment the deal slipped.\n\nUnder the hood, Next.js API routes talk directly to the Agora Conversational AI REST API, OpenAI (buyer LLM, embeddings, coach, TTS), and Couchbase vector search — no separate backend. The most relevant objections are retrieved per product via embeddings, the buyer's system prompt is composed on the fly, and the whole call runs over Agora RTC audio with a live RTM transcript.",
+      stack: [
+        "Next.js 16",
+        "React 19",
+        "TypeScript 5",
+        "Tailwind CSS v4",
+        "Agora Conversational AI (RTC/RTM)",
+        "OpenAI (GPT, embeddings, TTS)",
+        "Couchbase (vector search)",
+        "Zustand",
+        "SWR",
+      ],
+      links: [
+        { type: "Source", href: "https://github.com/jairocapua/Echo", icon: "github" },
+      ],
+      image: "/project_images/EchoAI_Project_Image.png",
+      video: "",
+    },
+    {
+      title: "JobPilot AI",
+      dates: "Jun 2026 — Present",
+      active: true,
+      description:
+        "AI copilot that finds jobs from Adzuna, scores each one against your resume with GPT-4o, and auto-researches the company into an interview-ready dossier — so you skip the prep and just apply.",
+      technologies: ["Next.js 16", "TypeScript", "GPT-4o", "Tailwind CSS"],
+      detailedDescription:
+        "An AI-powered job-hunting assistant for developers. Set up your profile once and the agent discovers relevant roles from Adzuna, scores each against your resume with GPT-4o, and auto-researches every company — building a structured dossier of tech stack, culture, and interview prep before you apply. Everything is tracked on a dashboard with live analytics. It kills the repetitive prep work so you just decide where to apply and click.\n\nWhat makes it interesting: agentic company research uses a single Browserbase + Stagehand session to browse each company's real public pages (homepage, about, blog, engineering), then GPT-4o synthesizes a candidate-specific dossier — your edge, gaps to address, and smart interview questions. GPT-4o scores every job 0–100 against your actual profile, returning matched skills, missing skills, and reasoning — not keyword matching. InsForge handles auth (Google/GitHub OAuth), Postgres, storage, and realtime; PostHog powers the dashboard analytics.",
+      stack: [
+        "Next.js 16 (App Router)",
+        "TypeScript (strict)",
+        "InsForge (auth, DB, storage, realtime)",
+        "OpenAI GPT-4o",
+        "Browserbase + Stagehand",
+        "Adzuna API",
+        "PostHog",
+        "@react-pdf/renderer",
+        "Tailwind CSS + shadcn/ui",
+      ],
+      links: [
+        { type: "Source", href: "https://github.com/jairocapua/JobPilot-AI", icon: "github" },
+      ],
+      image: "/project_images/JobPilot_Project_Image.png",
+      video: "",
+    },
+    {
       title: "Project One",
       href: "https://example.com",
       dates: "Jan 2025 — Present",
@@ -209,7 +288,7 @@ export const DATA = {
       image: "",
       video: "",
     },
-  ],
+  ] as Project[],
   hackathons: [
     {
       title: "Agora Voice AI Hackathon — 2nd Runner Up",

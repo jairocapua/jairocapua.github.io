@@ -34,8 +34,12 @@ export interface FeedPost {
   /** employment setup, e.g. "Remote · Part-time" */
   workSetup?: string;
   description?: string;
+  /** Longer write-up revealed under "Show more" (paragraphs separated by a blank line). */
+  details?: string;
   badges?: readonly string[];
   tags?: readonly string[];
+  /** Full technology list revealed under "Show more". */
+  stack?: readonly string[];
   logoUrl?: string;
   image?: string;
   links?: readonly PostLink[];
@@ -100,11 +104,13 @@ export function buildPosts(): FeedPost[] {
     posts.push({
       id: `proj-${i}`,
       category: "project",
-      lead: p.active ? "🚀 Currently building" : "🛠️ Project",
+      lead: p.status ?? (p.active ? "🚀 Currently building" : "🛠️ Project"),
       title: p.title,
       meta: p.dates,
       description: p.description,
+      details: p.detailedDescription,
       tags: p.technologies,
+      stack: p.stack,
       image: p.image || undefined,
       links: p.links?.map((l) => ({ label: l.type, href: l.href })),
     });
