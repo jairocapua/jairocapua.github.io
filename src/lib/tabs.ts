@@ -106,5 +106,8 @@ export function tabFromPathname(pathname: string): TabKey {
       ? pathname.slice(0, -1)
       : pathname;
   if (trimmed === "" || trimmed === "/") return "all";
-  return keyFromSlug(trimmed.replace(/^\//, "")) ?? "all";
+  const firstSegment = trimmed.replace(/^\//, "").split("/")[0];
+  // Keep "Projects" highlighted on category sub-pages (/projects/<slug>/).
+  if (firstSegment === "projects") return "projects";
+  return keyFromSlug(firstSegment) ?? "all";
 }

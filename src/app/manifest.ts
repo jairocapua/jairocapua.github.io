@@ -14,8 +14,8 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#0866ff",
     icons: [
       {
-        src: "/jairo-pfp-dark-nowatermark-1x1.png",
-        sizes: "512x512",
+        src: "/jairo-icon-192.png",
+        sizes: "192x192",
         type: "image/png",
         purpose: "any",
       },

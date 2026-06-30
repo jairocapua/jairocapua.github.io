@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { DATA } from "@/data/resume";
 import { TABS } from "@/lib/tabs";
+import { PROJECT_CATEGORIES } from "@/lib/project-categories";
 
 export const dynamic = "force-static";
 
@@ -18,6 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const categoryEntries: MetadataRoute.Sitemap = PROJECT_CATEGORIES.map((c) => ({
+    url: `${DATA.url}/projects/${c.slug}/`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   return [
     {
       url: `${DATA.url}/`,
@@ -26,5 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...tabEntries,
+    ...categoryEntries,
   ];
 }

@@ -11,7 +11,7 @@
     --card-foreground: 0 0% 2%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 2%;
-    --primary: 214 89% 52%; /* #1877f2 FB blue */
+    --primary: 214 89% 47%; /* #0f68d6 — darkened from #1877f2 to clear WCAG AA 4.5:1 */
     --primary-foreground: 0 0% 100%;
     --secondary: 223 15% 91%; /* #e4e6eb gray button */
     --secondary-foreground: 0 0% 2%;
@@ -23,13 +23,13 @@
     --destructive-foreground: 0 0% 98%;
     --border: 220 13% 87%; /* hairline */
     --input: 220 13% 87%;
-    --ring: 214 89% 52%;
+    --ring: 214 89% 47%;
     --radius: 0.5rem;
 
     /* Facebook palette — light. Consumed by the `fb-*` Tailwind colors so
        every surface flips automatically when `.dark` is applied. */
-    --fb-blue: 214 89% 52%; /* #1877f2 */
-    --fb-blue-hover: 214 82% 49%; /* #166fe5 */
+    --fb-blue: 214 89% 47%; /* #0f68d6 — AA-compliant (≥4.5:1 on white and as white-on-blue) */
+    --fb-blue-hover: 214 84% 43%; /* #115fc4 */
     --fb-blue-light: 210 100% 95%; /* #e7f3ff */
     --fb-blue-light-hover: 214 95% 93%; /* #dbeafe */
     --fb-page: 216 20% 95%; /* #f0f2f5 */

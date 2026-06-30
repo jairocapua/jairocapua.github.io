@@ -8,6 +8,7 @@ import { Preloader } from "@/components/layout/preloader";
 import { ModeToggle } from "@/components/layout/mode-toggle";
 import { ManilaClock } from "@/components/layout/manila-clock";
 import { StructuredData } from "@/components/seo/structured-data";
+import { Chat } from "@/components/chat";
 import { cn } from "@/lib/utils";
 import { DATA } from "@/data/resume";
 
@@ -83,8 +84,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/jairo-pfp-dark-nowatermark-1x1.png",
-    apple: "/jairo-pfp-dark-nowatermark-1x1.png",
+    icon: "/jairo-icon-192.png",
+    apple: "/jairo-icon-192.png",
   },
   manifest: "/manifest.webmanifest",
 };
@@ -126,9 +127,11 @@ export default function RootLayout({
           </div>
           {children}
           <Footer />
-          {/* Chat widget is parked until the RAG chatbot backend ships (see
-              docs/RAG_CHATBOT_PLAN.md). To re-enable: import { Chat } from
-              "@/components/chat" and render <Chat /> here. */}
+          {/* Local résumé-grounded assistant (client-side getAnswer responder).
+              The header "Message" button and composer dispatch OPEN_CHAT_EVENT,
+              which this widget listens for. To upgrade to a real LLM backend,
+              see the UPGRADE PATH note in src/lib/chat.ts. */}
+          <Chat />
         </ThemeProvider>
       </body>
     </html>

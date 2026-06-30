@@ -1,4 +1,4 @@
-import { DATA } from "@/data/resume";
+import { DATA, type Project } from "@/data/resume";
 
 // A unified "post" model. Every résumé item (job, project, hackathon,
 // certification, degree) is projected into one of these so the feed can
@@ -43,6 +43,24 @@ export interface FeedPost {
   logoUrl?: string;
   image?: string;
   links?: readonly PostLink[];
+}
+
+/** Map a single project into a FeedPost. Shared by the home feed and the
+ *  per-category project pages so the project→post shape stays in one place. */
+export function projectToPost(p: Project, i: number): FeedPost {
+  return {
+    id: `proj-${i}`,
+    category: "project",
+    lead: p.status ?? (p.active ? "🚀 Currently building" : "🛠️ Project"),
+    title: p.title,
+    meta: p.dates,
+    description: p.description,
+    details: p.detailedDescription,
+    tags: p.technologies,
+    stack: p.stack,
+    image: p.image || undefined,
+    links: p.links?.map((l) => ({ label: l.type, href: l.href })),
+  };
 }
 
 /** Build the full timeline from résumé data. */
@@ -101,19 +119,7 @@ export function buildPosts(): FeedPost[] {
   });
 
   DATA.projects.forEach((p, i) => {
-    posts.push({
-      id: `proj-${i}`,
-      category: "project",
-      lead: p.status ?? (p.active ? "🚀 Currently building" : "🛠️ Project"),
-      title: p.title,
-      meta: p.dates,
-      description: p.description,
-      details: p.detailedDescription,
-      tags: p.technologies,
-      stack: p.stack,
-      image: p.image || undefined,
-      links: p.links?.map((l) => ({ label: l.type, href: l.href })),
-    });
+    posts.push(projectToPost(p, i));
   });
 
   DATA.certifications.forEach((c, i) => {

@@ -21,25 +21,27 @@ function AboutView() {
           {DATA.summary}
         </Markdown>
       </section>
-      <section className="fb-card p-4 sm:p-5">
-        <h2 className="mb-3 text-xl font-bold tracking-tight">Recommendations</h2>
-        <div className="space-y-3">
-          {DATA.testimonials.map((t, i) => (
-            <figure
-              key={t.name + i}
-              className="rounded-lg border border-border bg-fb-hover p-3"
-            >
-              <blockquote className="text-[15px] leading-relaxed">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <figcaption className="mt-2 text-sm">
-                <span className="font-semibold">{t.name}</span>
-                <span className="text-fb-text-secondary"> · {t.title}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
+      {DATA.testimonials.length > 0 && (
+        <section className="fb-card p-4 sm:p-5">
+          <h2 className="mb-3 text-xl font-bold tracking-tight">Recommendations</h2>
+          <div className="space-y-3">
+            {DATA.testimonials.map((t, i) => (
+              <figure
+                key={t.name + i}
+                className="rounded-lg border border-border bg-fb-hover p-3"
+              >
+                <blockquote className="text-[15px] leading-relaxed">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-2 text-sm">
+                  <span className="font-semibold">{t.name}</span>
+                  <span className="text-fb-text-secondary"> · {t.title}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

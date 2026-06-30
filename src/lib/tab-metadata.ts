@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { DATA } from "@/data/resume";
 import { TABS, type TabSlug } from "@/lib/tabs";
+import {
+  categoryBySlug,
+  type ProjectCategorySlug,
+} from "@/lib/project-categories";
 
 /**
  * Per-tab page metadata. Server-only (pulls DATA + Next's Metadata type) so it
@@ -25,6 +29,28 @@ export function tabMetadata(slug: TabSlug): Metadata {
     twitter: {
       title: fullTitle,
       description: def.description,
+    },
+  };
+}
+
+/** Per-category page metadata for the /projects/<slug>/ sub-pages. */
+export function categoryMetadata(slug: ProjectCategorySlug): Metadata {
+  const cat = categoryBySlug(slug)!;
+  const path = `/projects/${slug}/`;
+  const fullTitle = `${cat.title} | ${DATA.name}`;
+
+  return {
+    title: cat.title,
+    description: cat.description,
+    alternates: { canonical: path },
+    openGraph: {
+      title: fullTitle,
+      description: cat.description,
+      url: `${DATA.url}${path}`,
+    },
+    twitter: {
+      title: fullTitle,
+      description: cat.description,
     },
   };
 }

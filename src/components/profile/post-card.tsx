@@ -52,8 +52,8 @@ function DetailBox({ post }: { post: FeedPost }) {
         <div className="flex items-start justify-between gap-2">
           <p className="font-semibold leading-snug">{post.title}</p>
           {isCurrent && (
-            <span className="inline-flex flex-none items-center gap-1 rounded-full bg-fb-green px-2 py-0.5 text-[11px] font-semibold text-white">
-              <span className="size-1.5 rounded-full bg-white" />
+            <span className="inline-flex flex-none items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+              <span className="size-1.5 rounded-full bg-emerald-500" />
               Present
             </span>
           )}

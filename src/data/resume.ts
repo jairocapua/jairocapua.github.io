@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail, Twitter, Youtube, type LucideIcon } from "lucide-react";
+import type { CodeProjectCategory } from "@/lib/project-categories";
 
 export type SocialKey = "GitHub" | "LinkedIn" | "X" | "YouTube" | "Email";
 
@@ -20,6 +21,8 @@ export interface Project {
   href?: string;
   dates: string;
   active: boolean;
+  /** Which /projects sub-page this project appears under. */
+  category: CodeProjectCategory;
   /** Optional custom status line shown at the top of the card (overrides the default lead). */
   status?: string;
   /** Short pitch shown on the card. */
@@ -48,7 +51,7 @@ export const DATA = {
     "AI Engineer. I build smart systems, web apps, and AI-powered workflows that help businesses automate operations, save time, and scale faster",
   summary:
     "I work at the intersection of software engineering, automation, and AI. My experience includes building **web applications**, integrating **APIs**, designing **CRM workflows**, and creating **automation systems** using tools like **GoHighLevel**, **Zapier**, **Make**, **n8n**, **OpenAI**, and **Claude**. I enjoy turning repetitive business processes into reliable, scalable systems that are simple to use and built to solve real problems",
-  avatarUrl: "/jairo-pfp-dark-nowatermark-1x1.png",
+  avatarUrl: "/jairo-pfp.jpg",
   skills: [
     "React", "Next.js", "TypeScript", "JavaScript", "Node.js", "Python",
     "Tailwind CSS", "Express", "CloudFlare", "Firebase", "Google Cloud Platform",
@@ -186,6 +189,7 @@ export const DATA = {
   projects: [
     {
       title: "Echo AI",
+      category: "ai-agents",
       dates: "May 2026",
       active: false,
       status: "🏆 Hackathon · 2nd Runner Up",
@@ -213,6 +217,7 @@ export const DATA = {
     },
     {
       title: "JobPilot AI",
+      category: "ai-web-apps",
       dates: "Jun 2026 — Present",
       active: true,
       description:
@@ -235,57 +240,6 @@ export const DATA = {
         { type: "Source", href: "https://github.com/jairocapua/JobPilot-AI", icon: "github" },
       ],
       image: "/project_images/JobPilot_Project_Image.png",
-      video: "",
-    },
-    {
-      title: "Project One",
-      href: "https://example.com",
-      dates: "Jan 2025 — Present",
-      active: true,
-      description:
-        "Short pitch for the project. What problem does it solve, who is it for, and what makes it interesting.",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-      links: [
-        { type: "Website", href: "https://example.com", icon: "globe" },
-        { type: "Source", href: "https://github.com/jairocapua", icon: "github" },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Project Two",
-      href: "https://example.com",
-      dates: "Sep 2024",
-      active: false,
-      description:
-        "Another mock project. Replace with something real — keep descriptions under three lines for visual rhythm.",
-      technologies: ["React", "Node.js", "Postgres"],
-      links: [{ type: "Source", href: "https://github.com/jairocapua", icon: "github" }],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Project Three",
-      href: "https://example.com",
-      dates: "Mar 2024",
-      active: false,
-      description:
-        "A landing-page experiment. Good place to show off design work even if the codebase is small.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      links: [{ type: "Website", href: "https://example.com", icon: "globe" }],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Project Four",
-      href: "https://example.com",
-      dates: "Nov 2023",
-      active: false,
-      description:
-        "API integration demo. Mention the API, the wrapper you built, and any unusual constraints.",
-      technologies: ["TypeScript", "Vite"],
-      links: [{ type: "Source", href: "https://github.com/jairocapua", icon: "github" }],
-      image: "",
       video: "",
     },
   ] as Project[],
@@ -336,27 +290,9 @@ export const DATA = {
       href: "",
     },
   ],
-  testimonials: [
-    // TODO: replace these placeholders with real recommendations
-    {
-      quote:
-        "Jairo ships fast without cutting corners. He took our messy manual workflow and turned it into a reliable automated system in just a few weeks.",
-      name: "Project Lead",
-      title: "The Family Roofing Company",
-    },
-    {
-      quote:
-        "A rare engineer who is equally comfortable with product thinking, clean code, and AI tooling. Easy to work with and genuinely dependable.",
-      name: "Engineering Mentor",
-      title: "Xurpas Inc.",
-    },
-    {
-      quote:
-        "Thoughtful, well-tested contributions and clear communication throughout. The kind of teammate you want on a deadline.",
-      name: "QA Teammate",
-      title: "Xurpas Inc.",
-    },
-  ],
+  // Add real, named LinkedIn recommendations here (quote + recommender's real
+  // name + title). The "Recommendations" section is hidden while this is empty.
+  testimonials: [] as { quote: string; name: string; title: string }[],
 } as const;
 
 export type ResumeData = typeof DATA;
