@@ -31,8 +31,11 @@ export function ProjectDetails({
         {open ? "Show less" : "Show more"}
       </button>
 
-      {open && (
-        <div className="mt-2 space-y-3 rounded-xl border border-border bg-fb-hover/60 p-3">
+      {/* Always in the DOM (CSS-hidden when collapsed) so the write-up is
+          present in the statically exported HTML for crawlers. */}
+      <div
+        className={`mt-2 space-y-3 rounded-xl border border-border bg-fb-hover/60 p-3 ${open ? "" : "hidden"}`}
+      >
           {paragraphs.map((p, i) => (
             <p key={i} className="text-[15px] leading-relaxed text-fb-text">
               {p}
@@ -56,8 +59,7 @@ export function ProjectDetails({
               </div>
             </div>
           )}
-        </div>
-      )}
+      </div>
     </div>
   );
 }

@@ -77,6 +77,47 @@ export const SKILL_TO_IMAGE: Record<string, string> = {
   Base44: "/skills/base44.png",
 };
 
+// Maps an AutomationProject tag (src/data/automation-projects.ts) to its logo
+// slug under /public/tech/<slug>.svg. Only brand/tool tags are listed; concept
+// tags (Workflows, Funnels, SMS Automation, Custom Fields, …) are intentionally
+// omitted so they render as plain text chips. GoHighLevel is resolved via
+// SKILL_TO_IMAGE in automationToolIcon() below.
+//
+// Slugs marked "sourced" are full-color logos that are NOT in the
+// tech-stack-icons package and so are not produced by
+// scripts/extract-tech-icons.mjs — they were downloaded once into /public/tech.
+// See the README "Tech icons" section.
+export const AUTOMATION_TOOL_TO_ICON: Record<string, string> = {
+  Slack: "slack",
+  Zapier: "zapier",
+  n8n: "n8n",
+  OpenAI: "openai",
+  Trello: "trello",
+  Airtable: "airtable",
+  Asana: "asana",
+  Javascript: "js",
+  "Gemini 2.5 Flash": "gemini",
+  // sourced full-color SVGs (not from tech-stack-icons)
+  Gmail: "gmail",
+  "Google Sheets": "googlesheets",
+  "Google Calendar": "googlecalendar",
+  "Google Drive": "googledrive",
+  Shopify: "shopify",
+};
+
+// Resolve an automation tag to a renderable icon: a bundled/sourced SVG slug
+// (render with <TechIcon>) or a custom raster image (render with next/image).
+// Returns null for concept tags that have no logo, so callers fall back to text.
+export function automationToolIcon(
+  tag: string,
+): { slug: string } | { image: string } | null {
+  const slug = AUTOMATION_TOOL_TO_ICON[tag];
+  if (slug) return { slug };
+  const image = SKILL_TO_IMAGE[tag]; // GoHighLevel
+  if (image) return { image };
+  return null;
+}
+
 // Curated, recognizable skills shown as overlapping avatar bubbles ("friends")
 // in the profile header. Order matters — these render left to right.
 export const FEATURED_TECH = [

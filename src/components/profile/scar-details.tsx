@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+import { TechIcon } from "@/components/profile/tech-icon";
+import { automationToolIcon } from "@/lib/skill-icons";
 
 /**
  * "Show more" disclosure for an automation case study. Modeled on
@@ -36,8 +39,11 @@ export function ScarDetails({
         {open ? "Show less" : "Read the case study"}
       </button>
 
-      {open && (
-        <div className="mt-2 space-y-3 rounded-xl border border-border bg-fb-hover/60 p-3">
+      {/* Always in the DOM (CSS-hidden when collapsed) so the case study is
+          present in the statically exported HTML for crawlers. */}
+      <div
+        className={`mt-2 space-y-3 rounded-xl border border-border bg-fb-hover/60 p-3 ${open ? "" : "hidden"}`}
+      >
           <Section label="Task">
             <p className="text-[15px] leading-relaxed text-fb-text">{task}</p>
           </Section>
@@ -76,19 +82,37 @@ export function ScarDetails({
                 Tools
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {tags.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-md border border-border bg-fb-card px-2 py-0.5 text-xs text-fb-text-secondary"
-                  >
-                    {t}
-                  </span>
-                ))}
+                {tags.map((t) => {
+                  const icon = automationToolIcon(t);
+                  return (
+                    <span
+                      key={t}
+                      className="inline-flex items-center gap-1.5 rounded-md border border-border bg-fb-card px-2 py-0.5 text-xs text-fb-text-secondary"
+                    >
+                      {icon && "slug" in icon && (
+                        <TechIcon
+                          slug={icon.slug}
+                          alt={t}
+                          className="size-3.5 object-contain"
+                        />
+                      )}
+                      {icon && "image" in icon && (
+                        <Image
+                          src={icon.image}
+                          alt={t}
+                          width={14}
+                          height={14}
+                          className="size-3.5 object-contain"
+                        />
+                      )}
+                      {t}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           )}
-        </div>
-      )}
+      </div>
     </div>
   );
 }

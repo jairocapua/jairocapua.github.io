@@ -56,6 +56,14 @@ node scripts/extract-tech-icons.mjs
 Re-run it only when adding or removing skills, and keep its `SLUGS` list in sync
 with `SKILL_TO_ICON` in [`src/lib/skill-icons.ts`](src/lib/skill-icons.ts).
 
+A handful of full-color brand logos are **not** in the `tech-stack-icons`
+package, so the script does not generate them — they were downloaded once into
+`public/tech/` and are committed as-is: `gmail.svg`, `googledrive.svg`,
+`googlecalendar.svg`, `googlesheets.svg`, `shopify.svg`. The automation
+case-study cards map their tool tags to these logos via `AUTOMATION_TOOL_TO_ICON`
+in [`src/lib/skill-icons.ts`](src/lib/skill-icons.ts); to give another tag an
+icon, drop an SVG into `public/tech/` and add a mapping entry there.
+
 ## Deployment
 
 Pushing to `main` (or a manual `workflow_dispatch`) triggers

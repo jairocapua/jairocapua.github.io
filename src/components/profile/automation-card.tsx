@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Globe, Star } from "lucide-react";
 import { DATA } from "@/data/resume";
 import { ScarDetails } from "@/components/profile/scar-details";
+import { TechIcon } from "@/components/profile/tech-icon";
+import { automationToolIcon } from "@/lib/skill-icons";
 import type { AutomationProject } from "@/data/automation-projects";
 
 export function AutomationCard({ project }: { project: AutomationProject }) {
@@ -46,14 +48,33 @@ export function AutomationCard({ project }: { project: AutomationProject }) {
 
         {project.tags.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-1.5">
-            {project.tags.map((t) => (
-              <span
-                key={t}
-                className="rounded-md bg-fb-hover px-2 py-0.5 text-xs text-fb-text-secondary"
-              >
-                {t}
-              </span>
-            ))}
+            {project.tags.map((t) => {
+              const icon = automationToolIcon(t);
+              return (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-1.5 rounded-md bg-fb-hover px-2 py-0.5 text-xs text-fb-text-secondary"
+                >
+                  {icon && "slug" in icon && (
+                    <TechIcon
+                      slug={icon.slug}
+                      alt={t}
+                      className="size-3.5 object-contain"
+                    />
+                  )}
+                  {icon && "image" in icon && (
+                    <Image
+                      src={icon.image}
+                      alt={t}
+                      width={14}
+                      height={14}
+                      className="size-3.5 object-contain"
+                    />
+                  )}
+                  {t}
+                </span>
+              );
+            })}
           </div>
         )}
 

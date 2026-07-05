@@ -49,9 +49,11 @@ export function CategoryFeed({ slug }: { slug: ProjectCategorySlug }) {
 
       {/* feed */}
       {slug === "ai-automation" ? (
-        automationProjects.map((project) => (
-          <AutomationCard key={project.title} project={project} />
-        ))
+        [...automationProjects]
+          .sort((a, b) => Number(b.featured) - Number(a.featured))
+          .map((project) => (
+            <AutomationCard key={project.title} project={project} />
+          ))
       ) : (
         <>
           {DATA.projects

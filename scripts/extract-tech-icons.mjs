@@ -18,7 +18,7 @@ const SLUGS = [
   "postgresql", "mongodb", "supabase", "firebase", "redis", "sqlite",
   "aws", "gcloud", "cloudflare", "vercel", "docker", "netlify", "railway", "nginx", "digitalocean",
   "openai", "claude", "anthropic", "langchain", "huggingface", "ollama", "gemini", "llamaindex",
-  "n8n", "zapier", "make", "airtable", "nodered",
+  "n8n", "zapier", "make", "airtable", "nodered", "slack", "trello", "asana",
   "git", "github", "postman", "jest", "playwright", "eslint", "pnpm", "cursor", "vscode", "replit",
 ];
 
