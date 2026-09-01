@@ -12,7 +12,7 @@ const root = process.cwd();
 const interBuffer = readFileSync(join(root, "src/app/og/Inter.ttf"));
 
 const NAME = "Jairo Capua";
-const ROLE = "AI Engineer";
+const ROLE = "AI Developer";
 const URL = "jairocapua.github.io";
 const TAGLINE = [
   "Building smart systems, web apps, and AI-powered",

@@ -42,13 +42,13 @@ export const DATA = {
   name: "Jairo Capua",
   initials: "JC",
   username: "jairocapua",
-  role: "AI Engineer",
+  role: "AI Developer",
   badge: "Agora Voice AI Hackathon · 2nd Runner Up",
   url: "https://jairocapua.github.io",
   location: "Batangas, Philippines",
   locationLink: "https://www.google.com/maps",
   description:
-    "AI Engineer. I build smart systems, web apps, and AI-powered workflows that help businesses automate operations, save time, and scale faster",
+    "AI Developer. I build smart systems, web apps, and AI-powered workflows that help businesses automate operations, save time, and scale faster",
   summary:
     "I work at the intersection of software engineering, automation, and AI. My experience includes building **web applications**, integrating **APIs**, designing **CRM workflows**, and creating **automation systems** using tools like **GoHighLevel**, **Zapier**, **Make**, **n8n**, **OpenAI**, and **Claude**. I enjoy turning repetitive business processes into reliable, scalable systems that are simple to use and built to solve real problems",
   avatarUrl: "/jairo-pfp.jpg",
@@ -135,6 +135,19 @@ export const DATA = {
     } satisfies Record<SocialKey, SocialLink>,
   },
   work: [
+    {
+      company: "Aveba LLC",
+      href: "",
+      badges: [],
+      location: "Philippines (Remote)",
+      workSetup: "Remote · Full-time",
+      title: "GoHighLevel & AI Automation Tech Specialist",
+      logoUrl: "/work/aveba.webp",
+      start: "June 2026",
+      end: "Present",
+      description:
+        "Build, maintain, and troubleshoot automation systems across multiple GoHighLevel sub-accounts serving US and Canadian clients — mapping out workflows, triggers, and pipeline logic, then diagnosing and hardening the ones that break in production. Work spans CRM architecture, multi-channel nurture and follow-up sequences, and AI-assisted workflows that connect GHL to external services through webhooks and APIs, replacing manual back-office steps with reliable, monitored automations.",
+    },
     {
       company: "STERK SYSTEMS",
       href: "",

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   keywords: [
     DATA.name,
     DATA.username,
-    "AI Engineer",
+    "AI Developer",
     "AI automation",
     "software engineer",
     "web developer",

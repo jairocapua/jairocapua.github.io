@@ -43,7 +43,7 @@ export const TABS: TabDef[] = [
     slug: "about",
     label: "About",
     title: "About",
-    description: "About Jairo Capua — AI Engineer building smart systems, web apps, and AI-powered workflows.",
+    description: "About Jairo Capua — AI Developer building smart systems, web apps, and AI-powered workflows.",
   },
   {
     key: "experience",
