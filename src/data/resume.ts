@@ -146,7 +146,7 @@ export const DATA = {
       start: "June 2026",
       end: "Present",
       description:
-        "Build, maintain, and troubleshoot automation systems across multiple GoHighLevel sub-accounts serving US and Canadian clients — mapping out workflows, triggers, and pipeline logic, then diagnosing and hardening the ones that break in production. Work spans CRM architecture, multi-channel nurture and follow-up sequences, and AI-assisted workflows that connect GHL to external services through webhooks and APIs, replacing manual back-office steps with reliable, monitored automations.",
+        "Manage technical support tickets across 10+ GoHighLevel sub-accounts for different businesses serving US and Canadian clients — triaging incoming issues, then mapping out workflows, triggers, and pipeline logic to diagnose and harden the automations that break in production. Also build and maintain new systems spanning CRM architecture, multi-channel nurture and follow-up sequences, and AI-assisted workflows that connect GHL to external services through webhooks and APIs, replacing manual back-office steps with reliable, monitored automations.",
     },
     {
       company: "STERK SYSTEMS",
@@ -159,7 +159,7 @@ export const DATA = {
       start: "June 2026",
       end: "Present",
       description:
-        "Design and develop high-converting, responsive websites for local service companies across the Netherlands using Next.js, React, and Tailwind CSS. Implement custom UI/UX optimizations, including targeted hero section layout adjustments and localized service imagery integration, to enhance user engagement. Embed interactive elements such as Google Maps for local SEO and CRM-connected booking forms to streamline client intake and project scheduling.",
+        "Design and develop high-converting, responsive websites for local service companies across the Netherlands using Next.js, React, and Tailwind CSS. Own the visual layer end to end — from hero and section layouts to the imagery itself, generating photorealistic AI visuals (job-site, crew, and product shots) that match each client's trade and region, so sites launch with on-brand photography instead of generic stock. Embed interactive elements such as Google Maps for local SEO and CRM-connected booking forms to streamline client intake and project scheduling, and tune layout, copy placement, and page speed to lift enquiry conversion.",
     },
     {
       company: "The Family Roofing Company",
