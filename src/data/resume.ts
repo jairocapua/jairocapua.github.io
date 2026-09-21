@@ -136,17 +136,30 @@ export const DATA = {
   },
   work: [
     {
-      company: "Aveba LLC",
+      company: "Sequoya AI",
+      href: "",
+      badges: [],
+      location: "Australia (Remote)",
+      workSetup: "Remote · Full-time",
+      title: "Jr. AI Developer",
+      logoUrl: "/work/sequoya-logo.png",
+      start: "September 2026",
+      end: "Present",
+      description:
+        "Build and contribute to AI operating systems and AI-agent solutions designed for business leads and customers — developing, testing, and refining customer-facing AI agents, automation workflows, and AI-powered business systems. Help integrate AI capabilities into business processes to automate tasks, improve lead handling, and support customer operations, working on production AI solutions involving LLMs, APIs, automation, agent workflows, and modern AI development tools.",
+    },
+    {
+      company: "Aveba Digital",
       href: "",
       badges: [],
       location: "Philippines (Remote)",
       workSetup: "Remote · Full-time",
-      title: "GoHighLevel & AI Automation Tech Specialist",
+      title: "GHL AI Tech Specialist",
       logoUrl: "/work/aveba.webp",
-      start: "June 2026",
-      end: "Present",
+      start: "July 2026",
+      end: "October 2026",
       description:
-        "Manage technical support tickets across 10+ GoHighLevel sub-accounts for different businesses serving US and Canadian clients — triaging incoming issues, then mapping out workflows, triggers, and pipeline logic to diagnose and harden the automations that break in production. Also build and maintain new systems spanning CRM architecture, multi-channel nurture and follow-up sequences, and AI-assisted workflows that connect GHL to external services through webhooks and APIs, replacing manual back-office steps with reliable, monitored automations.",
+        "Supported and optimized GoHighLevel CRM systems across multiple client accounts — covering workflows, pipelines, calendars, custom fields, lead routing, notifications, and opportunity lifecycle management. Built, repaired, tested, and QA'd production automations for call dispositions, appointments, lead handoffs, follow-ups, task assignments, and CRM processes, working with AI and external integrations including Retell AI, webhooks, forms, and APIs. Investigated technical issues through root-cause analysis, implemented fixes, tested solutions, and provided technical handoff updates.",
     },
     {
       company: "STERK SYSTEMS",
