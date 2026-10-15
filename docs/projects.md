@@ -1,7 +1,7 @@
 # Projects
 
 Reference list of all projects on the portfolio site. This document is derived
-from the `projects` array in [`src/data/resume.ts`](src/data/resume.ts) — that
+from the `projects` array in [`src/data/resume.ts`](../src/data/resume.ts) — that
 file remains the single source of truth the website renders from. Keep this doc
 in sync when you add or edit projects there.
 
@@ -34,7 +34,7 @@ runs over Agora RTC audio with a live RTM transcript.
 
 **Links:** [Source](https://github.com/jairocapua/Echo)
 
-**Image:** `/project_images/EchoAI_Project_Image.png`
+**Image:** `/projects/echo-ai.png`
 
 ---
 
@@ -67,13 +67,15 @@ storage, and realtime; PostHog powers the dashboard analytics.
 
 **Links:** [Source](https://github.com/jairocapua/JobPilot-AI)
 
-**Image:** `/project_images/JobPilot_Project_Image.png`
+**Image:** `/projects/jobpilot.png`
+
+**Video:** `/projects/jobpilot-demo.mp4` (2:03 demo; clicking the card opens it)
 
 ---
 
 ## Support Ticketing Pipeline — Oct 2026
 
-🔒 Private build · In daily use
+✅ Shipped · In daily use
 
 A Kanban ticket pipeline for GoHighLevel tech support. Tickets move New → In
 Progress → Waiting → Resolved, replies come from templates, and a dashboard shows
@@ -107,11 +109,14 @@ branch deploys to a preview with its own copy of the database.
 
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Neon Postgres + Drizzle ORM · Better Auth · Zustand (optimistic sync engine) · dnd-kit · TanStack Table · Recharts · Tailwind CSS v4 + shadcn/ui · Zod + React Hook Form · Vitest + PGlite · Playwright · Vercel
 
-**Links:** none (private repository; the live app sits behind a single-owner sign-in and holds client data)
+**Links:** [Source](https://github.com/jairocapua/Support-Ticketing-Pipeline) (no live link: the app sits behind a single-owner sign-in and holds client data)
 
-**Image:** `/project_images/SupportTicketing_Project_Image.png` (a local build
+**Image:** `/projects/support-ticketing.png` (a local build
 on the fictional sample board, never production: the real app holds client
 tickets)
+
+**Video:** `/projects/support-ticketing-demo.mp4` (2:10 demo, recorded on the
+same sample board; clicking the card opens it)
 
 ---
 

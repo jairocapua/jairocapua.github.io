@@ -8,7 +8,7 @@ import { Preloader } from "@/components/layout/preloader";
 import { ModeToggle } from "@/components/layout/mode-toggle";
 import { ManilaClock } from "@/components/layout/manila-clock";
 import { StructuredData } from "@/components/seo/structured-data";
-import { Chat } from "@/components/chat";
+import { Chat } from "@/components/layout/chat";
 import { cn } from "@/lib/utils";
 import { DATA } from "@/data/resume";
 

@@ -6,7 +6,7 @@ spelled out.
 
 > **Heads up:** This guide assumes the `worker/` folder (the Worker source code)
 > already exists in this repo. If it doesn't yet, the chatbot hasn't been built —
-> ask Claude to "build the Worker from RAG_CHATBOT_PLAN.md" first, then come back
+> ask Claude to "build the Worker from rag-chatbot-plan.md" first, then come back
 > here to deploy it.
 
 ---

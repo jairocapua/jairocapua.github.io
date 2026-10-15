@@ -31,7 +31,7 @@ refuses these URLs outright). Changing proxy mode, wait time, or retrying will n
 ## Recommended way to get this data (official, complete, ToS-safe)
 
 Use LinkedIn's own export tools — this is exactly what
-[LINKEDIN_EXPORT.md](LINKEDIN_EXPORT.md) already documents:
+[linkedin-export.md](linkedin-export.md) already documents:
 
 - **Method A — Save to PDF (instant):** open your profile → **More** → **Save to PDF**.
 - **Method B — Data archive (complete, structured):** Settings & Privacy → Data Privacy →

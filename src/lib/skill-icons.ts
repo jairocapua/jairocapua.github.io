@@ -73,8 +73,8 @@ export const SKILL_TO_ICON: Record<string, string> = {
 
 // Maps a skill label to a custom image in /public for icons not available in tech-stack-icons.
 export const SKILL_TO_IMAGE: Record<string, string> = {
-  GoHighLevel: "/skills/gohighlevel.png",
-  Base44: "/skills/base44.png",
+  GoHighLevel: "/tech/gohighlevel.png",
+  Base44: "/tech/base44.png",
 };
 
 // Maps an AutomationProject tag (src/data/automation-projects.ts) to its logo

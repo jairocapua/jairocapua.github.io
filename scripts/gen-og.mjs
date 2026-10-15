@@ -9,7 +9,7 @@ import { join } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
 
 const root = process.cwd();
-const interBuffer = readFileSync(join(root, "src/app/og/Inter.ttf"));
+const interBuffer = readFileSync(join(root, "scripts/fonts/Inter.ttf"));
 
 const NAME = "Jairo Capua";
 const ROLE = "AI Developer";

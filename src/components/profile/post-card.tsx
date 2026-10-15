@@ -12,6 +12,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { DATA } from "@/data/resume";
 import { AwardBadge } from "@/components/profile/award-badge";
+import { DemoCard } from "@/components/profile/demo-card";
 import { ProjectDetails } from "@/components/profile/project-details";
 import type { FeedPost, PostCategory } from "@/lib/posts";
 
@@ -113,8 +114,8 @@ export function PostCard({ post }: { post: FeedPost }) {
   const withBox = post.category === "experience" || post.category === "education";
   const isCert = post.category === "certification";
 
-  return (
-    <article className="fb-card overflow-hidden">
+  const body = (
+    <>
       {post.pinned && (
         <div className="flex items-center gap-1.5 px-4 pt-2.5 text-xs font-medium text-fb-text-secondary">
           <Pin className="size-3.5" /> Pinned
@@ -181,25 +182,39 @@ export function PostCard({ post }: { post: FeedPost }) {
 
         {post.details && <ProjectDetails details={post.details} stack={post.stack} />}
       </div>
+    </>
+  );
 
+  // footer links instead of like/comment/share
+  const footer = post.links && post.links.length > 0 && (
+    <div className="flex flex-wrap border-t border-border px-2 py-1">
+      {post.links.map((l) => (
+        <Link
+          key={l.href}
+          href={l.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold text-fb-text-secondary transition-colors hover:bg-fb-hover"
+        >
+          <ArrowUpRight className="size-4" /> {l.label}
+        </Link>
+      ))}
+    </div>
+  );
+
+  if (post.video) {
+    return (
+      <DemoCard post={post} video={post.video} footer={footer}>
+        {body}
+      </DemoCard>
+    );
+  }
+
+  return (
+    <article className="fb-card overflow-hidden">
+      {body}
       {post.image && <PostImage src={post.image} alt={post.title} />}
-
-      {/* footer links instead of like/comment/share */}
-      {post.links && post.links.length > 0 && (
-        <div className="flex flex-wrap border-t border-border px-2 py-1">
-          {post.links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold text-fb-text-secondary transition-colors hover:bg-fb-hover"
-            >
-              <ArrowUpRight className="size-4" /> {l.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      {footer}
     </article>
   );
 }

@@ -122,7 +122,7 @@ it with what's already in `src/data/resume.ts` and removing anything private.
    placeholder projects) so the bot can talk about your actual work.
 3. You review the draft for accuracy and privacy.
 4. We deploy/redeploy the Worker (see
-   [CLOUDFLARE_WORKER_SETUP.md](CLOUDFLARE_WORKER_SETUP.md)) and the bot starts
+   [cloudflare-worker-setup.md](cloudflare-worker-setup.md)) and the bot starts
    answering from your real background.
 
 That's all you need from LinkedIn. 🎯

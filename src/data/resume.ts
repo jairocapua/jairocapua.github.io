@@ -238,7 +238,7 @@ export const DATA = {
       links: [
         { type: "Source", href: "https://github.com/jairocapua/Echo", icon: "github" },
       ],
-      image: "/project_images/EchoAI_Project_Image.png",
+      image: "/projects/echo-ai.png",
       video: "",
     },
     {
@@ -265,15 +265,15 @@ export const DATA = {
       links: [
         { type: "Source", href: "https://github.com/jairocapua/JobPilot-AI", icon: "github" },
       ],
-      image: "/project_images/JobPilot_Project_Image.png",
-      video: "",
+      image: "/projects/jobpilot.png",
+      video: "/projects/jobpilot-demo.mp4",
     },
     {
       title: "Support Ticketing Pipeline",
       category: "ai-web-apps",
       dates: "Oct 2026",
       active: true,
-      status: "🔒 Private build · In daily use",
+      status: "✅ Shipped · In daily use",
       description:
         "A Kanban ticket pipeline for GoHighLevel tech support. Tickets move New → In Progress → Waiting → Resolved, replies come from templates, and a dashboard shows the workload. Every change appears instantly and syncs to Postgres, even through an offline stretch.",
       technologies: ["Next.js 16", "TypeScript", "PostgreSQL", "Drizzle"],
@@ -295,9 +295,12 @@ export const DATA = {
         "Playwright",
         "Vercel",
       ],
+      links: [
+        { type: "Source", href: "https://github.com/jairocapua/Support-Ticketing-Pipeline", icon: "github" },
+      ],
       // Local build on the fictional sample board, never production data.
-      image: "/project_images/SupportTicketing_Project_Image.png",
-      video: "",
+      image: "/projects/support-ticketing.png",
+      video: "/projects/support-ticketing-demo.mp4",
     },
   ] as Project[],
   hackathons: [

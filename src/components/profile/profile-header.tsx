@@ -98,7 +98,7 @@ export function ProfileHeader() {
             <h1 className="flex items-center justify-center gap-1.5 text-[28px] font-bold leading-tight tracking-tight sm:text-[32px] lg:justify-start">
               {DATA.name}
               <Image
-                src="/twitter-verified-badge.svg"
+                src="/verified-badge.svg"
                 alt="Verified"
                 title="Verified"
                 width={24}

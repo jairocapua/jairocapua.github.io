@@ -27,7 +27,7 @@ export function ManilaClock() {
       className="flex h-10 items-center gap-1.5 rounded-full bg-card px-3.5 text-sm font-medium text-fb-text shadow-md ring-1 ring-black/5 dark:ring-white/10"
     >
       <Image
-        src="/flag-for-flag-philippines-svgrepo-com.svg"
+        src="/flag-ph.svg"
         alt="Philippines flag"
         width={20}
         height={20}

@@ -6,7 +6,7 @@
 
 The portfolio (`jairocapua.github.io`) is a **Next.js 14 static export on GitHub Pages**, so it has **zero server runtime**. The goal is to upgrade the existing keyword-matching chat widget into a real AI chatbot that answers questions about Jairo (career, skills, projects) plus brief general tech questions, grounded in a knowledge base built from `resume.ts` + a LinkedIn export. Because a static site can't hold an API key, call an LLM, rate-limit, or enforce guardrails, the chatbot's "brain" must run on a **separate Cloudflare Worker** that the static frontend calls over HTTPS.
 
-The frontend is already 80% ready: `src/components/chat.tsx` is a clean framer-motion floating widget, and `src/lib/chat.ts`'s own comments describe this exact upgrade path. We keep that UI and the existing `getAnswer()` responder as an **offline fallback**, and add an async path to the Worker.
+The frontend is already 80% ready: `src/components/layout/chat.tsx` is a clean framer-motion floating widget, and `src/lib/chat.ts`'s own comments describe this exact upgrade path. We keep that UI and the existing `getAnswer()` responder as an **offline fallback**, and add an async path to the Worker.
 
 ### Confirmed decisions
 - **Backend:** Cloudflare Workers (separate from the GitHub Pages site). New to CF → ship a step-by-step setup guide.
@@ -66,7 +66,7 @@ Reuse `ChatMessage`, `OPEN_CHAT_EVENT`, `openChat`, `SUGGESTED_QUESTIONS`, `getA
 - Add `async function askBot(history: ChatMessage[]): Promise<string>` — if `!CHAT_API_URL` throw a sentinel; else map the last ~6 messages to `{role,content}`, `POST ${CHAT_API_URL}/chat`, return `data.reply` (throw on non-OK).
 - Keep `getAnswer()` as the offline fallback; update its docstring (point at the Worker, not the old Anthropic placeholder).
 
-**Modify** `src/components/chat.tsx`:
+**Modify** `src/components/layout/chat.tsx`:
 - Make `send` async; add `loading` state. Flow: append user bubble → set loading → `await askBot([...messages, userMsg])` → append assistant bubble; on the no-URL sentinel **or** any network/API error, **gracefully fall back to `getAnswer(q)`** so the widget never dead-ends.
 - Add an assistant **typing-dots** `Bubble` while loading (existing `bg-muted` token + `animate-pulse`/framer-motion dots); ensure it triggers the existing auto-scroll.
 - Disable the input, send button, and suggested-question buttons while `loading` (reuse existing `disabled:opacity-40`).
@@ -88,9 +88,9 @@ Reuse `ChatMessage`, `OPEN_CHAT_EVENT`, `openChat`, `SUGGESTED_QUESTIONS`, `getA
 
 ## D. Two Markdown guides (deliverables)
 
-**Create `CLOUDFLARE_WORKER_SETUP.md`** (zero-CF-experience walkthrough): what/why → prerequisites (Node 20, free CF account, OpenAI key + spend limit) → create CF account → install + `npx wrangler login` → project tour → `npx wrangler kv namespace create RATE_LIMIT_KV` (paste id into `wrangler.toml`) → `npx wrangler secret put OPENAI_API_KEY` → local run (`.dev.vars`, `npx wrangler dev`, hit `/health`) → where rate-limit numbers + allowed origins live → `npx wrangler deploy` + copy URL → set GitHub repo variable `CHAT_API_URL` + local `.env.local` → curl + live-site test → cost/safety (OpenAI spend limit) → troubleshooting (CORS, 429, 401, KV id mismatch).
+**Create `cloudflare-worker-setup.md`** (zero-CF-experience walkthrough): what/why → prerequisites (Node 20, free CF account, OpenAI key + spend limit) → create CF account → install + `npx wrangler login` → project tour → `npx wrangler kv namespace create RATE_LIMIT_KV` (paste id into `wrangler.toml`) → `npx wrangler secret put OPENAI_API_KEY` → local run (`.dev.vars`, `npx wrangler dev`, hit `/health`) → where rate-limit numbers + allowed origins live → `npx wrangler deploy` + copy URL → set GitHub repo variable `CHAT_API_URL` + local `.env.local` → curl + live-site test → cost/safety (OpenAI spend limit) → troubleshooting (CORS, 429, 401, KV id mismatch).
 
-**Create `LINKEDIN_EXPORT.md`**: why (richer KB) → request data archive (Settings & Privacy → Data Privacy → *Get a copy of your data* → "The works"; email, up to 24h) → *Save to PDF* from the profile for an instant snapshot → which files matter (`Profile`, `Positions`, `Education`, `Skills`, `Certifications`, `Projects`, `Recommendations_Received`, `Honors_and_Awards` CSVs; ignore connections/messages) → how to hand over (PDF + relevant CSVs; only public-professional info, since the KB ships in the Worker bundle) → next step (curated by hand into `worker/src/knowledge-base.ts`).
+**Create `linkedin-export.md`**: why (richer KB) → request data archive (Settings & Privacy → Data Privacy → *Get a copy of your data* → "The works"; email, up to 24h) → *Save to PDF* from the profile for an instant snapshot → which files matter (`Profile`, `Positions`, `Education`, `Skills`, `Certifications`, `Projects`, `Recommendations_Received`, `Honors_and_Awards` CSVs; ignore connections/messages) → how to hand over (PDF + relevant CSVs; only public-professional info, since the KB ships in the Worker bundle) → next step (curated by hand into `worker/src/knowledge-base.ts`).
 
 ---
 
@@ -123,11 +123,11 @@ Reuse `ChatMessage`, `OPEN_CHAT_EVENT`, `openChat`, `SUGGESTED_QUESTIONS`, `getA
 **Create (Worker + guides):**
 - `worker/src/index.ts`, `worker/src/knowledge-base.ts`, `worker/src/system-prompt.ts`, `worker/src/rate-limit.ts`, `worker/src/cors.ts`, `worker/src/openai.ts`
 - `worker/wrangler.toml`, `worker/package.json`, `worker/tsconfig.json`, `worker/.dev.vars`
-- `CLOUDFLARE_WORKER_SETUP.md`, `LINKEDIN_EXPORT.md`
+- `cloudflare-worker-setup.md`, `linkedin-export.md`
 
 **Modify (site):**
 - `src/lib/chat.ts` — add `CHAT_API_URL` + `askBot()`; keep `getAnswer` as fallback.
-- `src/components/chat.tsx` — async `send`, loading/typing state, graceful fallback.
+- `src/components/layout/chat.tsx` — async `send`, loading/typing state, graceful fallback.
 - `.github/workflows/deploy.yml` — add `NEXT_PUBLIC_CHAT_API_URL: ${{ vars.CHAT_API_URL }}` to the Build step.
 - `tsconfig.json` — add `"worker"` to `exclude`.
 - `.gitignore` — add `worker/node_modules`, `worker/.dev.vars`, `worker/.wrangler`; confirm `.env.local`.

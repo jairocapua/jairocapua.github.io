@@ -42,6 +42,8 @@ export interface FeedPost {
   stack?: readonly string[];
   logoUrl?: string;
   image?: string;
+  /** Demo video; when set, the card opens an expanded view that plays it. */
+  video?: string;
   links?: readonly PostLink[];
 }
 
@@ -59,6 +61,7 @@ export function projectToPost(p: Project, i: number): FeedPost {
     tags: p.technologies,
     stack: p.stack,
     image: p.image || undefined,
+    video: p.video || undefined,
     links: p.links?.map((l) => ({ label: l.type, href: l.href })),
   };
 }

@@ -23,19 +23,29 @@ npm run lint     # ESLint (next/core-web-vitals)
 
 ```
 src/
-  app/                 # App Router entry (layout, page, globals.css, fonts)
+  app/                 # App Router entry (layout, routes, globals.css, fonts)
   components/
-    layout/            # app chrome: footer, mode-toggle, theme-provider
+    layout/            # app chrome mounted by the root layout: footer, clock,
+                       # mode-toggle, preloader, theme-provider, chat widget
     profile/           # the Facebook-profile feature (header, feed, sidebar, …)
     seo/               # structured-data (JSON-LD)
     ui/                # shared primitives (avatar)
-    chat.tsx           # floating AI-style chat widget (parked — see docs/)
-  data/resume.ts       # SINGLE SOURCE OF TRUTH for all content
-  lib/                 # posts model, chat responder, skill→icon maps, utils
-public/                # static assets (cover, avatar, tech/*.svg, logos)
+  data/
+    resume.ts          # SINGLE SOURCE OF TRUTH for all content
+    automation-projects.ts  # automation case studies (SCAR format)
+  lib/                 # posts model, chat responder, tabs/categories, icon maps
+public/
+  projects/            # project screenshots + demo videos
+  tech/                # tech/tool logos (generated SVGs + a few sourced logos)
+  work/ education/ hackathons/   # logos and photos for those sections
+  *.jpg *.png *.svg    # cover, avatar, app icon, flag, verified badge
 scripts/               # one-off tooling (tech-icon + OG-image generators)
-docs/                  # planning/reference notes for the planned RAG chatbot
+  fonts/               # Inter, embedded by gen-og.mjs
+docs/                  # reference docs (project lists) + RAG chatbot plans
 ```
+
+Files in `public/` use kebab-case names and live in the folder for the section
+that shows them.
 
 ## Editing content
 
@@ -63,6 +73,9 @@ package, so the script does not generate them — they were downloaded once into
 case-study cards map their tool tags to these logos via `AUTOMATION_TOOL_TO_ICON`
 in [`src/lib/skill-icons.ts`](src/lib/skill-icons.ts); to give another tag an
 icon, drop an SVG into `public/tech/` and add a mapping entry there.
+
+Two logos have no SVG at all and ship as PNGs in the same folder:
+`gohighlevel.png` and `base44.png`, mapped by `SKILL_TO_IMAGE` in the same file.
 
 ## Deployment
 

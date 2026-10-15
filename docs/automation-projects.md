@@ -4,7 +4,7 @@ A structured reference of automation case studies, presented in **SCAR format** 
 
 **Jairo Capua** — GoHighLevel Specialist & AI Automation Architect · [jairocapua.com](https://jairocapua.com/)
 
-> Source of truth: `automationProjects` in [src/data/automation-projects.ts](src/data/automation-projects.ts). Update the source, then regenerate this file.
+> Source of truth: `automationProjects` in [src/data/automation-projects.ts](../src/data/automation-projects.ts). Update the source, then regenerate this file.
 
 ---
 

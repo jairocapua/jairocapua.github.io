@@ -4,7 +4,7 @@
 // through buildPosts(), so they never flood the home "All" feed. They render
 // only on the /projects/ai-automation/ category page via <AutomationCard>.
 //
-// Source of truth for automation-projects.md (regenerate that doc from here).
+// Source of truth for docs/automation-projects.md (regenerate that doc from here).
 
 export interface AutomationProject {
   title: string;
