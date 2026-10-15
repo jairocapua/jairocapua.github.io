@@ -71,6 +71,50 @@ storage, and realtime; PostHog powers the dashboard analytics.
 
 ---
 
+## Support Ticketing Pipeline — Oct 2026
+
+🔒 Private build · In daily use
+
+A Kanban ticket pipeline for GoHighLevel tech support. Tickets move New → In
+Progress → Waiting → Resolved, replies come from templates, and a dashboard shows
+the workload. Every change appears instantly and syncs to Postgres, even through an
+offline stretch.
+
+**Tech:** Next.js 16, TypeScript, PostgreSQL, Drizzle
+
+A full-stack support desk I use every day to handle GoHighLevel issues for an
+agency's clients. Each agency gets its own board: a drag-and-drop Kanban whose
+cards show the client sub-account, priority, GHL area, due date and age, plus a
+sortable table view of the same tickets. A ticket page holds editable properties,
+a one-click jump into the client's GHL sub-account, and a timeline of internal
+notes and replies. Reply templates fill in placeholders like `{{business_name}}`
+from the ticket. The dashboard tracks open, waiting and overdue counts, time to
+resolve, opened vs. resolved per week, and breakdowns by priority, area and
+client. N creates a ticket and Ctrl/⌘ K jumps anywhere.
+
+It began as a browser-only app (Zustand + IndexedDB) and was rebuilt in nine
+planned phases into a hosted app on Neon Postgres, Drizzle, Better Auth and
+Vercel, without losing its instant feel. Every business rule is written once as a
+pure command. The browser runs it for the optimistic view, and the server runs the
+same code inside a locked Postgres transaction for the truth; a parity test proves
+the two produce identical data. A sync engine queues changes with retry and
+backoff, keeps working offline, and warns before a tab with unsaved work is
+closed. The tickets hold sensitive client details, so the app has a single owner
+account, logs that record what happened but never the content, and nightly
+encrypted backups with export, import and restore. Vitest (PGlite in-process plus
+real-Postgres concurrency tests) and Playwright E2E gate every push, and each
+branch deploys to a preview with its own copy of the database.
+
+**Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Neon Postgres + Drizzle ORM · Better Auth · Zustand (optimistic sync engine) · dnd-kit · TanStack Table · Recharts · Tailwind CSS v4 + shadcn/ui · Zod + React Hook Form · Vitest + PGlite · Playwright · Vercel
+
+**Links:** none (private repository; the live app sits behind a single-owner sign-in and holds client data)
+
+**Image:** `/project_images/SupportTicketing_Project_Image.png` (a local build
+on the fictional sample board, never production: the real app holds client
+tickets)
+
+---
+
 > **Note:** The four entries below are placeholder/template projects that ship with
 > the site. Replace them with real work in `src/data/resume.ts`.
 
