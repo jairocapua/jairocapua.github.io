@@ -1,103 +1,110 @@
-import { Github, Linkedin, Mail, Twitter, Youtube, type LucideIcon } from "lucide-react";
-import type { CodeProjectCategory } from "@/lib/project-categories";
+import type { ComponentType } from "react";
+import { HomeIcon } from "lucide-react";
+import { Icons } from "@/components/icons";
+
+type IconComponent = ComponentType<{ className?: string }>;
 
 export type SocialKey = "GitHub" | "LinkedIn" | "X" | "YouTube" | "Email";
 
 export interface SocialLink {
   name: string;
   url: string;
-  icon: LucideIcon;
+  icon: IconComponent;
+  /** Show this link in the bottom dock. */
   navbar: boolean;
 }
 
 export interface ProjectLink {
   type: string;
   href: string;
-  icon: string;
+  /** Key into `Icons` (src/components/icons.tsx), e.g. "github". */
+  icon: "github" | "globe" | "play";
 }
+
+export type ProjectCategory = "ai-web-apps" | "ai-agents" | "ai-projects";
 
 export interface Project {
   title: string;
+  /** Live site. The card falls back to the first link (the source) without one. */
   href?: string;
   dates: string;
   active: boolean;
-  /** Which /projects sub-page this project appears under. */
-  category: CodeProjectCategory;
-  /** Optional custom status line shown at the top of the card (overrides the default lead). */
+  /** Grouping used in llms-full.txt. */
+  category: ProjectCategory;
+  /** Short status line (llms-full.txt only; the card doesn't show it). */
   status?: string;
   /** Short pitch shown on the card. */
   description: string;
-  /** Up to ~3 tags shown on the card. */
+  /** Tags shown on the card. */
   technologies: readonly string[];
-  /** Longer write-up revealed under "Show more". Paragraphs separated by a blank line. */
+  /** Longer write-up for llms-full.txt. Paragraphs separated by a blank line. */
   detailedDescription?: string;
-  /** Full technology list revealed under "Show more". */
+  /** Full technology list for llms-full.txt. */
   stack?: readonly string[];
   links?: ProjectLink[];
+  /** Card image; also the poster frame while a video loads. */
   image: string;
+  /** Short muted loop that autoplays on the card (keep it small). */
   video: string;
 }
+
+// The skills shown on the site, by group (DATA.skills is derived from this).
+// Logos come from src/lib/skill-icons.ts; a skill without one shows as text.
+const SKILL_GROUPS = [
+  {
+    category: "AI / ML & Agents",
+    skills: ["OpenAI", "Claude", "Anthropic", "Gemini", "LangChain", "LlamaIndex", "Hugging Face", "Ollama", "Retell AI", "Vapi", "Agora", "Browserbase", "Stagehand"],
+  },
+  {
+    category: "Automation",
+    skills: ["GoHighLevel", "n8n", "Zapier", "Make.com", "Airtable", "Slack", "Google Workspace"],
+  },
+  {
+    category: "Frontend",
+    skills: ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Zustand", "React Hook Form", "Zod", "TanStack Table", "Vite", "HTML5", "CSS3", "Figma"],
+  },
+  {
+    category: "Languages",
+    skills: ["TypeScript", "JavaScript", "Python", "Bash"],
+  },
+  {
+    category: "Backend",
+    skills: ["Node.js", "Express", "PHP", "Better Auth"],
+  },
+  {
+    category: "Databases",
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Neon", "Drizzle", "Supabase", "Firebase", "SQLite", "InsForge", "Couchbase"],
+  },
+  {
+    category: "Cloud & Infra",
+    skills: ["Vercel", "Railway", "Docker", "AWS", "Google Cloud Platform", "CloudFlare", "Netlify", "Nginx", "Digital Ocean"],
+  },
+  {
+    category: "Dev Tools",
+    skills: ["Git", "GitHub", "Cursor", "VS Code", "Vitest", "Jest", "Playwright", "Postman", "ESLint", "pnpm", "PostHog", "Replit", "Base44"],
+  },
+] as const;
 
 export const DATA = {
   name: "Jairo Capua",
   initials: "JC",
   username: "jairocapua",
-  role: "AI Developer",
+  role: "AI Software Engineer",
   badge: "Agora Voice AI Hackathon · 2nd Runner Up",
   url: "https://jairocapua.github.io",
   location: "Batangas, Philippines",
   locationLink: "https://www.google.com/maps",
   description:
-    "AI Developer. I build smart systems, web apps, and AI-powered workflows that help businesses automate operations, save time, and scale faster",
+    "AI Software Engineer. I build smart systems, web apps, and AI-powered workflows that help businesses automate operations, save time, and scale faster",
   summary:
-    "I work at the intersection of software engineering, automation, and AI. My experience includes building **web applications**, integrating **APIs**, designing **CRM workflows**, and creating **automation systems** using tools like **GoHighLevel**, **Zapier**, **Make**, **n8n**, **OpenAI**, and **Claude**. I enjoy turning repetitive business processes into reliable, scalable systems that are simple to use and built to solve real problems",
+    "I work at the intersection of software engineering, automation, and AI. My experience includes building **web applications**, integrating **APIs**, designing **CRM workflows**, and creating **automation systems** using tools like **GoHighLevel**, **Zapier**, **Make.com**, **n8n**, **OpenAI Codex**, and **Claude Code**. I enjoy turning repetitive business processes into reliable, scalable systems that are simple to use and built to solve real problems",
   avatarUrl: "/jairo-pfp.jpg",
-  skills: [
-    "React", "Next.js", "TypeScript", "JavaScript", "Node.js", "Python",
-    "Tailwind CSS", "Express", "CloudFlare", "Firebase", "Google Cloud Platform",
-    "PostgreSQL", "MongoDB", "Docker", "Git", "Figma", "Supabase", "Postman",
-    "AWS", "OpenAI", "Claude", "Vercel", "GoHighLevel", "n8n", "Zapier", "Make.com",
-    "HTML5", "CSS3", "shadcn/ui", "Framer Motion", "Bash",
-    "PHP", "SQLite", "Netlify", "Railway", "Nginx",
-    "Digital Ocean", "Anthropic", "LangChain", "Hugging Face", "Ollama",
-    "Gemini", "LlamaIndex", "Airtable", "GitHub", "Jest",
-    "Playwright", "ESLint", "pnpm", "Cursor", "VS Code", "Replit", "Base44",
-  ],
-  skillGroups: [
-    {
-      category: "Frontend",
-      skills: ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Framer Motion", "HTML5", "CSS3", "Figma"],
-    },
-    {
-      category: "Languages",
-      skills: ["TypeScript", "JavaScript", "Python", "Bash"],
-    },
-    {
-      category: "Backend",
-      skills: ["Node.js", "Express", "PHP"],
-    },
-    {
-      category: "Databases",
-      skills: ["PostgreSQL", "MongoDB", "Supabase", "Firebase", "SQLite"],
-    },
-    {
-      category: "Cloud & Infra",
-      skills: ["AWS", "Google Cloud Platform", "CloudFlare", "Vercel", "Docker", "Netlify", "Railway", "Nginx", "Digital Ocean"],
-    },
-    {
-      category: "AI / ML",
-      skills: ["OpenAI", "Claude", "Anthropic", "LangChain", "Hugging Face", "Ollama", "Gemini", "LlamaIndex"],
-    },
-    {
-      category: "Automation",
-      skills: ["GoHighLevel", "n8n", "Zapier", "Make.com", "Airtable"],
-    },
-    {
-      category: "Dev Tools",
-      skills: ["Git", "GitHub", "Postman", "Jest", "Playwright", "ESLint", "pnpm", "Cursor", "VS Code", "Replit", "Base44"],
-    },
-  ],
-  navbar: [{ href: "/", icon: "home", label: "Home" }],
+  /** CV PDF, linked from the icon next to the name. Replace the file to update it. */
+  resumeUrl: "/jairo-capua-cv.pdf",
+  // Flat list for JSON-LD (knowsAbout); derived so it can't drift from the groups.
+  skills: SKILL_GROUPS.flatMap((group) => group.skills),
+  skillGroups: SKILL_GROUPS,
+  navbar: [{ href: "/", icon: HomeIcon, label: "Home" }],
   contact: {
     email: "jairocapua.dev@gmail.com",
     tel: "",
@@ -105,32 +112,32 @@ export const DATA = {
       GitHub: {
         name: "GitHub",
         url: "https://github.com/jairocapua",
-        icon: Github,
+        icon: Icons.github,
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/jairocapua",
-        icon: Linkedin,
+        icon: Icons.linkedin,
         navbar: true,
       },
       X: {
         name: "X",
         url: "https://x.com",
-        icon: Twitter,
+        icon: Icons.x,
         navbar: false,
       },
       YouTube: {
         name: "YouTube",
         url: "https://youtube.com/@your-handle",
-        icon: Youtube,
+        icon: Icons.youtube,
         navbar: false,
       },
       Email: {
         name: "Email",
         url: "mailto:jairocapua.dev@gmail.com",
-        icon: Mail,
-        navbar: false,
+        icon: Icons.email,
+        navbar: true,
       },
     } satisfies Record<SocialKey, SocialLink>,
   },
@@ -141,7 +148,7 @@ export const DATA = {
       badges: [],
       location: "Australia (Remote)",
       workSetup: "Remote · Full-time",
-      title: "Jr. AI Developer",
+      title: "AI Developer",
       logoUrl: "/work/sequoya-logo.png",
       start: "September 2026",
       end: "Present",
@@ -264,9 +271,11 @@ export const DATA = {
       ],
       links: [
         { type: "Source", href: "https://github.com/jairocapua/JobPilot-AI", icon: "github" },
+        { type: "Demo", href: "/projects/jobpilot-demo.mp4", icon: "play" },
       ],
       image: "/projects/jobpilot.png",
-      video: "/projects/jobpilot-demo.mp4",
+      // 16 s silent cut of jobpilot-demo.mp4 (0:26–0:42), made with ffmpeg.
+      video: "/projects/jobpilot-preview.mp4",
     },
     {
       title: "Support Ticketing Pipeline",
@@ -297,10 +306,12 @@ export const DATA = {
       ],
       links: [
         { type: "Source", href: "https://github.com/jairocapua/Support-Ticketing-Pipeline", icon: "github" },
+        { type: "Demo", href: "/projects/support-ticketing-demo.mp4", icon: "play" },
       ],
       // Local build on the fictional sample board, never production data.
       image: "/projects/support-ticketing.png",
-      video: "/projects/support-ticketing-demo.mp4",
+      // 16 s silent cut of support-ticketing-demo.mp4 (0:19–0:35), made with ffmpeg.
+      video: "/projects/support-ticketing-preview.mp4",
     },
   ] as Project[],
   hackathons: [
@@ -323,35 +334,26 @@ export const DATA = {
       links: [] as { title: string; href: string; icon: string }[],
     },
   ],
+  // `date` and `href` are optional: a blank date is hidden, and an href (the
+  // credential URL) turns the row into a link.
   certifications: [
-    // TODO: replace these placeholders with your real certifications
     {
-      title: "Generative AI Leader",
-      issuer: "Google Cloud",
-      date: "2025",
+      title: "Full Stack Software Engineer",
+      issuer: "Meta via Coursera",
+      date: "",
       href: "",
+      logoUrl: "/tech/coursera.svg",
     },
     {
-      title: "Claude Developer",
-      issuer: "Anthropic",
-      date: "2025",
+      title: "AI Engineer",
+      issuer: "Scrimba",
+      date: "",
       href: "",
-    },
-    {
-      title: "Meta Front-End Developer",
-      issuer: "Coursera",
-      date: "2024",
-      href: "",
-    },
-    {
-      title: "AWS Certified Cloud Practitioner",
-      issuer: "Amazon Web Services",
-      date: "2024",
-      href: "",
+      logoUrl: "/tech/scrimba.png",
     },
   ],
   // Add real, named LinkedIn recommendations here (quote + recommender's real
-  // name + title). The "Recommendations" section is hidden while this is empty.
+  // name + title). Not shown on the site yet; llms-full.txt includes them.
   testimonials: [] as { quote: string; name: string; title: string }[],
 } as const;
 

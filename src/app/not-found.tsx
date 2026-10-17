@@ -1,19 +1,36 @@
 import Link from "next/link";
+import { Home } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
-    <main className="mx-auto flex max-w-[1100px] flex-col items-center px-4 py-24 text-center">
-      <p className="text-5xl font-bold tracking-tight">404</p>
-      <h1 className="mt-3 text-xl font-bold tracking-tight">Page not found</h1>
-      <p className="mt-2 text-[15px] text-fb-text-secondary">
-        That page doesn&apos;t exist.
-      </p>
-      <Link
-        href="/"
-        className="mt-5 inline-block rounded-md bg-fb-blue px-4 py-2 text-[15px] font-semibold text-white hover:opacity-90"
-      >
-        Back to profile
-      </Link>
-    </main>
+    <div className="min-h-[calc(100vh-12rem)] flex flex-col">
+      <div className="flex-1 flex items-center justify-center p-8">
+        <div className="flex flex-col items-center text-center max-w-md relative">
+          <p
+            aria-hidden
+            className="text-[200px] font-semibold font-mono bg-linear-to-b from-primary/30 to-secondary/10 text-transparent bg-clip-text absolute -top-40 left-1/2 -translate-x-1/2 mask-[linear-gradient(to_bottom,black,black_20%,transparent_80%)] tracking-tighter uppercase"
+          >
+            404
+          </p>
+          <h1 className="text-4xl tracking-tight font-semibold text-foreground mb-2">
+            Page Not Found
+          </h1>
+          <p className="text-muted-foreground mb-8 text-balance tracking-tight font-medium">
+            The page you&apos;re looking for doesn&apos;t exist or may have been
+            moved.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button asChild variant="outline" className="gap-2 cursor-pointer">
+              <Link href="/">
+                <Home className="h-4 w-4" />
+                Go to Home
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

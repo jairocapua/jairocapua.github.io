@@ -1,27 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
+import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import { Footer } from "@/components/layout/footer";
-import { ThemeProvider } from "@/components/layout/theme-provider";
-import { Preloader } from "@/components/layout/preloader";
-import { ModeToggle } from "@/components/layout/mode-toggle";
-import { ManilaClock } from "@/components/layout/manila-clock";
-import { StructuredData } from "@/components/seo/structured-data";
-import { Chat } from "@/components/layout/chat";
-import { cn } from "@/lib/utils";
+import { ClaudePet } from "@/components/claude-pet";
+import { CustomCursor } from "@/components/custom-cursor";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import Navbar from "@/components/navbar";
+import { StructuredData } from "@/components/structured-data";
+import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
-
-const fontSans = localFont({
-  src: [
-    { path: "./fonts/OpenRunde-Regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/OpenRunde-Medium.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/OpenRunde-Semibold.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/OpenRunde-Bold.woff2", weight: "700", style: "normal" },
-  ],
-  variable: "--font-sans",
-  display: "swap",
-});
+import { cn } from "@/lib/utils";
 
 const TITLE = `${DATA.name} — ${DATA.role}`;
 
@@ -36,7 +25,8 @@ export const metadata: Metadata = {
   keywords: [
     DATA.name,
     DATA.username,
-    "AI Developer",
+    "AI Software Engineer",
+    "AI Engineer",
     "AI automation",
     "software engineer",
     "web developer",
@@ -93,45 +83,45 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#18191a" },
+    { media: "(prefers-color-scheme: dark)", color: "#121212" },
   ],
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(GeistSans.variable, GeistMono.variable)}
+    >
       <head>
         <StructuredData />
       </head>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
-          GeistMono.variable
-        )}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Preloader />
-          <div className="fixed right-4 top-4 z-50 flex items-center gap-2">
-            <ManilaClock />
-            <ModeToggle />
-          </div>
-          {children}
-          <Footer />
-          {/* Local résumé-grounded assistant (client-side getAnswer responder).
-              The header "Message" button and composer dispatch OPEN_CHAT_EVENT,
-              which this widget listens for. To upgrade to a real LLM backend,
-              see the UPGRADE PATH note in src/lib/chat.ts. */}
-          <Chat />
+      <body className="min-h-screen bg-background font-sans antialiased relative">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <TooltipProvider delayDuration={0}>
+            <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">
+              <FlickeringGrid
+                className="h-full w-full"
+                squareSize={2}
+                gridGap={2}
+                style={{
+                  maskImage: "linear-gradient(to bottom, black, transparent)",
+                  WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+                }}
+              />
+            </div>
+            <div className="relative z-10 max-w-2xl mx-auto py-12 pb-24 sm:py-24 px-6">
+              {children}
+            </div>
+            <ClaudePet />
+            <Navbar />
+            <CustomCursor />
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

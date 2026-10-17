@@ -3,7 +3,8 @@
 // `tech-stack-icons` dependency (it bundles all 690+ icons into one module)
 // and ship only the ~50 logos this site references.
 //
-// Run with:  node scripts/extract-tech-icons.mjs
+// Run with:  node scripts/extract-tech-icons.mjs            (all SLUGS)
+//            node scripts/extract-tech-icons.mjs zod vitest  (only these)
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import StackIcon from "tech-stack-icons";
@@ -20,6 +21,7 @@ const SLUGS = [
   "openai", "claude", "anthropic", "langchain", "huggingface", "ollama", "gemini", "llamaindex",
   "n8n", "zapier", "make", "airtable", "nodered", "slack", "trello", "asana",
   "git", "github", "postman", "jest", "playwright", "eslint", "pnpm", "cursor", "vscode", "replit",
+  "vitejs", "vitest", "neon", "posthog", "google", "mysql",
 ];
 
 const OUT_DIR = join(process.cwd(), "public", "tech");
@@ -28,7 +30,8 @@ mkdirSync(OUT_DIR, { recursive: true });
 const written = [];
 const missing = [];
 
-for (const name of SLUGS) {
+const only = process.argv.slice(2);
+for (const name of only.length ? only : SLUGS) {
   let html;
   try {
     html = renderToStaticMarkup(React.createElement(StackIcon, { name }));

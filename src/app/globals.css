@@ -1,126 +1,237 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
-@layer base {
-  :root {
-    /* Facebook-inspired light theme: #f0f2f5 page, white cards, #1877f2 blue */
-    --background: 216 20% 95%; /* #f0f2f5 page */
-    --foreground: 0 0% 2%; /* #050505 near-black text */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 2%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 2%;
-    --primary: 214 89% 47%; /* #0f68d6 — darkened from #1877f2 to clear WCAG AA 4.5:1 */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 223 15% 91%; /* #e4e6eb gray button */
-    --secondary-foreground: 0 0% 2%;
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 4% 41%; /* #65676b secondary text */
-    --accent: 220 14% 96%;
-    --accent-foreground: 0 0% 2%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 220 13% 87%; /* hairline */
-    --input: 220 13% 87%;
-    --ring: 214 89% 47%;
-    --radius: 0.5rem;
+@custom-variant dark (&:where(.dark, .dark *));
 
-    /* Facebook palette — light. Consumed by the `fb-*` Tailwind colors so
-       every surface flips automatically when `.dark` is applied. */
-    --fb-blue: 214 89% 47%; /* #0f68d6 — AA-compliant (≥4.5:1 on white and as white-on-blue) */
-    --fb-blue-hover: 214 84% 43%; /* #115fc4 */
-    --fb-blue-light: 210 100% 95%; /* #e7f3ff */
-    --fb-blue-light-hover: 214 95% 93%; /* #dbeafe */
-    --fb-page: 216 20% 95%; /* #f0f2f5 */
-    --fb-card: 0 0% 100%; /* #ffffff */
-    --fb-hover: 0 0% 95%; /* #f2f2f2 */
-    --fb-gray: 223 15% 91%; /* #e4e6eb */
-    --fb-gray-hover: 223 10% 86%; /* #d8dadf */
-    --fb-divider: 220 7% 82%; /* #ced0d4 */
-    --fb-text: 0 0% 2%; /* #050505 */
-    --fb-text-secondary: 220 3% 41%; /* #65676b */
-    --fb-green: 110 63% 44%; /* #42b72a */
-  }
+@theme inline {
+  /* Geist is self-hosted by the `geist` package; layout.tsx puts its
+     --font-geist-* variables on <html>. */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
 
-  .dark {
-    /* Facebook-style dark theme: #18191a page, #242526 cards */
-    --background: 210 4% 10%; /* #18191a page */
-    --foreground: 223 15% 91%; /* #e4e6eb text */
-    --card: 210 3% 15%; /* #242526 */
-    --card-foreground: 223 15% 91%;
-    --popover: 210 3% 15%;
-    --popover-foreground: 223 15% 91%;
-    --primary: 214 100% 59%; /* #2d88ff brighter blue for dark */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 2% 23%; /* #3a3b3c */
-    --secondary-foreground: 223 15% 91%;
-    --muted: 210 3% 18%;
-    --muted-foreground: 218 5% 71%; /* #b0b3b8 */
-    --accent: 210 2% 23%;
-    --accent-foreground: 223 15% 91%;
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 210 3% 25%; /* #3e4042 */
-    --input: 210 3% 25%;
-    --ring: 214 100% 59%;
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+}
 
-    /* Facebook palette — dark */
-    --fb-blue: 214 100% 59%; /* #2d88ff */
-    --fb-blue-hover: 214 100% 64%; /* #4596ff */
-    --fb-blue-light: 213 36% 23%; /* #263951 */
-    --fb-blue-light-hover: 214 38% 29%; /* #2e4666 */
-    --fb-page: 210 4% 10%; /* #18191a */
-    --fb-card: 210 3% 15%; /* #242526 */
-    --fb-hover: 210 2% 23%; /* #3a3b3c */
-    --fb-gray: 210 2% 23%; /* #3a3b3c */
-    --fb-gray-hover: 210 1% 31%; /* #4e4f50 */
-    --fb-divider: 210 3% 25%; /* #3e4042 */
-    --fb-text: 223 15% 91%; /* #e4e6eb */
-    --fb-text-secondary: 218 5% 71%; /* #b0b3b8 */
-    --fb-green: 135 48% 51%; /* #45bd62 */
-  }
+.dark {
+  --background: oklch(0.18 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
   }
-  html {
-    scroll-behavior: smooth;
+
+  .prose a {
+    @apply text-primary underline underline-offset-4;
   }
-  ::selection {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
+
+  /* custom-cursor.tsx draws the pointer while a mouse or trackpad is in use. */
+  html.custom-cursor,
+  html.custom-cursor * {
+    cursor: none !important;
   }
 }
 
 @layer components {
-  /* Facebook-style white surface: rounded, faint shadow + hairline */
-  .fb-card {
-    @apply rounded-lg bg-card text-card-foreground shadow-[0_1px_2px_rgba(0,0,0,0.1)] ring-1 ring-black/5 dark:shadow-[0_1px_2px_rgba(0,0,0,0.4)] dark:ring-white/10;
+  /* A light band sweeping across text (the intro's name), then a pause. */
+  .shimmer {
+    background-image: linear-gradient(
+      110deg,
+      var(--foreground) 40%,
+      color-mix(in oklab, var(--foreground) 35%, var(--background)) 50%,
+      var(--foreground) 60%
+    );
+    background-size: 250% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3.5s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shimmer {
+      animation: none;
+      background-image: none;
+      -webkit-text-fill-color: currentColor;
+    }
+  }
+
+  /* Zigzag rule: the element's background shows through a repeating mask. */
+  .zigzag-divider {
+    --zigzag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='8' viewBox='0 0 22 8'%3E%3Cpath d='M0 7 11 1 22 7' fill='none' stroke='black' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E");
+    -webkit-mask: var(--zigzag) repeat-x center / 22px 8px;
+    mask: var(--zigzag) repeat-x center / 22px 8px;
+  }
+
+  /* Click burst (custom-cursor.tsx): a ring and sparks thrown out from the
+     click point. White because the layer above it is mix-blend-difference. */
+  .click-burst {
+    position: absolute;
+  }
+
+  .click-burst-ring {
+    position: absolute;
+    left: -14px;
+    top: -14px;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid white;
+    border-radius: 9999px;
+    animation: click-ring 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  }
+
+  .click-burst-spark {
+    position: absolute;
+    left: -1px;
+    top: -4px;
+    width: 2px;
+    height: 8px;
+    border-radius: 9999px;
+    background: white;
+    animation: click-spark 0.45s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  }
+
+  /* Clawd (claude-pet.tsx). Lengths are sprite units: the svg scales them.
+     Walking lifts the two leg pairs in turn; poking raises the arms. */
+  .clawd[data-walking="true"] .clawd-leg-a,
+  .clawd[data-walking="true"] .clawd-leg-b {
+    animation: clawd-step 0.3s steps(1) infinite;
+  }
+
+  .clawd[data-walking="true"] .clawd-leg-b {
+    animation-delay: -0.15s;
+  }
+
+  .clawd-arm {
+    transition: transform 0.12s steps(1);
+  }
+
+  .clawd[data-excited="true"] .clawd-arm {
+    transform: translateY(-2px);
+  }
+
+  .clawd-eye {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: clawd-blink 4.5s infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .clawd * {
+      animation: none !important;
+    }
   }
 }
 
-@layer utilities {
-  .prose-sm p {
-    @apply my-2 leading-relaxed;
+@keyframes clawd-step {
+  50% {
+    transform: translateY(-1px);
   }
-  .prose-sm a {
-    @apply underline underline-offset-2;
+}
+
+@keyframes clawd-blink {
+  0%,
+  94%,
+  100% {
+    transform: scaleY(1);
   }
-  /* hide scrollbar on the horizontal tab strip */
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  96% {
+    transform: scaleY(0.15);
   }
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
+}
+
+@keyframes click-ring {
+  from {
+    transform: scale(0.3);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes click-spark {
+  from {
+    transform: rotate(var(--angle)) translateY(-10px) scaleY(1);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(var(--angle)) translateY(-28px) scaleY(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  70%,
+  100% {
+    background-position: 0 0;
   }
 }

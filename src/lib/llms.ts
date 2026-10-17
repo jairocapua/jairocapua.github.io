@@ -1,48 +1,53 @@
 // Markdown builders for /llms.txt and /llms-full.txt (llmstxt.org convention).
 //
 // Server-only: generated at build time from the same data that drives the UI
-// (resume.ts, automation-projects.ts, tabs.ts, project-categories.ts), so the
-// text stays in sync with the site automatically. llms.txt is a short index
-// for AI assistants; llms-full.txt serializes every piece of site content so
-// a single fetch — no crawling, no JavaScript — yields the whole portfolio.
+// (resume.ts, automation-projects.ts), so the text stays in sync with the
+// site automatically. llms.txt is a short index for AI assistants;
+// llms-full.txt serializes every piece of site content so a single fetch —
+// no crawling, no JavaScript — yields the whole portfolio.
 
 import { DATA } from "@/data/resume";
 import { automationProjects } from "@/data/automation-projects";
-import { TABS } from "@/lib/tabs";
-import { PROJECT_CATEGORIES } from "@/lib/project-categories";
 
 /** Strip the light markdown (bold markers) used in UI copy like DATA.summary. */
 function plain(text: string): string {
   return text.replace(/\*\*/g, "");
 }
 
-function pageList(): string {
-  const lines: string[] = [];
-  for (const tab of TABS) {
-    const path = tab.slug === "post" ? "/" : `/${tab.slug}/`;
-    const label = tab.slug === "post" ? "Home" : tab.label;
-    lines.push(`- [${label}](${DATA.url}${path}): ${tab.description}`);
-  }
-  for (const cat of PROJECT_CATEGORIES) {
-    lines.push(
-      `- [Projects · ${cat.label}](${DATA.url}/projects/${cat.slug}/): ${cat.description}`
-    );
-  }
-  return lines.join("\n");
+/** The sections of the single-page site, by their anchor ids in page.tsx. */
+const SECTIONS: { id: string; label: string; description: string }[] = [
+  { id: "about", label: "About", description: "Background and current focus." },
+  { id: "work", label: "Work Experience", description: "Roles, companies, and what each one involved." },
+  { id: "education", label: "Education", description: "Degree and school." },
+  { id: "certifications", label: "Certifications", description: "Professional certifications." },
+  { id: "skills", label: "Skills", description: "The full tech stack." },
+  { id: "projects", label: "Projects", description: "AI agents and full-stack web apps, with source links and demos." },
+  { id: "automations", label: "Automations", description: "Business-workflow automation case studies in SCAR format." },
+  { id: "hackathons", label: "Hackathons", description: "Hackathons entered and placements." },
+  { id: "contact", label: "Contact", description: "How to get in touch." },
+];
+
+function sectionList(): string {
+  return SECTIONS.map(
+    (s) => `- [${s.label}](${DATA.url}/#${s.id}): ${s.description}`
+  ).join("\n");
 }
 
-/** Short llms.txt index: who this is, plus every page with a description. */
+/** Short llms.txt index: who this is, plus every section with a description. */
 export function buildLlmsIndex(): string {
   return `# ${DATA.name}
 
 > ${DATA.description}. Based in ${DATA.location}. This is the personal portfolio site of ${DATA.name} (${DATA.role}).
 
-## Pages
+## Sections
 
-${pageList()}
+The whole portfolio is a single page at ${DATA.url}/.
+
+${sectionList()}
 
 ## Full content
 
+- [CV (PDF)](${DATA.url}${DATA.resumeUrl}): ${DATA.name}'s résumé.
 - [llms-full.txt](${DATA.url}/llms-full.txt): the entire site's content (about, experience, education, skills, all projects, all automation case studies, hackathons, certifications, contact) as a single markdown file.
 `;
 }
@@ -144,7 +149,7 @@ export function buildLlmsFull(): string {
   out.push(`## Hackathons\n\n${hackathons}`);
 
   const certifications = DATA.certifications
-    .map((c) => `- ${c.title} — ${c.issuer} (${c.date})`)
+    .map((c) => `- ${c.title} — ${c.issuer}${c.date ? ` (${c.date})` : ""}`)
     .join("\n");
   out.push(`## Certifications\n\n${certifications}`);
 
