@@ -115,6 +115,16 @@ export function buildLlmsFull(): string {
     .join("\n\n");
   out.push(`## Projects\n\n${projects}`);
 
+  const clientWebsites = DATA.clientWebsites
+    .map(
+      (c) =>
+        `- **${c.name}** (${c.sector}): ${c.href}${c.preview ? " (preview deployment)" : ""}. ${c.description}`
+    )
+    .join("\n");
+  out.push(
+    `## Client Websites\n\nLead-generation websites built at Sterk Systems for businesses in the Netherlands.\n\n${clientWebsites}`
+  );
+
   const automations = automationProjects
     .map((a) => {
       const lines = [

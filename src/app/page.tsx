@@ -5,6 +5,7 @@ import { DATA } from "@/data/resume";
 import { logoSource, skillIcon } from "@/lib/skill-icons";
 import Markdown from "react-markdown";
 import AutomationsSection from "@/components/section/automations-section";
+import ClientWebsitesSection from "@/components/section/client-websites-section";
 import ContactSection from "@/components/section/contact-section";
 import HackathonsSection from "@/components/section/hackathons-section";
 import IntroSection from "@/components/section/intro-section";
@@ -210,6 +211,11 @@ export default function Page() {
       <section id="projects">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
           <ProjectsSection />
+        </BlurFade>
+      </section>
+      <section id="client-websites">
+        <BlurFade delay={BLUR_FADE_DELAY * 11.5}>
+          <ClientWebsitesSection />
         </BlurFade>
       </section>
       <section id="automations">
