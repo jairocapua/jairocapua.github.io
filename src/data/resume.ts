@@ -48,6 +48,21 @@ export interface Project {
   video: string;
 }
 
+/** A client site built at Sterk Systems (the Client Websites section). */
+export interface ClientWebsite {
+  name: string;
+  /** Trade and town, e.g. "Insulation · Uden". */
+  sector: string;
+  /** Real domain when it's live; the Vercel deployment until then. */
+  href: string;
+  /** True while `href` is still the Vercel deployment. */
+  preview?: boolean;
+  /** One line on what the page is built to get the visitor to do. */
+  description: string;
+  /** Homepage screenshot, 1200×750 WebP. */
+  image: string;
+}
+
 // The skills shown on the site, by group (DATA.skills is derived from this).
 // Logos come from src/lib/skill-icons.ts; a skill without one shows as text.
 const SKILL_GROUPS = [
@@ -314,6 +329,77 @@ export const DATA = {
       video: "/projects/support-ticketing-preview.mp4",
     },
   ] as Project[],
+  // Built at Sterk Systems. Domains come from each site's canonical tag; the two
+  // whose domain isn't pointed at the new site yet link to Vercel (preview: true).
+  // Screenshots: headless Edge at 1440×900, resized to 1200×750 WebP.
+  clientWebsites: [
+    {
+      name: "Isolatie Professionals",
+      sector: "Insulation · Uden",
+      href: "https://www.isolatie-professionals.nl/",
+      description:
+        "Floor, roof and cavity-wall insulation, with a free-advice form right in the hero.",
+      image: "/projects/clients/isolatie-professionals.webp",
+    },
+    {
+      name: "airco@business",
+      sector: "Commercial air conditioning · Zuid-Holland",
+      href: "https://www.aircoatbusiness.nl/",
+      description:
+        "B2B air conditioning for offices and shops, with a quick-quote form and WhatsApp contact.",
+      image: "/projects/clients/aircoatbusiness.webp",
+    },
+    {
+      name: "Inventicss",
+      sector: "Solar inspections · Heeswijk-Dinther",
+      href: "https://www.inventicss.nl/",
+      description:
+        "Scope 12 solar inspections and battery storage, with an inspection booking form above the fold.",
+      image: "/projects/clients/inventicss.webp",
+    },
+    {
+      name: "Kozijnen Veghel",
+      sector: "Window frames · Veghel",
+      href: "https://10-kozijnen-veghel.vercel.app/nl",
+      preview: true,
+      description:
+        "PVC and aluminium frames, with a two-step quote request and Dutch/English pages.",
+      image: "/projects/clients/kozijnen-veghel.webp",
+    },
+    {
+      name: "Airco Installatie Broek",
+      sector: "Air conditioning · Waterland & Amsterdam",
+      href: "https://airco-installatie-broek.vercel.app/",
+      preview: true,
+      description:
+        "Fixed-price air conditioning installs, with quote and call buttons up front.",
+      image: "/projects/clients/airco-installatie-broek.webp",
+    },
+    {
+      name: "Astrid Sanders",
+      sector: "Lifestyle coaching · 's-Hertogenbosch",
+      href: "https://www.astridsanders.com/",
+      description:
+        "Coaching for people with rheumatism and arthritis, built around booking a free health check.",
+      image: "/projects/clients/astrid-sanders.webp",
+    },
+    {
+      name: "Mariëlle Sleumer Art",
+      sector: "Abstract artist",
+      href: "https://www.mariellesleumer.com/",
+      description:
+        "An artist's portfolio with an online collection and commission requests.",
+      image: "/projects/clients/marielle-sleumer.webp",
+    },
+    {
+      name: "Sterk Systems",
+      sector: "Web & marketing agency",
+      href: "https://www.sterk-systems.nl/",
+      description:
+        "The agency's own site, selling the website-and-marketing system behind the sites above.",
+      image: "/projects/clients/sterk-systems.webp",
+    },
+  ] as ClientWebsite[],
   hackathons: [
     {
       title: "Agora Voice AI Hackathon — 2nd Runner Up",
