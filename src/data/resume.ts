@@ -189,9 +189,9 @@ export const DATA = {
       badges: [],
       location: "Netherlands (Remote)",
       workSetup: "Remote · Part-time",
-      title: "Web Developer (Part-time)",
+      title: "Web Developer",
       logoUrl: "/work/sterk-logo.png",
-      start: "September 2026",
+      start: "May 2026",
       end: "October 2026",
       description:
         "Design and develop high-converting, responsive websites for local service companies across the Netherlands using Next.js, React, and Tailwind CSS. Own the visual layer end to end — from hero and section layouts to the imagery itself, generating photorealistic AI visuals (job-site, crew, and product shots) that match each client's trade and region, so sites launch with on-brand photography instead of generic stock. Embed interactive elements such as Google Maps for local SEO and CRM-connected booking forms to streamline client intake and project scheduling, and tune layout, copy placement, and page speed to lift enquiry conversion.",
