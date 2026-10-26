@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
+import { ChatPanel } from "@/components/chat/chat-panel";
 import { ClaudePet } from "@/components/claude-pet";
 import { CustomCursor } from "@/components/custom-cursor";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
@@ -10,6 +11,7 @@ import { StructuredData } from "@/components/structured-data";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
+import { chatEnabled } from "@/lib/chat-client";
 import { cn } from "@/lib/utils";
 
 const TITLE = `${DATA.name} — ${DATA.role}`;
@@ -120,6 +122,7 @@ export default function RootLayout({
             </div>
             <ClaudePet />
             <Navbar />
+            {chatEnabled && <ChatPanel />}
             <CustomCursor />
           </TooltipProvider>
         </ThemeProvider>

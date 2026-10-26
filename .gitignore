@@ -8,3 +8,9 @@ out/
 next-env.d.ts
 .claude/settings.local.json
 graphify-out/
+
+# Chatbot Worker (see docs/cloudflare-worker-setup.md)
+worker/node_modules/
+worker/.dev.vars
+worker/.wrangler/
+worker/src/generated/

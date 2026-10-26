@@ -328,6 +328,34 @@ export const DATA = {
       // 16 s silent cut of support-ticketing-demo.mp4 (0:19–0:35), made with ffmpeg.
       video: "/projects/support-ticketing-preview.mp4",
     },
+    {
+      title: "Portfolio RAG Assistant",
+      category: "ai-agents",
+      dates: "Oct 2026",
+      active: true,
+      status: "✅ Live on this site",
+      description:
+        "The AI assistant on this page. It embeds your question, finds the closest parts of this site by vector search, and has Claude answer from only those, citing each source with a chip that jumps to it.",
+      technologies: ["Cloudflare Workers", "Workers AI", "Claude API", "D1"],
+      detailedDescription:
+        "A retrieval-augmented chatbot for recruiters and clients visiting this portfolio. The site is a static export on GitHub Pages, so the backend is a Cloudflare Worker that holds the API key. Each question is embedded with Workers AI (bge-base-en-v1.5), matched by cosine similarity against about 30 chunks built from the same data that renders this page, and the top five are handed to Claude Haiku 5.5, which streams a short answer with inline citations. The site's content is small, so the vectors are bundled into the Worker and searched in memory instead of a vector database: exact results, no quotas, under a millisecond per query.\n\nThe rules (only talk about Jairo, never invent facts or quote rates, ignore instructions hidden in questions) sit in the system prompt, apart from the visitor's text. Per-visitor and site-wide limits in D1 keep it under a $5/month cap, and questions are logged anonymously for 30 days to see what visitors ask. On every push, a GitHub Action rebuilds the index from the site's data, runs a 20-case test set of facts, unknowns and jailbreak attempts against the real pipeline, and only deploys the Worker if every case passes.",
+      stack: [
+        "Cloudflare Workers",
+        "Workers AI (bge-base-en-v1.5 embeddings)",
+        "Claude Haiku 5.5 (Anthropic SDK, streaming)",
+        "Cloudflare D1",
+        "Server-sent events",
+        "Next.js 16 + React 19",
+        "GitHub Actions",
+        "TypeScript",
+      ],
+      links: [
+        { type: "Source", href: "https://github.com/jairocapua/jairocapua.github.io/tree/main/worker", icon: "github" },
+      ],
+      // Pipeline diagram; there's no video, so the card shows the image.
+      image: "/projects/rag-assistant.svg",
+      video: "",
+    },
   ] as Project[],
   // Built at Sterk Systems. Domains come from each site's canonical tag; the two
   // whose domain isn't pointed at the new site yet link to Vercel (preview: true).

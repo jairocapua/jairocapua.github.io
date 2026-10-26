@@ -37,6 +37,8 @@ jobs:
         run: npm run build
         env:
           NEXT_TELEMETRY_DISABLED: "1"
+          # The chatbot Worker's URL. Unset → the chat stays hidden.
+          NEXT_PUBLIC_CHAT_API_URL: ${{ vars.CHAT_API_URL }}
 
       - name: Disable Jekyll on the static output
         run: touch ./out/.nojekyll

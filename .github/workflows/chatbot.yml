@@ -1,0 +1,72 @@
+name: Chatbot
+
+# Rebuilds the chatbot's vector index from the site's content, runs the eval
+# against the real pipeline, and deploys the Worker only if every case passes.
+# Setup: docs/cloudflare-worker-setup.md.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/data/**"
+      - "src/lib/chat-chunks.ts"
+      - "scripts/build-chat-index.ts"
+      - "worker/**"
+      - ".github/workflows/chatbot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chatbot
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Skipped until the one-time setup is done (CHAT_API_URL is its last step).
+    if: vars.CHAT_API_URL != ''
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            worker/package-lock.json
+
+      - name: Install site dependencies
+        run: npm ci
+
+      - name: Build the index
+        run: npm run chat:index
+
+      - name: Install Worker dependencies
+        working-directory: worker
+        run: npm ci
+
+      - name: Typecheck
+        working-directory: worker
+        run: npm run typecheck
+
+      - name: Eval
+        working-directory: worker
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npm run eval
+
+      - name: Apply D1 migrations
+        working-directory: worker
+        run: npm run db:migrate
+
+      - name: Deploy
+        working-directory: worker
+        run: npx wrangler deploy
