@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp, Info, MessageCircle, RotateCcw, X } from "lucide-react";
+import { ArrowRight, ArrowUp, Info, RotateCcw, Sparkles, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChatMessageView } from "@/components/chat/chat-message";
@@ -114,20 +114,20 @@ export function ChatPanel() {
       {open && (
         <motion.section
           role="dialog"
-          aria-label="Ask about Jairo"
+          aria-label="Jairo's AI"
           initial={{ opacity: 0, y: 16, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 12, scale: 0.98 }}
           transition={{ duration: 0.18, ease: "easeOut" }}
-          className="fixed inset-x-4 bottom-24 z-40 flex h-[min(34rem,calc(100dvh-8rem))] flex-col overflow-hidden rounded-2xl border bg-card text-card-foreground shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] sm:inset-x-auto sm:right-6 sm:w-96"
+          className="fixed inset-x-4 bottom-24 z-40 flex h-[min(34rem,calc(100dvh-8rem))] flex-col overflow-hidden rounded-3xl border bg-card text-card-foreground shadow-[0_16px_50px_-12px_rgba(0,0,0,0.35)] sm:inset-x-auto sm:right-6 sm:w-96"
         >
-          <header className="flex items-center gap-2 border-b px-4 py-3">
-            <div className="flex size-8 items-center justify-center rounded-full bg-[#D77757]/15 text-[#D77757]">
-              <MessageCircle className="size-4" aria-hidden />
-            </div>
+          <header className="flex items-center gap-2.5 border-b px-4 py-3">
+            <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+              <Sparkles className="size-4" aria-hidden />
+            </span>
             <div className="min-w-0 flex-1">
-              <h2 className="text-sm font-semibold leading-tight">Ask about Jairo</h2>
-              <p className="truncate text-xs text-muted-foreground">AI assistant · answers from this site</p>
+              <h2 className="text-sm font-semibold leading-tight">Jairo&apos;s AI</h2>
+              <p className="truncate text-xs text-muted-foreground">Answers from this site</p>
             </div>
             <button
               type="button"
@@ -157,30 +157,39 @@ export function ChatPanel() {
             </button>
           </header>
 
-          <div ref={listRef} className="flex-1 overflow-y-auto px-4 py-4">
+          <div ref={listRef} className="flex-1 overflow-y-auto px-4 py-4 [scrollbar-width:thin]">
             {view === "how" ? (
               <HowItWorks />
             ) : messages.length === 0 ? (
-              <div className="flex flex-col gap-4">
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  Hi! I&apos;m Jairo&apos;s AI assistant. Ask me about his work, projects, automations or
-                  skills. Every answer links to where it came from on this page.
-                </p>
-                <div className="flex flex-col items-start gap-2">
+              // Sits at the bottom, by the composer, where the chat will grow from.
+              <div className="flex min-h-full flex-col justify-end gap-5">
+                <div className="flex flex-col gap-1.5">
+                  <p className="text-lg font-semibold tracking-tight">Hi, I&apos;m Jairo&apos;s AI.</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    Ask about his work, projects, automations or skills. Every answer links to where it
+                    came from on this page.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-xs font-medium text-muted-foreground">Try asking</p>
                   {STARTER_QUESTIONS.map((q) => (
                     <button
                       key={q}
                       type="button"
                       onClick={() => send(q, messages)}
-                      className="rounded-full border bg-background px-3 py-1.5 text-left text-sm transition-colors hover:bg-muted"
+                      className="group flex w-full items-center justify-between gap-3 rounded-xl border bg-background px-3.5 py-2.5 text-left text-sm transition-colors hover:border-foreground/20 hover:bg-muted"
                     >
                       {q}
+                      <ArrowRight
+                        className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground motion-reduce:transition-none"
+                        aria-hidden
+                      />
                     </button>
                   ))}
                 </div>
               </div>
             ) : (
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-5">
                 {messages.map((m, i) => (
                   <ChatMessageView key={i} message={m} onNavigate={() => setOpen(false)} />
                 ))}
@@ -188,9 +197,10 @@ export function ChatPanel() {
             )}
           </div>
 
-          <footer className="border-t px-3 pb-2 pt-3">
+          {/* The composer: the hero ask bar's pill, grown to fit longer questions. */}
+          <footer className="px-3 pb-2.5 pt-1">
             <form
-              className="flex items-end gap-2"
+              className="flex items-end gap-2 rounded-[1.25rem] border bg-background p-1.5 transition-[border-color,box-shadow] duration-200 focus-within:border-foreground/30 focus-within:shadow-sm"
               onSubmit={(e) => {
                 e.preventDefault();
                 submit();
@@ -210,18 +220,18 @@ export function ChatPanel() {
                     submit();
                   }
                 }}
-                className="max-h-28 min-h-9 flex-1 resize-none rounded-xl border bg-background px-3 py-2 text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
+                className="field-sizing-content max-h-28 min-h-8 flex-1 resize-none bg-transparent px-2.5 py-1.5 text-sm outline-none placeholder:text-muted-foreground"
               />
               <button
                 type="submit"
                 aria-label="Send"
                 disabled={busy || !input.trim()}
-                className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-opacity disabled:opacity-40"
+                className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-[opacity,transform] duration-150 hover:scale-105 active:scale-95 disabled:scale-100 disabled:opacity-30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none"
               >
                 <ArrowUp className="size-4" aria-hidden />
               </button>
             </form>
-            <p className="mt-2 text-center text-[0.68rem] text-muted-foreground">
+            <p className="mt-2 text-center text-[0.68rem] leading-snug text-muted-foreground">
               Powered by {CHAT_MODEL_LABEL} · Questions are logged anonymously to improve answers
             </p>
           </footer>

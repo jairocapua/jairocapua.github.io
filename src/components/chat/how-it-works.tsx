@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { ADR_URL, CHAT_MODEL_LABEL, WORKER_SOURCE_URL } from "@/lib/chat-client";
 
 const STEPS = [
@@ -18,17 +18,20 @@ export function HowItWorks() {
         This assistant uses retrieval-augmented generation (RAG): it looks up the parts of this site
         that match your question, then answers from those alone.
       </p>
-      <ol className="flex flex-col items-stretch">
+      {/* A timeline: numbered dots joined by a line, each step beside its dot. */}
+      <ol className="flex flex-col">
         {STEPS.map((step, i) => (
-          <li key={step.title} className="flex flex-col items-center">
-            <div className="w-full rounded-xl border bg-background px-3 py-2">
-              <div className="flex items-center gap-2 font-medium">
-                <span className="font-mono text-xs text-[#D77757]">{i + 1}</span>
-                {step.title}
-              </div>
-              <p className="mt-0.5 text-xs text-muted-foreground">{step.detail}</p>
+          <li key={step.title} className="relative flex gap-3 pb-4 last:pb-0">
+            {i < STEPS.length - 1 && (
+              <span aria-hidden className="absolute bottom-0 left-3 top-6 w-px -translate-x-1/2 bg-border" />
+            )}
+            <span className="flex size-6 shrink-0 items-center justify-center rounded-full border bg-background font-mono text-[0.65rem] font-semibold">
+              {i + 1}
+            </span>
+            <div className="min-w-0 pt-0.5">
+              <p className="font-medium leading-tight">{step.title}</p>
+              <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{step.detail}</p>
             </div>
-            {i < STEPS.length - 1 && <ArrowDown className="my-1 size-3.5 text-muted-foreground" aria-hidden />}
           </li>
         ))}
       </ol>
