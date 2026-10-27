@@ -61,7 +61,23 @@ export default function ClientWebsitesSection() {
   return (
     <div className="flex min-h-0 flex-col gap-y-8">
       <SectionHeader label="Client Websites" title="Sites that bring in leads">
-        Lead-generation websites I built at Sterk Systems for businesses across
+        Lead-generation websites I built at{" "}
+        {/* White chip: the wordmark's navy text vanishes on the dark theme. */}
+        <a
+          href="https://www.sterk-systems.nl/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex align-middle -mt-1 rounded-md border border-border bg-white px-1.5 py-0.5 hover:ring-2 hover:ring-muted transition-all"
+        >
+          <img
+            src="/work/sterk-wordmark.webp"
+            alt="Sterk Systems"
+            width={256}
+            height={96}
+            className="h-[1.3em] w-auto"
+          />
+        </a>{" "}
+        for businesses across
         the Netherlands, each one built around a quote form, a call or a
         booking.
       </SectionHeader>
