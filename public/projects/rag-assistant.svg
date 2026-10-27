@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
+  <!-- Card image for the Portfolio RAG Assistant project. The top-right corner
+       stays empty: the card's link badges sit there. -->
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#262626"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 10 5 0 10z" fill="#737373"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="750" fill="#141414"/>
+  <rect width="1200" height="750" fill="url(#dots)"/>
+
+  <!-- the conversation -->
+  <rect x="560" y="150" width="560" height="76" rx="30" fill="#f5f5f5"/>
+  <text x="840" y="200" font-size="32" fill="#141414" text-anchor="middle">What has Jairo automated?</text>
+  <rect x="80" y="252" width="860" height="140" rx="30" fill="#262626"/>
+  <text x="116" y="310" font-size="32" fill="#e5e5e5">A booking system that cut a roofing</text>
+  <text x="116" y="358" font-size="32" fill="#e5e5e5">company's admin time by 80%</text>
+  <circle cx="568" cy="347" r="19" fill="#D77757" fill-opacity="0.28"/>
+  <text x="568" y="357" font-size="24" font-weight="700" fill="#D77757" text-anchor="middle">1</text>
+  <rect x="80" y="410" width="400" height="52" rx="26" fill="none" stroke="#404040" stroke-width="2"/>
+  <text x="108" y="445" font-size="24" fill="#a3a3a3"><tspan fill="#D77757" font-weight="700">1</tspan>   Work · Roofing Co.</text>
+
+  <!-- the pipeline -->
+  <g font-size="28" font-weight="600" text-anchor="middle">
+    <rect x="42" y="540" width="165" height="110" rx="20" fill="#1f1f1f" stroke="#3a3a3a" stroke-width="2"/>
+    <text x="124.5" y="605" fill="#f5f5f5">Question</text>
+    <rect x="232" y="540" width="165" height="110" rx="20" fill="#1f1f1f" stroke="#3a3a3a" stroke-width="2"/>
+    <text x="314.5" y="605" fill="#f5f5f5">Embed</text>
+    <rect x="422" y="540" width="165" height="110" rx="20" fill="#1f1f1f" stroke="#3a3a3a" stroke-width="2"/>
+    <text x="504.5" y="605" fill="#f5f5f5">Search</text>
+    <rect x="612" y="540" width="165" height="110" rx="20" fill="#1f1f1f" stroke="#3a3a3a" stroke-width="2"/>
+    <text x="694.5" y="605" fill="#f5f5f5">Top 5</text>
+    <rect x="802" y="540" width="165" height="110" rx="20" fill="#D77757" fill-opacity="0.16" stroke="#D77757" stroke-width="2"/>
+    <text x="884.5" y="595" fill="#f5f5f5">Claude</text>
+    <text x="884.5" y="628" fill="#D77757" font-size="22" font-weight="500">Haiku 5.5</text>
+    <rect x="992" y="540" width="165" height="110" rx="20" fill="#1f1f1f" stroke="#3a3a3a" stroke-width="2"/>
+    <text x="1074.5" y="605" fill="#f5f5f5">Answer</text>
+  </g>
+  <g stroke="#737373" stroke-width="3" marker-end="url(#arrow)">
+    <line x1="209" y1="595" x2="228" y2="595"/>
+    <line x1="399" y1="595" x2="418" y2="595"/>
+    <line x1="589" y1="595" x2="608" y2="595"/>
+    <line x1="779" y1="595" x2="798" y2="595"/>
+    <line x1="969" y1="595" x2="988" y2="595"/>
+  </g>
+</svg>

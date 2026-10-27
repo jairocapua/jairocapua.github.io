@@ -1,3 +1,4 @@
+import { ChatDockButton } from "@/components/chat/chat-entry";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { ModeToggle } from "@/components/mode-toggle";
 import { SoundToggle } from "@/components/sound-toggle";
@@ -9,6 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
+import { chatEnabled } from "@/lib/chat-client";
 
 const dockIconClass =
   "rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors";
@@ -63,6 +65,19 @@ export default function Navbar() {
             );
           })}
         <Separator orientation="vertical" className="h-2/3 m-auto w-px bg-border" />
+        {chatEnabled && (
+          <DockIcon className={dockIconClass}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <ChatDockButton className="size-full cursor-pointer" />
+              </TooltipTrigger>
+              <TooltipContent side="top" sideOffset={8} className={tooltipClass}>
+                <p>Ask my AI</p>
+                <TooltipArrow className="fill-primary" />
+              </TooltipContent>
+            </Tooltip>
+          </DockIcon>
+        )}
         <DockIcon className={dockIconClass}>
           {/* The trigger is the button itself: DockIcon doesn't forward the
               ref and handlers TooltipTrigger needs. */}

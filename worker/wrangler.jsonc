@@ -1,0 +1,26 @@
+// Cloudflare Worker config for the portfolio chatbot. Setup steps:
+// docs/cloudflare-worker-setup.md. Stays on the Workers Free plan.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio-chat",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "ai": { "binding": "AI" },
+  "d1_databases": [
+    {
+      "binding": "CHAT_DB",
+      "database_name": "portfolio-chat",
+      // Paste the id printed by `npx wrangler d1 create portfolio-chat`.
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    // Comma-separated. Only these origins may call /chat.
+    "ALLOWED_ORIGINS": "https://jairocapua.github.io,http://localhost:3000"
+  },
+  // Daily cleanup: questions older than 30 days, expired counters.
+  "triggers": { "crons": ["17 3 * * *"] },
+  "observability": { "enabled": true }
+}

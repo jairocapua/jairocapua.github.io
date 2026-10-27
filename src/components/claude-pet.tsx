@@ -2,6 +2,7 @@
 
 import { AnimatePresence, animate, motion, useMotionValue, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { CHAT_BUSY_EVENT, OPEN_CHAT_EVENT, chatEnabled, openChat } from "@/lib/chat-client";
 
 // Clawd, the Claude Code mascot, redrawn from the block-character sprite in
 // Claude Code's welcome banner. One unit is a quarter of a terminal cell, so
@@ -29,6 +30,10 @@ const VERBS = [
 ];
 // Claude Code's spinner, played forward then back.
 const SPINNER = ["·", "✢", "✳", "✶", "✻", "✽", "✻", "✶", "✳", "✢"];
+// Until the chat has been opened, Clawd offers it now and then.
+const HINT_EVERY = 45_000;
+const HINT_FOR = 5_000;
+const CHAT_OPENED_KEY = "chat:opened";
 
 type Look = -1 | 0 | 1;
 type Poke = { id: number; verb: string };
@@ -36,7 +41,8 @@ type Poke = { id: number; verb: string };
 /**
  * A desktop pet: Clawd wanders the bottom of the viewport, sometimes heads
  * for the cursor, watches it while resting, and jumps when clicked. It walks
- * behind the dock but never stops there.
+ * behind the dock but never stops there. With the chat on, a poke opens it,
+ * and Clawd stops to think while an answer streams.
  */
 export function ClaudePet() {
   const reduceMotion = useReducedMotion();
@@ -45,12 +51,18 @@ export function ClaudePet() {
   const [dir, setDir] = useState<Look>(-1);
   const [gaze, setGaze] = useState<Look>(0);
   const [poke, setPoke] = useState<Poke | null>(null);
+  const [thinking, setThinking] = useState(false);
+  const [hint, setHint] = useState(false);
   const x = useMotionValue(-W);
   const y = useMotionValue(0);
   const pointerX = useRef<number | null>(null);
   const gazeRef = useRef<Look>(0);
   const pokeTimer = useRef<number>(undefined);
   const pokeCount = useRef(0);
+  // Let the chat pause the stroll loop from outside its effect.
+  const paused = useRef(false);
+  const walkRef = useRef<ReturnType<typeof animate>>(undefined);
+  const restRef = useRef<() => void>(undefined);
 
   // Phones get the dock across the whole floor, so the pet stays home.
   useEffect(() => {
@@ -107,16 +119,19 @@ export function ClaudePet() {
 
     const rest = () => {
       setWalking(false);
+      window.clearTimeout(timer);
       timer = window.setTimeout(stroll, 1500 + Math.random() * 4000);
     };
+    restRef.current = rest;
 
     const stroll = () => {
+      if (paused.current) return rest();
       const tx = pickTarget();
       if (tx === null) return rest();
       const from = x.get();
       setDir(tx > from ? 1 : -1);
       setWalking(true);
-      walk = animate(x, tx, {
+      walk = walkRef.current = animate(x, tx, {
         duration: Math.abs(tx - from) / SPEED,
         ease: "linear",
         onComplete: rest,
@@ -143,6 +158,51 @@ export function ClaudePet() {
 
   useEffect(() => () => window.clearTimeout(pokeTimer.current), []);
 
+  // Stand still and think while the chat streams an answer.
+  useEffect(() => {
+    if (!chatEnabled) return;
+    const onBusy = (e: Event) => {
+      const busy = (e as CustomEvent<boolean>).detail;
+      paused.current = busy;
+      setThinking(busy);
+      if (busy) {
+        walkRef.current?.stop();
+        restRef.current?.();
+      }
+    };
+    window.addEventListener(CHAT_BUSY_EVENT, onBusy);
+    return () => window.removeEventListener(CHAT_BUSY_EVENT, onBusy);
+  }, []);
+
+  useEffect(() => {
+    if (!chatEnabled || !wide) return;
+    try {
+      if (sessionStorage.getItem(CHAT_OPENED_KEY) === "1") return;
+    } catch {}
+
+    let hide: number | undefined;
+    const every = window.setInterval(() => {
+      setHint(true);
+      hide = window.setTimeout(() => setHint(false), HINT_FOR);
+    }, HINT_EVERY);
+    const stop = () => {
+      window.clearInterval(every);
+      window.clearTimeout(hide);
+    };
+    const onOpen = () => {
+      try {
+        sessionStorage.setItem(CHAT_OPENED_KEY, "1");
+      } catch {}
+      stop();
+      setHint(false);
+    };
+    window.addEventListener(OPEN_CHAT_EVENT, onOpen);
+    return () => {
+      stop();
+      window.removeEventListener(OPEN_CHAT_EVENT, onOpen);
+    };
+  }, [wide]);
+
   const onPoke = () => {
     const verb = VERBS[Math.floor(Math.random() * VERBS.length)];
     setPoke({ id: pokeCount.current++, verb });
@@ -151,6 +211,7 @@ export function ClaudePet() {
     }
     window.clearTimeout(pokeTimer.current);
     pokeTimer.current = window.setTimeout(() => setPoke(null), 2200);
+    if (chatEnabled) openChat();
   };
 
   if (!wide) return null;
@@ -164,7 +225,13 @@ export function ClaudePet() {
       style={{ x, width: W, height: H }}
     >
       <AnimatePresence>
-        {poke && <Bubble key={poke.id} verb={poke.verb} />}
+        {thinking ? (
+          <Bubble key="thinking" verb="Thinking" />
+        ) : poke ? (
+          <Bubble key={poke.id} verb={poke.verb} />
+        ) : hint ? (
+          <Bubble key="hint" text="Ask me about Jairo!" />
+        ) : null}
       </AnimatePresence>
       <motion.svg
         viewBox="1 0 16 10"
@@ -173,7 +240,7 @@ export function ClaudePet() {
         shapeRendering="crispEdges"
         className="clawd pointer-events-auto block cursor-pointer"
         data-walking={walking}
-        data-excited={!!poke}
+        data-excited={!!poke || thinking}
         style={{ y }}
         onClick={onPoke}
       >
@@ -195,13 +262,15 @@ export function ClaudePet() {
   );
 }
 
-function Bubble({ verb }: { verb: string }) {
+/** A speech bubble: a spinner and "<verb>…", or plain `text`. */
+function Bubble({ verb, text }: { verb?: string; text?: string }) {
   const [frame, setFrame] = useState(0);
 
   useEffect(() => {
+    if (!verb) return;
     const id = window.setInterval(() => setFrame((f) => (f + 1) % SPINNER.length), 120);
     return () => window.clearInterval(id);
-  }, []);
+  }, [verb]);
 
   return (
     <div className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2">
@@ -212,8 +281,14 @@ function Bubble({ verb }: { verb: string }) {
         transition={{ duration: 0.18 }}
         className="whitespace-nowrap rounded-md border bg-card px-2 py-1 font-mono text-xs text-card-foreground shadow-sm"
       >
-        <span className="inline-block w-3 text-[#D77757]">{SPINNER[frame]}</span>
-        {verb}…
+        {verb ? (
+          <>
+            <span className="inline-block w-3 text-[#D77757]">{SPINNER[frame]}</span>
+            {verb}…
+          </>
+        ) : (
+          text
+        )}
       </motion.div>
     </div>
   );

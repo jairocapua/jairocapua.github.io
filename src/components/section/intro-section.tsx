@@ -1,3 +1,4 @@
+import { AskAiPrompt } from "@/components/chat/chat-entry";
 import BlurFade from "@/components/magicui/blur-fade";
 import { GitHubContributions } from "@/components/github-contributions";
 import { FileText } from "lucide-react";
@@ -9,6 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
+import { chatEnabled } from "@/lib/chat-client";
 import { cn } from "@/lib/utils";
 
 const BLUR_FADE_DELAY = 0.04;
@@ -152,6 +154,7 @@ export default function IntroSection() {
             />
             .
           </p>
+          {chatEnabled && <AskAiPrompt className="mt-1" />}
         </div>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 3}>
