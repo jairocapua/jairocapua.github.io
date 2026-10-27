@@ -78,9 +78,13 @@ export function buildChatChunks(): ChatChunk[] {
     title: "Education",
     href: "/#education",
     text:
-      "Education:\n" +
+      `Education: where ${DATA.name} studied, his university degree and academic honors.\n` +
       DATA.education
-        .map((e) => `- ${e.degree}${e.badges.length ? ` (${e.badges.join(", ")})` : ""}, ${e.school}`)
+        .map(
+          (e) =>
+            `- ${DATA.name} studied at ${e.school} and earned a ${e.degree}` +
+            (e.badges.length ? `, graduating ${e.badges.join(", ")}.` : ".")
+        )
         .join("\n"),
   });
 

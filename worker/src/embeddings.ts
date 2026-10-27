@@ -8,6 +8,11 @@ export const EMBEDDING_DIMS = 768;
 export const POOLING = "cls";
 /** The model reads at most 512 tokens; clip longer chunks before embedding. */
 export const MAX_EMBED_CHARS = 1800;
+/**
+ * bge v1.5 wants this before short queries (not before passages) when
+ * matching a question to passages; without it every chunk scores about the same.
+ */
+export const QUERY_INSTRUCTION = "Represent this sentence for searching relevant passages: ";
 
 interface RestResponse {
   success: boolean;

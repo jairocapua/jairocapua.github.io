@@ -6,13 +6,16 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-10-01",
   "compatibility_flags": ["nodejs_compat"],
+  // Served at https://portfolio-chat.capuajairo32.workers.dev; no per-version preview URLs.
+  "workers_dev": true,
+  "preview_urls": false,
   "ai": { "binding": "AI" },
   "d1_databases": [
     {
       "binding": "CHAT_DB",
       "database_name": "portfolio-chat",
-      // Paste the id printed by `npx wrangler d1 create portfolio-chat`.
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      // From `npx wrangler d1 create portfolio-chat` (APAC).
+      "database_id": "83b1da4a-0015-4afb-9afd-91da905d7b20",
       "migrations_dir": "migrations"
     }
   ],

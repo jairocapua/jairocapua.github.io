@@ -1,6 +1,7 @@
 // Brute-force cosine search over the bundled index. ~30 vectors don't need an
 // ANN index; see docs/adr/0001-in-worker-vector-search.md.
 
+import { QUERY_INSTRUCTION } from "./embeddings";
 import type { ChatIndex, IndexedChunk } from "./knowledge";
 import type { ChatTurn } from "./validate";
 
@@ -45,11 +46,12 @@ export function retrieve(index: ChatIndex, query: number[]): Retrieved[] {
 
 /**
  * What to embed for this turn: the latest question, plus the one before it
- * when the latest is a short follow-up ("tell me more about that one").
+ * when the latest is a short follow-up ("tell me more about that one"),
+ * behind bge's query instruction.
  */
 export function queryText(turns: ChatTurn[]): string {
   const users = turns.filter((t) => t.role === "user").map((t) => t.content);
   const latest = users[users.length - 1];
   const previous = users[users.length - 2];
-  return latest.length < 60 && previous ? `${previous}\n${latest}` : latest;
+  return QUERY_INSTRUCTION + (latest.length < 60 && previous ? `${previous}\n${latest}` : latest);
 }
