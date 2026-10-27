@@ -128,8 +128,9 @@ async function answer(turns: ChatTurn[], env: Env, writer: WritableStreamDefault
       }
     }
   } catch (err) {
-    // Log the status only; never the key or the upstream message.
-    console.error("chat failed", err instanceof Anthropic.APIError ? err.status : (err as Error)?.name);
+    // Log the status and error type only; never the key or the upstream message.
+    const detail = err instanceof Anthropic.APIError ? [err.status, err.type] : [(err as Error)?.name];
+    console.error("chat failed", ...detail);
     await send({ event: "error", data: { message: ERROR_MESSAGE } });
   } finally {
     if (open) await writer.close().catch(() => {});

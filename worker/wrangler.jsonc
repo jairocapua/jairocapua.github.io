@@ -9,6 +9,10 @@
   // Served at https://portfolio-chat.capuajairo32.workers.dev; no per-version preview URLs.
   "workers_dev": true,
   "preview_urls": false,
+  // Run next to AWS Singapore, not the visitor's nearest data center. Anthropic
+  // answers Hong Kong with a 403, and Philippine visitors often land in HKG.
+  // Singapore is supported and sits near the APAC D1.
+  "placement": { "region": "aws:ap-southeast-1" },
   "ai": { "binding": "AI" },
   "d1_databases": [
     {
