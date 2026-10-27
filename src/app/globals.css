@@ -120,57 +120,17 @@
     }
   }
 
-  /* Rainbow (the hero's "Ask my AI" prompt): a ring around the button and the
-     AI seal inside it, both cut from the same drifting gradient. It holds two
-     cycles, so the half on show is a whole rainbow. */
-  .rainbow-ring,
-  .rainbow-icon {
-    --rainbow: linear-gradient(
-      90deg,
-      #ff4d6d,
-      #ff9f1c,
-      #ffd60a,
-      #3ddc84,
-      #22d3ee,
-      #4f7cff,
-      #b15cff,
-      #ff4d6d,
-      #ff9f1c,
-      #ffd60a,
-      #3ddc84,
-      #22d3ee,
-      #4f7cff,
-      #b15cff,
-      #ff4d6d
-    );
-    animation: rainbow-drift 6s linear infinite;
-  }
-
-  /* The ring: the fill on the padding box, over the rainbow on the border box. */
-  .rainbow-ring {
-    --fill: var(--card);
-    border: 1.5px solid transparent;
-    background:
-      linear-gradient(var(--fill), var(--fill)) padding-box,
-      var(--rainbow) border-box;
-    background-size: 100% 100%, 200% 100%;
-  }
-
-  .rainbow-ring:hover {
-    --fill: var(--muted);
-  }
-
-  /* The AI seal: a 12-scallop badge with "AI" inside, as a stroked 24px icon. */
-  .rainbow-icon {
-    --ai-seal: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3.8A2.13 2.13 0 0 1 16.1 4.9A2.13 2.13 0 0 1 19.1 7.9A2.13 2.13 0 0 1 20.2 12A2.13 2.13 0 0 1 19.1 16.1A2.13 2.13 0 0 1 16.1 19.1A2.13 2.13 0 0 1 12 20.2A2.13 2.13 0 0 1 7.9 19.1A2.13 2.13 0 0 1 4.9 16.1A2.13 2.13 0 0 1 3.8 12A2.13 2.13 0 0 1 4.9 7.9A2.13 2.13 0 0 1 7.9 4.9A2.13 2.13 0 0 1 12 3.8Z'/%3E%3Cpath d='M8 15 10 9l2 6M8.67 13h2.66M16 9v6'/%3E%3C/svg%3E");
-    background: var(--rainbow) 0 0 / 200% 100%;
-    -webkit-mask: var(--ai-seal) center / contain no-repeat;
-    mask: var(--ai-seal) center / contain no-repeat;
+  /* The blinking caret after the ask bar's typed question. */
+  .typing-caret {
+    display: inline-block;
+    width: 1px;
+    height: 1.1em;
+    background: currentColor;
+    animation: caret-blink 1s steps(1) infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .rainbow-ring,
-    .rainbow-icon {
+    .typing-caret {
       animation: none;
     }
   }
@@ -281,9 +241,9 @@
   }
 }
 
-@keyframes rainbow-drift {
-  to {
-    background-position: 200% 0;
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
   }
 }
 
