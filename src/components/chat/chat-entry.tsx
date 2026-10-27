@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle, Sparkles } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { openChat } from "@/lib/chat-client";
 import { cn } from "@/lib/utils";
@@ -12,11 +12,11 @@ export function AskAiPrompt({ className }: { className?: string }) {
       type="button"
       onClick={() => openChat()}
       className={cn(
-        "group inline-flex w-fit items-center gap-2 rounded-full border bg-card px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-muted",
+        "rainbow-ring group inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-medium shadow-sm",
         className
       )}
     >
-      <Sparkles className="size-4 text-[#D77757]" aria-hidden />
+      <span aria-hidden className="rainbow-icon size-5 shrink-0" />
       Ask my AI about me
       <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
         →
