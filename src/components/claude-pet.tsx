@@ -11,6 +11,11 @@ const W = 64;
 const H = 40;
 const EDGE = 24;
 const SPEED = 70; // px per second
+// Space kept from the dock, enough for it to magnify under the cursor (about
+// 20px a side) without covering Clawd.
+const DOCK_GAP = 32;
+// How often a stroll crosses to the other side of the dock.
+const SWITCH_CHANCE = 0.15;
 const VERBS = [
   "Clauding",
   "Pondering",
@@ -40,9 +45,10 @@ type Poke = { id: number; verb: string };
 
 /**
  * A desktop pet: Clawd wanders the bottom of the viewport, sometimes heads
- * for the cursor, watches it while resting, and jumps when clicked. It walks
- * behind the dock but never stops there. With the chat on, a poke opens it,
- * and Clawd stops to think while an answer streams.
+ * for the cursor, watches it while resting, and jumps when clicked. It keeps
+ * to one side of the dock and never goes behind it; to change sides it walks
+ * off the screen and back in from the other edge. With the chat on, a poke
+ * opens it, and Clawd stops to think while an answer streams.
  */
 export function ClaudePet() {
   const reduceMotion = useReducedMotion();
@@ -91,7 +97,20 @@ export function ClaudePet() {
   useEffect(() => {
     if (!wide) return;
     const floor = () => document.documentElement.clientWidth;
-    const clamp = (v: number) => Math.min(Math.max(v, EDGE), floor() - W - EDGE);
+    // Which side of the dock Clawd is on. He never walks behind it.
+    let right = true;
+
+    // The range x can take on Clawd's side, between the screen edge and the dock.
+    const lane = () => {
+      const dock = document.querySelector("[data-dock]")?.firstElementChild?.getBoundingClientRect();
+      const min = right && dock ? dock.right + DOCK_GAP : EDGE;
+      const max = !right && dock ? dock.left - DOCK_GAP - W : floor() - W - EDGE;
+      return [min, max] as const;
+    };
+    const clamp = (v: number) => {
+      const [min, max] = lane();
+      return Math.min(Math.max(v, min), max);
+    };
 
     if (reduceMotion) {
       x.set(clamp(floor()));
@@ -101,18 +120,12 @@ export function ClaudePet() {
     let timer: number | undefined;
     let walk: ReturnType<typeof animate> | undefined;
 
-    const behindDock = (tx: number) => {
-      const dock = document.querySelector("[data-dock]")?.firstElementChild?.getBoundingClientRect();
-      return !!dock && tx + W > dock.left - 12 && tx < dock.right + 12;
-    };
-
     const pickTarget = () => {
+      const [min, max] = lane();
       for (let i = 0; i < 6; i++) {
         const chase = pointerX.current !== null && Math.random() < 0.35;
-        const tx = clamp(
-          chase ? pointerX.current! - W / 2 : EDGE + Math.random() * (floor() - W - 2 * EDGE)
-        );
-        if (!behindDock(tx) && Math.abs(tx - x.get()) > 80) return tx;
+        const tx = clamp(chase ? pointerX.current! - W / 2 : min + Math.random() * (max - min));
+        if (Math.abs(tx - x.get()) > 80) return tx;
       }
       return null;
     };
@@ -124,18 +137,32 @@ export function ClaudePet() {
     };
     restRef.current = rest;
 
-    const stroll = () => {
-      if (paused.current) return rest();
-      const tx = pickTarget();
-      if (tx === null) return rest();
+    const walkTo = (tx: number, then: () => void) => {
       const from = x.get();
       setDir(tx > from ? 1 : -1);
       setWalking(true);
       walk = walkRef.current = animate(x, tx, {
         duration: Math.abs(tx - from) / SPEED,
         ease: "linear",
-        onComplete: rest,
+        onComplete: then,
       });
+    };
+
+    // Off one screen edge and back in from the other, landing on the far side of the dock.
+    const switchSides = () =>
+      walkTo(right ? floor() : -W, () => {
+        right = !right;
+        x.set(right ? floor() : -W);
+        const [min, max] = lane();
+        walkTo(min + Math.random() * (max - min), rest);
+      });
+
+    const stroll = () => {
+      if (paused.current) return rest();
+      if (Math.random() < SWITCH_CHANCE) return switchSides();
+      const tx = pickTarget();
+      if (tx === null) return rest();
+      walkTo(tx, rest);
     };
 
     const onResize = () => {
