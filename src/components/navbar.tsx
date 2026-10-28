@@ -97,7 +97,7 @@ export default function Navbar() {
               <SoundToggle className="size-full cursor-pointer" />
             </TooltipTrigger>
             <TooltipContent side="top" sideOffset={8} className={tooltipClass}>
-              <p>Click sounds</p>
+              <p>Sounds</p>
               <TooltipArrow className="fill-primary" />
             </TooltipContent>
           </Tooltip>

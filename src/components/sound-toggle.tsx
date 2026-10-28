@@ -25,7 +25,7 @@ export function SoundToggle({
       type="button"
       variant="link"
       size="icon"
-      aria-label="Click sounds"
+      aria-label="Sounds"
       aria-pressed={on}
       className={cn(className)}
       {...props}

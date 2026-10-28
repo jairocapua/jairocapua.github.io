@@ -5,6 +5,7 @@ import "./globals.css";
 import { ChatPanel } from "@/components/chat/chat-panel";
 import { ClaudePet } from "@/components/claude-pet";
 import { CustomCursor } from "@/components/custom-cursor";
+import { KeyboardSound } from "@/components/keyboard-sound";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import Navbar from "@/components/navbar";
 import { StructuredData } from "@/components/structured-data";
@@ -124,6 +125,7 @@ export default function RootLayout({
             <Navbar />
             {chatEnabled && <ChatPanel />}
             <CustomCursor />
+            <KeyboardSound />
           </TooltipProvider>
         </ThemeProvider>
       </body>
