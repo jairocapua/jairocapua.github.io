@@ -166,7 +166,7 @@ export function buildChatChunks(): ChatChunk[] {
       title: `${r.title} · ${r.company}`,
       href: DATA.resumeUrl,
       text:
-        `Work experience: ${r.title} (${r.company}), ${r.start} – ${r.end}. ${r.location}.\n\n` +
+        `${r.summary}\n\nWork experience: ${r.title} (${r.company}), ${r.start} – ${r.end}. ${r.location}.\n\n` +
         bullets(r.highlights),
     });
   }

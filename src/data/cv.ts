@@ -87,6 +87,10 @@ export const CV_ROLES = [
     location: "Remote",
     start: "2024",
     end: "Present",
+    // Prose up front: bullets full of tech names don't embed like an answer to
+    // "has he done freelance work?".
+    summary:
+      "Freelance work: since 2024, Jairo has also worked freelance as a remote Full-Stack Software Developer for international clients.",
     highlights: [
       "Delivers production AI-enabled web apps and internal tools for international clients using TypeScript, Next.js, React, Node.js, Supabase and PostgreSQL.",
       "Integrates OpenAI, Claude and Gemini for image analysis, structured data extraction, content generation and operations decision support, and automates cross-platform flows through webhooks, n8n, Make and Zapier.",
