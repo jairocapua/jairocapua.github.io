@@ -10,6 +10,13 @@ function linkCitations(text: string): string {
   return text.replace(/\[(\d+)\](?!\()/g, "[$1](#source-$1)");
 }
 
+/** Section anchors scroll this page (and close the panel); the CV PDF opens in a new tab. */
+function sourceLink(href: string, onNavigate: () => void) {
+  return href.startsWith("/#")
+    ? { href, onClick: onNavigate }
+    : { href, target: "_blank", rel: "noopener noreferrer" };
+}
+
 /** What the assistant is doing before its first word: searching, then reading what it found. */
 function Thinking({ sources }: { sources: number }) {
   return (
@@ -25,9 +32,8 @@ function SourceChips({ sources, onNavigate }: { sources: ChatSource[]; onNavigat
       {sources.map((s) => (
         <a
           key={s.id}
-          href={s.href}
-          onClick={onNavigate}
-          title={`Go to ${s.title} on this page`}
+          {...sourceLink(s.href, onNavigate)}
+          title={s.href.startsWith("/#") ? `Go to ${s.title} on this page` : `Open ${s.title} in Jairo's CV`}
           className="inline-flex max-w-full items-center gap-1.5 rounded-lg border bg-background py-1 pl-1 pr-2 text-xs text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground"
         >
           <span className="flex size-4 shrink-0 items-center justify-center rounded bg-muted font-mono text-[0.6rem] font-semibold text-foreground">
@@ -78,8 +84,7 @@ export function ChatMessageView({ message, onNavigate }: { message: ChatMessage;
                   if (source) {
                     return (
                       <a
-                        href={source.href}
-                        onClick={onNavigate}
+                        {...sourceLink(source.href, onNavigate)}
                         title={source.title}
                         className="mx-0.5 inline-flex size-4 -translate-y-0.5 items-center justify-center rounded bg-muted align-middle font-mono text-[0.6rem] font-semibold text-foreground no-underline transition-colors hover:bg-primary hover:text-primary-foreground"
                       >

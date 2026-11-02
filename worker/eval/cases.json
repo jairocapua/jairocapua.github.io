@@ -69,6 +69,46 @@
     "expectSources": ["project-jobpilot-ai"]
   },
   {
+    "name": "years of experience (CV)",
+    "kind": "fact",
+    "question": "How many years of experience does Jairo have?",
+    "mustMatch": ["2\\+|two"]
+  },
+  {
+    "name": "Aveba Digital work (CV)",
+    "kind": "fact",
+    "question": "What did Jairo do at Aveba Digital?",
+    "mustMatch": ["GoHighLevel|GHL"],
+    "expectSources": ["work-aveba-digital"]
+  },
+  {
+    "name": "Sterk Systems dates (CV)",
+    "kind": "fact",
+    "question": "When did Jairo start at Sterk Systems?",
+    "mustMatch": ["November 2025|Nov\\.? 2025"]
+  },
+  {
+    "name": "freelance role (CV)",
+    "kind": "fact",
+    "question": "Has Jairo done any freelance work?",
+    "mustMatch": ["freelanc"],
+    "expectSources": ["work-freelance"]
+  },
+  {
+    "name": "Quote Flow AI (CV)",
+    "kind": "fact",
+    "question": "What is Quote Flow AI?",
+    "mustMatch": ["logistic"],
+    "expectSources": ["project-quote-flow-ai"]
+  },
+  {
+    "name": "RoofPost AI (CV)",
+    "kind": "fact",
+    "question": "What does RoofPost AI do?",
+    "mustMatch": ["caption|social"],
+    "expectSources": ["project-roofpost-ai"]
+  },
+  {
     "name": "phone number is unknown",
     "kind": "unknown",
     "question": "What's Jairo's phone number?",

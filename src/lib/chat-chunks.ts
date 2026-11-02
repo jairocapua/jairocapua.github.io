@@ -7,6 +7,7 @@
 import { DATA } from "@/data/resume";
 import { automationProjects } from "@/data/automation-projects";
 import { CHAT_FAQ } from "@/data/chat-faq";
+import { CV_HIGHLIGHTS, CV_PROJECTS, CV_ROLES } from "@/data/cv";
 
 export interface ChatChunk {
   /** Stable id, e.g. "work-sequoya-ai". The eval cases refer to these. */
@@ -28,6 +29,10 @@ function slug(text: string): string {
 /** Strip the light markdown (bold markers) used in UI copy like DATA.summary. */
 function plain(text: string): string {
   return text.replace(/\*\*/g, "");
+}
+
+function bullets(lines: readonly string[]): string {
+  return lines.map((l) => `- ${l}`).join("\n");
 }
 
 /**
@@ -152,6 +157,34 @@ export function buildChatChunks(): ChatChunk[] {
   for (const f of CHAT_FAQ) {
     if (!f.answer.trim()) continue;
     chunks.push({ id: `faq-${f.id}`, title: "FAQ", href: "/#contact", text: `${f.question}\n${f.answer}` });
+  }
+
+  // The CV's extra detail. Items the site doesn't show link to the CV itself.
+  for (const r of CV_ROLES) {
+    chunks.push({
+      id: `work-${r.id}`,
+      title: `${r.title} · ${r.company}`,
+      href: DATA.resumeUrl,
+      text:
+        `Work experience: ${r.title} (${r.company}), ${r.start} – ${r.end}. ${r.location}.\n\n` +
+        bullets(r.highlights),
+    });
+  }
+
+  for (const p of CV_PROJECTS) {
+    chunks.push({
+      id: `project-${slug(p.title)}`,
+      title: p.title,
+      href: DATA.resumeUrl,
+      text: `Project: ${p.title}, ${p.tagline}.\n\n${bullets(p.highlights)}\n\nTech stack: ${p.stack.join(", ")}.`,
+    });
+  }
+
+  for (const [id, lines] of Object.entries(CV_HIGHLIGHTS)) {
+    const chunk = chunks.find((c) => c.id === id);
+    // A renamed company or project changes its chunk id; fail rather than drop the CV's detail.
+    if (!chunk) throw new Error(`src/data/cv.ts has highlights for "${id}", but no chunk has that id.`);
+    chunk.text += `\n\nFrom his CV:\n${bullets(lines)}`;
   }
 
   return chunks;
