@@ -75,6 +75,13 @@
     "mustMatch": ["2\\+|two"]
   },
   {
+    "name": "Sequoya AI work (CV)",
+    "kind": "fact",
+    "question": "What does Jairo work on at Sequoya AI?",
+    "mustMatch": ["agent"],
+    "expectSources": ["work-sequoya-ai"]
+  },
+  {
     "name": "Aveba Digital work (CV)",
     "kind": "fact",
     "question": "What did Jairo do at Aveba Digital?",

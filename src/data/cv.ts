@@ -11,13 +11,20 @@ export const CV_HIGHLIGHTS: Record<string, string[]> = {
     "Strong hands-on background in TypeScript, Next.js, React, Node.js, Python, Supabase/PostgreSQL, and LLM integrations across OpenAI, Claude, and Gemini.",
     "Automates multi-system workflows across GoHighLevel, SimPro, Zapier, n8n, Slack, and Google Workspace, including systems that save 25+ hours per week of administrative work.",
   ],
+  "work-sequoya-ai": [
+    "Manages AI orchestration for the company's AI Operating System, designing multi-agent workflows where specialized agents communicate, share context and hand off tasks, built on Claude, n8n and AWS.",
+    "Leads UI/UX improvements across the AI OS product, redesigning 5+ core flows and screens so non-technical business owners can use advanced AI features without feeling overwhelmed.",
+    "Builds and customizes AI agents for each client's business needs, such as lead handling, follow-ups and customer support, for 10+ business owners and entrepreneurs.",
+    "Develops internal tools for the AI OS and custom tools for clients using Next.js, Supabase, AWS, Claude and n8n, shipping 5+ tools and features since joining.",
+    "Cut load times across the AI OS app and internal tools by about 35% through code splitting, query optimization, caching and asset compression.",
+  ],
   "work-aveba-digital": [
-    "Owns GoHighLevel AI automations and backend operations for 10+ client sub-accounts and 200+ active workflows, resolving 130+ support tickets a month across pipelines, calendars, lead routing, opportunity tracking and automations, most of them the same day.",
-    "Builds, repairs and QAs production automations for call dispositions, appointment status changes, reminders and post-consult follow-ups, reducing missed appointments and no-shows by 30–40% across client accounts.",
+    "Owned GoHighLevel AI automations and backend operations for 10+ client sub-accounts and 200+ active workflows, resolving 130+ support tickets a month across pipelines, calendars, lead routing, opportunity tracking and automations, most of them the same day.",
+    "Built, repaired and QA'd production automations for call dispositions, appointment status changes, reminders and post-consult follow-ups, reducing missed appointments and no-shows by 30–40% across client accounts.",
     "Rebuilt CRM field mappings and webhook integrations between Retell AI, forms and GoHighLevel, cutting duplicate and mismatched contact records by about 40% and closing lead leakage between call and CRM.",
     "Automated task assignment, lead handoffs and status updates that were done by hand, saving clients and the internal team 15+ hours a week.",
     "Engineered an AI-assisted diagnostics workflow connecting Claude to GoHighLevel through the API and MCP, so AI can navigate sub-accounts, read workflows and logs, and pinpoint broken triggers, field mappings and automations for faster root-cause analysis.",
-    "Trains newly hired junior tech specialists on AI-assisted workflows using Claude, the GHL API and MCP, so they troubleshoot less by hand and ramp up faster.",
+    "Trained newly hired junior tech specialists on AI-assisted workflows using Claude, the GHL API and MCP, so they troubleshot less by hand and ramped up faster.",
   ],
   "work-sterk-systems": [
     "Designed and shipped 10+ high-converting, responsive websites for local service companies across the Netherlands using Next.js and Tailwind CSS, averaging 1 week of delivery per site.",
