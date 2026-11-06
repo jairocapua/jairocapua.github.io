@@ -72,7 +72,7 @@
     "name": "years of experience (CV)",
     "kind": "fact",
     "question": "How many years of experience does Jairo have?",
-    "mustMatch": ["2\\+|two"]
+    "mustMatch": ["\\b2\\+?\\s*years|\\btwo years"]
   },
   {
     "name": "Sequoya AI work (CV)",
@@ -92,7 +92,7 @@
     "name": "Sterk Systems dates (CV)",
     "kind": "fact",
     "question": "When did Jairo start at Sterk Systems?",
-    "mustMatch": ["November 2025|Nov\\.? 2025"]
+    "mustMatch": ["June 2026|Jun\\.? 2026"]
   },
   {
     "name": "freelance role (CV)",
@@ -114,6 +114,25 @@
     "question": "What does RoofPost AI do?",
     "mustMatch": ["caption|social"],
     "expectSources": ["project-roofpost-ai"]
+  },
+  {
+    "name": "AIPM project (CV)",
+    "kind": "fact",
+    "question": "What is AIPM?",
+    "mustMatch": ["project management"],
+    "expectSources": ["project-aipm"]
+  },
+  {
+    "name": "Agora hackathon project (CV)",
+    "kind": "fact",
+    "question": "What did Jairo build at the Agora Voice AI Hackathon?",
+    "mustMatch": ["Parrot"]
+  },
+  {
+    "name": "PUP hackathon project (CV)",
+    "kind": "fact",
+    "question": "What did Jairo build at the PUP hackathon?",
+    "mustMatch": ["WasteLess"]
   },
   {
     "name": "phone number is unknown",
