@@ -7,10 +7,10 @@
 /** CV bullet points, by the id of the chunk they belong to. */
 export const CV_HIGHLIGHTS: Record<string, string[]> = {
   about: [
-    "AI Engineer and Full-Stack Software Engineer with 2 years of experience designing, building and deploying AI-powered applications, LLM integrations and AI agents for international clients.",
-    "Proficient in Python, TypeScript, JavaScript, React, Next.js, Node.js, REST APIs and PostgreSQL, with hands-on experience using the OpenAI, Anthropic Claude and Google Gemini APIs.",
+    "AI Engineer and Full-Stack Software Engineer with 2 years of experience designing, building and deploying generative AI applications, LLM integrations and AI agents for international and local clients.",
+    "Proficient in Python, TypeScript, JavaScript, React, Next.js, Node.js, REST APIs and PostgreSQL.",
     "Skilled in prompt engineering, structured outputs, retrieval-augmented generation (RAG) with embeddings and vector search (pgvector), voice AI, and workflow automation (n8n, Zapier, GoHighLevel).",
-    "Delivers production-ready software with Docker, CI/CD, automated testing (Vitest, Playwright) and cloud deployment (Vercel, Railway), including automations that save clients 25+ hours per week.",
+    "Uses agentic AI coding workflows to ship features faster, and delivers production-ready software with Docker, CI/CD, automated testing (Vitest, Playwright) and cloud deployment (Vercel, Railway), including automations that save clients 25+ hours per week.",
   ],
   "work-sequoya-ai": [
     "Manages AI orchestration for the company's AI Operating System, designing multi-agent workflows where specialized agents communicate, share context and hand off tasks, built on Claude, n8n and AWS.",
