@@ -5,6 +5,7 @@
 // this; nothing here ships to the browser.
 
 import { DATA } from "@/data/resume";
+import { AI_WORKFLOW } from "@/data/ai-workflow";
 import { automationProjects } from "@/data/automation-projects";
 import { CHAT_FAQ } from "@/data/chat-faq";
 import { CV_HIGHLIGHTS, CV_PROJECTS, CV_ROLES } from "@/data/cv";
@@ -109,6 +110,22 @@ export function buildChatChunks(): ChatChunk[] {
     text:
       "Skills and tech stack, by group:\n" +
       DATA.skillGroups.map((g) => `- ${g.category}: ${g.skills.join(", ")}`).join("\n"),
+  });
+
+  chunks.push({
+    id: "ai-workflow",
+    title: "How I Build with AI",
+    href: "/#ai-workflow",
+    text: [
+      `How Jairo builds software with AI agents: a spec-driven (SDD) and test-driven (TDD) agentic workflow.`,
+      AI_WORKFLOW.intro,
+      ...AI_WORKFLOW.principles.map((p) => `${p.title}: ${p.body}`),
+      "Steps:",
+      bullets(AI_WORKFLOW.steps.map((s) => `${s.phase} · ${s.title}: ${s.description}`)),
+      `${AI_WORKFLOW.example.title}. ${AI_WORKFLOW.example.body}`,
+      "Tools in the workflow:",
+      bullets(AI_WORKFLOW.tools.map((t) => `${t.name} (${t.role}): ${t.detail}`)),
+    ].join("\n"),
   });
 
   for (const p of DATA.projects) {

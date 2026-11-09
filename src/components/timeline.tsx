@@ -6,6 +6,7 @@ type Orientation = "vertical" | "horizontal";
 export interface TimelineItemProps {
   children: ReactNode;
   className?: string;
+  id?: string;
 }
 
 export interface TimelineProps {
@@ -47,9 +48,9 @@ export function TimelineConnectItem({
   );
 }
 
-export function TimelineItem({ children, className }: TimelineItemProps) {
+export function TimelineItem({ children, className, id }: TimelineItemProps) {
   return (
-    <div className={cn("relative", className)}>
+    <div id={id} className={cn("relative", className)}>
       {children}
     </div>
   );

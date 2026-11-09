@@ -8,6 +8,7 @@
 
 import { DATA } from "@/data/resume";
 import { automationProjects } from "@/data/automation-projects";
+import { AI_WORKFLOW } from "@/data/ai-workflow";
 
 /** Strip the light markdown (bold markers) used in UI copy like DATA.summary. */
 function plain(text: string): string {
@@ -21,6 +22,7 @@ const SECTIONS: { id: string; label: string; description: string }[] = [
   { id: "education", label: "Education", description: "Degree and school." },
   { id: "certifications", label: "Certifications", description: "Professional certifications." },
   { id: "skills", label: "Skills", description: "The full tech stack." },
+  { id: "ai-workflow", label: "How I Build with AI", description: "The spec-driven (SDD) and test-driven (TDD) agentic workflow used to build software with AI." },
   { id: "projects", label: "Projects", description: "AI agents and full-stack web apps, with source links and demos." },
   { id: "automations", label: "Automations", description: "Business-workflow automation case studies in SCAR format." },
   { id: "hackathons", label: "Hackathons", description: "Hackathons entered and placements." },
@@ -93,6 +95,16 @@ export function buildLlmsFull(): string {
     .map((g) => `- **${g.category}:** ${g.skills.join(", ")}`)
     .join("\n");
   out.push(`## Skills\n\n${skills}`);
+
+  const workflowSteps = AI_WORKFLOW.steps
+    .map((st, i) => `${i + 1}. **${st.title}** (${st.phase}): ${st.description}`)
+    .join("\n");
+  out.push(
+    `## How I Build with AI\n\n${AI_WORKFLOW.intro}\n\n` +
+      AI_WORKFLOW.principles.map((p) => `- **${p.title}:** ${p.body}`).join("\n") +
+      `\n\n${workflowSteps}\n\n**${AI_WORKFLOW.example.title}.** ${AI_WORKFLOW.example.body}\n\n### Tools\n\n` +
+      AI_WORKFLOW.tools.map((t) => `- **${t.name}** (${t.role}): ${t.detail}`).join("\n")
+  );
 
   const projects = DATA.projects
     .map((p) => {

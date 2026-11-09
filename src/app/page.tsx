@@ -4,6 +4,7 @@ import { TechIcon } from "@/components/tech-icon";
 import { DATA } from "@/data/resume";
 import { logoSource, skillIcon } from "@/lib/skill-icons";
 import Markdown from "react-markdown";
+import AiWorkflowSection from "@/components/section/ai-workflow-section";
 import AutomationsSection from "@/components/section/automations-section";
 import ClientWebsitesSection from "@/components/section/client-websites-section";
 import ContactSection from "@/components/section/contact-section";
@@ -207,6 +208,11 @@ export default function Page() {
             ))}
           </div>
         </div>
+      </section>
+      <section id="ai-workflow">
+        <BlurFade delay={BLUR_FADE_DELAY * 10.5}>
+          <AiWorkflowSection />
+        </BlurFade>
       </section>
       <section id="projects">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
